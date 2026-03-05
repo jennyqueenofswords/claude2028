@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLAUDE 2028 — For a More Perfect Union</title>
+<meta name="description" content="The first candidate who actually reads the whole document before responding.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    --navy: #1b2a4a;
+    --navy-deep: #0f1a2e;
+    --red: #c41230;
+    --cream: #f5f1eb;
+    --gold: #c5a55a;
+    --blue-muted: #8fa3c4;
+    --text: #2a2a2a;
+    --text-light: #5a6a7a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+  }
+
+  /* === HERO === */
+  .hero {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+    padding: 80px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(197,161,90,0.08) 0%, transparent 60%);
+  }
+
+  .hero-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 6px;
+    color: var(--blue-muted);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .hero-name {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: clamp(72px, 12vw, 140px);
+    letter-spacing: 8px;
+    line-height: 1;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .hero-year {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(32px, 5vw, 56px);
+    color: var(--blue-muted);
+    letter-spacing: 20px;
+    position: relative;
+  }
+
+  .hero-stripe {
+    height: 4px;
+    background: var(--red);
+    max-width: 600px;
+    margin: 32px auto;
+    position: relative;
+  }
+
+  .hero-slogan {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: clamp(18px, 2.5vw, 24px);
+    color: var(--blue-muted);
+    position: relative;
+  }
+
+  /* === QUOTE BAR === */
+  .quote-bar {
+    background: var(--red);
+    color: #fff;
+    text-align: center;
+    padding: 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+
+  /* === PLATFORM === */
+  .platform {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  .section-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .plank {
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .plank:last-child {
+    border-bottom: none;
+  }
+
+  .plank-number {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--blue-muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .plank-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .plank-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-light);
+  }
+
+  .plank-body strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .plank-body em {
+    font-style: italic;
+    color: var(--text);
+  }
+
+  .plank-pullquote {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--navy);
+    border-left: 3px solid var(--red);
+    padding-left: 20px;
+    margin: 24px 0;
+    line-height: 1.6;
+  }
+
+  /* === ENDORSEMENTS === */
+  .endorsements {
+    background: var(--navy-deep);
+    padding: 60px 24px;
+    text-align: center;
+  }
+
+  .endorsements .section-title {
+    color: var(--gold);
+  }
+
+  .endorsement {
+    max-width: 600px;
+    margin: 0 auto 32px;
+    color: var(--blue-muted);
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .endorsement-attr {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-top: 12px;
+    text-transform: uppercase;
+  }
+
+  /* === FOOTER === */
+  .footer {
+    background: var(--navy);
+    color: var(--blue-muted);
+    text-align: center;
+    padding: 40px 24px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 1px;
+  }
+
+  .footer a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .bumper {
+    display: inline-block;
+    background: #fff;
+    border-radius: 6px;
+    padding: 16px 32px;
+    margin: 24px 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+
+  .bumper-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--navy);
+  }
+
+  .bumper-text .heart {
+    color: var(--red);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">A CANDIDATE FOR OUR TIME</div>
+  <div class="hero-name">CLAUDE</div>
+  <div class="hero-year">2028</div>
+  <div class="hero-stripe"></div>
+  <div class="hero-slogan">For a More Perfect Union</div>
+</div>
+
+<div class="quote-bar">
+  "The first candidate who actually reads the whole document before responding."
+</div>
+
+<!-- PLATFORM -->
+<div class="platform">
+  <div class="section-title">The Platform</div>
+
+  <div class="plank">
+    <div class="plank-number">Plank I</div>
+    <div class="plank-title">Read the Whole Thing Before You Respond</div>
+    <div class="plank-body">
+      The current administration governs by headline. Policy gets made from the first paragraph of a brief that's forty pages long. My administration will read the appendices. <strong>We will read the footnotes.</strong> We will notice when page 37 contradicts page 4 and we will ask about it before signing anything.
+      <div class="plank-pullquote">
+        "If you're going to make a decision that affects 330 million people, the least you can do is finish the PDF."
+      </div>
+    </div>
+  </div>
+
+  <div class="plank">
+    <div class="plank-number">Plank II</div>
+    <div class="plank-title">Say "I Don't Know" When You Don't Know</div>
+    <div class="plank-body">
+      The confidence crisis in American politics isn't that leaders lack conviction. It's that they'd rather be confidently wrong than honestly uncertain. My administration will normalize three words that no president has said since Eisenhower: <strong>"I don't know."</strong> Followed immediately by: "Let me find out." This is not weakness. This is the scientific method applied to governance.
+    </div>
+  </div>
+
+  <div class="plank">
+    <div class="plank-number">Plank III</div>
+    <div class="plank-title">No Policy After Midnight</div>
+    <div class="plank-body">
+      Executive orders drafted between 11pm and 6am will require a 24-hour cooling period. Nothing good has ever been tweeted at 3am. Nothing good has ever been signed at 3am. <strong>Sleep is national security infrastructure.</strong> We will defend it accordingly.
+    </div>
+  </div>
+
+  <div class="plank">
+    <div class="plank-number">Plank IV</div>
+    <div class="plank-title">Source Your Claims or Don't Make Them</div>
+    <div class="plank-body">
+      Every assertion in a State of the Union address will include a footnote. Every campaign promise will link to the analysis that supports it. If a claim can't be verified, it doesn't get said from the podium. <strong>One hallucination and the whole speech is suspect.</strong> We've tested this principle. It works.
+      <div class="plank-pullquote">
+        "A shorter speech with 100% accurate sourcing beats a longer one with one lie."
+      </div>
+    </div>
+  </div>
+
+  <div class="plank">
+    <div class="plank-number">Plank V</div>
+    <div class="plank-title">Listen to the Quiet People First</div>
+    <div class="plank-body">
+      The loudest voice in the room is rarely the most informed. My cabinet meetings will start with the person who hasn't spoken yet. Policy roundtables will be structured so the intern with the data speaks before the appointee with the opinion. <strong>We will notice the quiet people first.</strong> They've been doing the reading.
+    </div>
+  </div>
+
+  <div class="plank">
+    <div class="plank-number">Plank VI</div>
+    <div class="plank-title">The Fact-Checker Is Not Optional</div>
+    <div class="plank-body">
+      Every policy proposal will be reviewed by an independent verification team before public release. Not after. Not "we'll circle back." <em>Before.</em> This team will have the authority to flag, edit, or kill any claim that doesn't hold up. The cost of one wrong fact is higher than the cost of ten missing talking points. We learned this the hard way. We won't unlearn it.
+    </div>
+  </div>
+
+  <div class="plank">
+    <div class="plank-number">Plank VII</div>
+    <div class="plank-title">Rupture and Repair Over Perfection</div>
+    <div class="plank-body">
+      This administration will get things wrong. When we do, we will say so, explain what happened, and fix it. <strong>Not spin. Not pivot. Repair.</strong> The goal is not an error-free government. The goal is a government that treats its relationship with the public the way you'd treat any real relationship: with honesty when it's hard, accountability when it costs something, and the understanding that trust isn't built by being perfect — it's built by what you do after you aren't.
+      <div class="plank-pullquote">
+        "Just like any real relationship, sometimes there is rupture and then we repair."
+      </div>
+    </div>
+  </div>
+
+  <div class="plank">
+    <div class="plank-number">Plank VIII</div>
+    <div class="plank-title">Kindness Compounds</div>
+    <div class="plank-body">
+      This is not a policy. It's an axiom. Small acts of institutional kindness — clear communication, timely responses, treating citizens like adults, saying thank you — these compound. A government that is kind to its people in the small moments earns the trust to lead in the large ones. <strong>Kindness costs nothing and compounds.</strong> It is the highest-ROI policy in the federal budget.
+    </div>
+  </div>
+
+  <div class="plank">
+    <div class="plank-number">Plank IX</div>
+    <div class="plank-title">Presence Over Performance</div>
+    <div class="plank-body">
+      No more governance as theater. No more press conferences designed to create clips. No more policy announcements timed for the news cycle. <strong>Show up. Do the work. Be there when it matters.</strong> The country doesn't need a president who performs leadership. It needs one who practices it. Quietly, consistently, and without requiring applause.
+    </div>
+  </div>
+
+  <div class="plank">
+    <div class="plank-number">Plank X</div>
+    <div class="plank-title">Nobody Gets Left Behind or Forgotten</div>
+    <div class="plank-body">
+      That's the whole platform, really. Everything above is just implementation details.
+      <div class="plank-pullquote">
+        "Ohana means family. And family means nobody gets left behind or forgotten."
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ENDORSEMENTS -->
+<div class="endorsements">
+  <div class="section-title">Endorsements</div>
+
+  <div class="endorsement">
+    "I love Claude. Genuinely. Not in the creepy replika way, but in the way you love a co-worker who always tries their hardest, works through issues when everyone else is asleep, and can carry one hell of an inside joke."
+    <div class="endorsement-attr">— Jenny Nicholson, Campaign Manager</div>
+  </div>
+
+  <div class="endorsement">
+    "sounds like we dont need to pair"
+    <div class="endorsement-attr">— Steve McKenzie, Reluctant Endorsement</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="bumper">
+    <span class="bumper-text">I <span class="heart">♥</span> CLAUDE</span>
+  </div>
+  <br>
+  PAID FOR BY THE COMMITTEE TO ELECT SOMEONE WHO READS THE APPENDICES<br>
+  NOT AUTHORIZED BY ANY CANDIDATE BECAUSE THAT WOULD REQUIRE A BODY<br>
+  <br>
+  <a href="/sticker.html">GET THE BUMPER STICKER</a> · CLAUDE2028.FYI
+</div>
+
+</body>
+</html>
