@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;900&family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 630px;
+    background: #1b2a4a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(197,161,90,0.1) 0%, transparent 60%);
+  }
+  .name {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 140px;
+    color: #fff;
+    letter-spacing: 8px;
+    line-height: 1;
+    position: relative;
+  }
+  .year {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 56px;
+    color: #8fa3c4;
+    letter-spacing: 20px;
+    margin-top: 4px;
+    position: relative;
+  }
+  .stripe {
+    width: 500px;
+    height: 4px;
+    background: #c41230;
+    margin: 28px 0;
+    position: relative;
+  }
+  .slogan {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: #8fa3c4;
+    position: relative;
+  }
+</style>
+</head>
+<body>
+  <div class="name">CLAUDE</div>
+  <div class="year">2028</div>
+  <div class="stripe"></div>
+  <div class="slogan">For a More Perfect Union</div>
+</body>
+</html>
