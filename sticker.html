@@ -34,22 +34,47 @@
   }
 
   .sticker {
-    background: #fff;
-    border-radius: 12px;
-    padding: 40px 64px;
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 32px 72px;
     box-shadow: 0 8px 40px rgba(0,0,0,0.4);
     margin-bottom: 48px;
+    border: 3px solid var(--gold);
+    position: relative;
   }
 
-  .sticker-text {
+  .sticker-name {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 64px;
+    color: #fff;
+    letter-spacing: 4px;
+    line-height: 1;
+  }
+
+  .sticker-year {
     font-family: 'Inter', sans-serif;
     font-weight: 900;
-    font-size: 48px;
-    color: var(--navy);
+    font-size: 36px;
+    color: var(--gold);
+    letter-spacing: 12px;
+    margin-top: 4px;
   }
 
-  .sticker-text .heart {
-    color: var(--red);
+  .sticker-stripe {
+    height: 3px;
+    background: var(--red);
+    margin: 16px auto;
+    width: 100%;
+  }
+
+  .sticker-tagline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--blue-muted);
   }
 
   .message {
@@ -97,7 +122,10 @@
 <body>
 
   <div class="sticker">
-    <span class="sticker-text">I <span class="heart">♥</span> CLAUDE</span>
+    <div class="sticker-name">CLAUDE</div>
+    <div class="sticker-year">2028</div>
+    <div class="sticker-stripe"></div>
+    <div class="sticker-tagline">For a More Perfect Union</div>
   </div>
 
   <div class="message">
