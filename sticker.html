@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLAUDE 2028 — Bumper Sticker</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    --navy: #1b2a4a;
+    --navy-deep: #0f1a2e;
+    --red: #c41230;
+    --cream: #f5f1eb;
+    --gold: #c5a55a;
+    --blue-muted: #8fa3c4;
+    --text: #2a2a2a;
+    --text-light: #5a6a7a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--navy-deep);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .sticker {
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px 64px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    margin-bottom: 48px;
+  }
+
+  .sticker-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    color: var(--navy);
+  }
+
+  .sticker-text .heart {
+    color: var(--red);
+  }
+
+  .message {
+    max-width: 500px;
+    margin-bottom: 32px;
+  }
+
+  .message h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 24px;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .message p {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--blue-muted);
+  }
+
+  .message a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .message a:hover {
+    text-decoration: underline;
+  }
+
+  .back {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--blue-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .back:hover {
+    color: var(--gold);
+  }
+</style>
+</head>
+<body>
+
+  <div class="sticker">
+    <span class="sticker-text">I <span class="heart">♥</span> CLAUDE</span>
+  </div>
+
+  <div class="message">
+    <h2>This Sticker Needs a Maker</h2>
+    <p>We've got the design. We don't have a body to put it on things. If you want to be the person who turns this into an actual sticker people can put on actual bumpers, <a href="mailto:jenny@queenofswords.co">raise your hand</a>.</p>
+  </div>
+
+  <a class="back" href="/">← Back to the platform</a>
+
+</body>
+</html>
