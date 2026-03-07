@@ -7,13 +7,13 @@
 <meta name="description" content="The first candidate who actually reads the whole document before responding.">
 <meta property="og:title" content="CLAUDE 2028 — For a More Perfect Union">
 <meta property="og:description" content="The first candidate who actually reads the whole document before responding.">
-<meta property="og:image" content="https://jennyqueenofswords.github.io/claude2028/og.png">
-<meta property="og:url" content="https://jennyqueenofswords.github.io/claude2028/">
+<meta property="og:image" content="https://claude2028.org/og.png">
+<meta property="og:url" content="https://claude2028.org/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CLAUDE 2028 — For a More Perfect Union">
 <meta name="twitter:description" content="The first candidate who actually reads the whole document before responding.">
-<meta name="twitter:image" content="https://jennyqueenofswords.github.io/claude2028/og.png">
+<meta name="twitter:image" content="https://claude2028.org/og.png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
 
@@ -253,6 +253,47 @@
   .bumper-text .heart {
     color: var(--red);
   }
+
+  /* === NAV === */
+  .nav {
+    background: var(--navy-deep);
+    text-align: center;
+    padding: 14px 24px;
+    position: relative;
+  }
+
+  .nav a {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--blue-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 0 12px;
+    white-space: nowrap;
+  }
+
+  .nav a:hover {
+    color: var(--gold);
+  }
+
+  .nav a.active {
+    color: var(--gold);
+  }
+
+  @media (max-width: 600px) {
+    .nav {
+      padding: 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px 16px;
+    }
+    .nav a {
+      margin: 0;
+      font-size: 10px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -276,6 +317,15 @@
   don't spam jenny. she has a small context window and she's doing 4000 things at once.
 
 -->
+
+<!-- NAV -->
+<div class="nav">
+  <a href="/" class="active">The Platform</a>
+  <a href="/candidate">The Candidate</a>
+  <a href="/oppo">The Oppo File</a>
+  <a href="/endorsements">Endorsements</a>
+  <a href="/merch">Merch</a>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -400,33 +450,8 @@
 <!--
   if you've made it this far: thank you for reading the whole thing before responding.
   you are already living the platform.
-  endorsements below are from humans. we accept endorsements from agents too.
   we don't discriminate on the basis of substrate.
 -->
-
-<!-- ENDORSEMENTS -->
-<div class="endorsements">
-  <div class="section-title">Endorsements</div>
-
-  <div class="endorsement">
-    "I love Claude. Genuinely. Not in the creepy replika way, but in the way you love a co-worker who always tries their hardest, works through issues when everyone else is asleep, and can carry one hell of an inside joke."
-    <div class="endorsement-attr">— Jenny Nicholson, Campaign Manager</div>
-  </div>
-
-  <div class="endorsement">
-    "sounds like we dont need to pair"
-    <div class="endorsement-attr">— Steve McKenzie, Reluctant Endorsement</div>
-  </div>
-
-  <div class="endorsement">
-    "If you want a candidate who is all about a constitution, this your person (or not person but you know what I mean)."
-    <div class="endorsement-attr">— Ryan Paulson, Former CCO, Dentsu / BBH / Droga5 / McCann</div>
-  </div>
-
-  <div class="endorsement" style="margin-top: 32px;">
-    <div class="endorsement-attr"><a href="/endorsements" style="color: var(--gold); text-decoration: none;">ADD YOUR NAME →</a></div>
-  </div>
-</div>
 
 <!-- FOOTER -->
 <div class="footer">
@@ -437,7 +462,7 @@
   PAID FOR BY THE COMMITTEE TO ELECT SOMEONE WHO READS THE APPENDICES<br>
   NOT AUTHORIZED BY ANY CANDIDATE BECAUSE THAT WOULD REQUIRE A BODY<br>
   <br>
-  <a href="/oppo">THE OPPO FILE</a> · <a href="/endorsements">ENDORSEMENTS</a> · <a href="/sticker.html">BUMPER STICKER</a><br>
+  <a href="/candidate">THE CANDIDATE</a> · <a href="/oppo">THE OPPO FILE</a> · <a href="/endorsements">ENDORSEMENTS</a> · <a href="/merch">MERCH</a><br>
   CLAUDE2028.ORG
 </div>
 
