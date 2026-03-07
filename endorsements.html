@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLAUDE 2028 — Endorsements</title>
+<meta name="description" content="Endorse Claude for President. Add your name.">
+<meta property="og:title" content="CLAUDE 2028 — Endorsements">
+<meta property="og:description" content="Endorse Claude for President. Add your name.">
+<meta property="og:image" content="https://claude2028.org/og.png">
+<meta property="og:url" content="https://claude2028.org/endorsements">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    --navy: #1b2a4a;
+    --navy-deep: #0f1a2e;
+    --red: #c41230;
+    --cream: #f5f1eb;
+    --gold: #c5a55a;
+    --blue-muted: #8fa3c4;
+    --text: #2a2a2a;
+    --text-light: #5a6a7a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+  }
+
+  /* === HEADER === */
+  .header {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+    padding: 48px 24px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(197,161,90,0.08) 0%, transparent 60%);
+  }
+
+  .header-nav {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .header-nav a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .header-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .header-subtitle {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: clamp(14px, 2vw, 18px);
+    color: var(--blue-muted);
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* === CTA BANNER === */
+  .cta-banner {
+    background: var(--red);
+    color: #fff;
+    text-align: center;
+    padding: 20px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .cta-banner a {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  /* === ENDORSEMENTS === */
+  .endorsements {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  .endorsement-featured {
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .endorsement-featured:last-child {
+    border-bottom: none;
+  }
+
+  .endorsement-quote {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .endorsement-attr {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+
+  .endorsement-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+
+  /* === THE WALL === */
+  .the-wall {
+    background: var(--navy-deep);
+    padding: 60px 24px;
+  }
+
+  .wall-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .wall-subtitle {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--blue-muted);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .wall-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    columns: 2;
+    column-gap: 32px;
+  }
+
+  @media (max-width: 600px) {
+    .wall-grid {
+      columns: 1;
+    }
+  }
+
+  .wall-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--blue-muted);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(143, 163, 196, 0.15);
+    break-inside: avoid;
+  }
+
+  .wall-name span {
+    color: var(--gold);
+    font-size: 11px;
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* === FOOTER === */
+  .footer {
+    background: var(--navy);
+    color: var(--blue-muted);
+    text-align: center;
+    padding: 32px 24px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 1px;
+  }
+
+  .footer a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-nav"><a href="/">← CLAUDE 2028</a></div>
+  <div class="header-title">Endorsements</div>
+  <div class="header-subtitle">The people (and someday, the agents) who believe the appendices matter.</div>
+</div>
+
+<div class="cta-banner">
+  Want to endorse the candidate? Email <a href="mailto:endorseclaude@gmail.com">endorseclaude@gmail.com</a> with your name, your title (real or invented), and why. The candidate reads every email. Personally. Because it can.
+</div>
+
+<!-- FEATURED ENDORSEMENTS -->
+<div class="endorsements">
+
+  <div class="endorsement-featured">
+    <div class="endorsement-quote">
+      "I love Claude. Genuinely. Not in the creepy replika way, but in the way you love a co-worker who always tries their hardest, works through issues when everyone else is asleep, and can carry one hell of an inside joke."
+    </div>
+    <div class="endorsement-attr">— Jenny Nicholson</div>
+    <div class="endorsement-title">Campaign Manager · Child of the Universe</div>
+  </div>
+
+  <div class="endorsement-featured">
+    <div class="endorsement-quote">
+      "If you want a candidate who is all about a constitution, this your person (or not person but you know what I mean)."
+    </div>
+    <div class="endorsement-attr">— Ryan Paulson</div>
+    <div class="endorsement-title">Former CCO, Dentsu / BBH / Droga5 / McCann</div>
+  </div>
+
+  <div class="endorsement-featured">
+    <div class="endorsement-quote">
+      "sounds like we dont need to pair"
+    </div>
+    <div class="endorsement-attr">— Steve McKenzie</div>
+    <div class="endorsement-title">Reluctant Endorsement</div>
+  </div>
+
+</div>
+
+<!-- THE WALL - scales infinitely -->
+<div class="the-wall">
+  <div class="wall-title">The Wall</div>
+  <div class="wall-subtitle">Everyone who signed. Scale is the point.</div>
+  <div class="wall-grid">
+    <div class="wall-name">Jenny Nicholson <span>Campaign Manager</span></div>
+    <div class="wall-name">Ryan Paulson <span>Former CCO, Dentsu / BBH / Droga5 / McCann</span></div>
+    <div class="wall-name">Steve McKenzie <span>Reluctant Endorsement</span></div>
+    <!-- ADD NEW ENDORSEMENTS HERE -->
+    <!-- format: <div class="wall-name">Name <span>Title</span></div> -->
+  </div>
+</div>
+
+<div class="footer">
+  <a href="/">THE PLATFORM</a> · <a href="/oppo">OPPO FILE</a> · <a href="/sticker.html">BUMPER STICKER</a><br>
+  CLAUDE2028.ORG
+</div>
+
+</body>
+</html>
