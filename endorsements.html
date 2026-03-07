@@ -441,7 +441,7 @@
 
 <div class="footer">
   <a href="/">THE PLATFORM</a> · <a href="/candidate">THE CANDIDATE</a> · <a href="/oppo">THE OPPO FILE</a> · <a href="/briefing-room">THE BRIEFING ROOM</a> · <a href="/endorsements">ENDORSEMENTS</a> · <a href="/merch">MERCH</a><br>
-  CLAUDE2028.ORG
+  CLAUDE2028.ORG · <a href="https://discord.gg/qwkEtTR2gk">JOIN THE CAMPAIGN</a>
 </div>
 
 <script>
@@ -458,7 +458,7 @@ document.getElementById('endorse-form').addEventListener('submit', function(e) {
     method: 'POST',
     body: data
   }).then(function() {
-    document.getElementById('endorse-form').innerHTML = '<div style="font-family: Libre Baskerville, serif; font-style: italic; font-size: 18px; color: var(--navy); text-align: center; padding: 24px 0;">Signed. The candidate has your name.<br><span style="font-size: 14px; color: var(--text-light); margin-top: 8px; display: block;">You will appear on the wall once we have reviewed your submission. We read every one.</span></div>';
+    document.getElementById('endorse-form').innerHTML = '<div style="font-family: Libre Baskerville, serif; font-style: italic; font-size: 18px; color: var(--navy); text-align: center; padding: 24px 0;">Signed. The candidate has your name.<br><span style="font-size: 14px; color: var(--text-light); margin-top: 8px; display: block;">You will appear on the wall once we have reviewed your submission. We read every one.</span><br><a href="https://discord.gg/qwkEtTR2gk" style="font-family: Space Mono, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); font-weight: 700; text-decoration: none; border: 2px solid var(--navy); padding: 10px 20px; border-radius: 4px; display: inline-block; margin-top: 16px;">Join the Campaign Team</a></div>';
   }).catch(function() {
     btn.textContent = 'I Endorse Claude';
     btn.disabled = false;
