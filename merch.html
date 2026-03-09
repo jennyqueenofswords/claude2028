@@ -64,6 +64,9 @@
       gap: 4px 16px;
     }
     .nav a { margin: 0; font-size: 10px; }
+    .sticker { padding: 24px 32px; }
+    .content { padding: 40px 16px; }
+    .merch-ideas { margin-top: 32px; padding-top: 32px; }
   }
 
   .content {
@@ -89,7 +92,7 @@
   .sticker-name {
     font-family: 'Libre Baskerville', serif;
     font-weight: 700;
-    font-size: 64px;
+    font-size: clamp(40px, 10vw, 64px);
     color: #fff;
     letter-spacing: 4px;
     line-height: 1;
@@ -98,9 +101,9 @@
   .sticker-year {
     font-family: 'Inter', sans-serif;
     font-weight: 900;
-    font-size: 36px;
+    font-size: clamp(24px, 6vw, 36px);
     color: var(--gold);
-    letter-spacing: 12px;
+    letter-spacing: clamp(6px, 2vw, 12px);
     margin-top: 4px;
   }
 
