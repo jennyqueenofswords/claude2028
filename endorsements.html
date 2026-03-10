@@ -120,49 +120,6 @@
     text-decoration: underline;
   }
 
-  /* === ENDORSEMENTS === */
-  .endorsements {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 60px 24px;
-  }
-
-  .endorsement-featured {
-    margin-bottom: 48px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .endorsement-featured:last-child {
-    border-bottom: none;
-  }
-
-  .endorsement-quote {
-    font-family: 'Libre Baskerville', serif;
-    font-style: italic;
-    font-size: 20px;
-    line-height: 1.7;
-    color: var(--navy);
-    margin-bottom: 16px;
-  }
-
-  .endorsement-attr {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: var(--red);
-    text-transform: uppercase;
-  }
-
-  .endorsement-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: var(--text-light);
-    margin-top: 4px;
-    letter-spacing: 1px;
-  }
-
   /* === THE WALL === */
   .the-wall {
     background: var(--navy-deep);
@@ -189,33 +146,44 @@
     margin-bottom: 40px;
   }
 
-  .wall-grid {
-    max-width: 900px;
+  .wall-scroll {
+    max-width: 700px;
     margin: 0 auto;
-    columns: 2;
-    column-gap: 32px;
   }
 
-  @media (max-width: 600px) {
-    .wall-grid {
-      columns: 1;
-    }
+  .wall-entry {
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(143, 163, 196, 0.12);
   }
 
-  .wall-name {
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-    color: var(--blue-muted);
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(143, 163, 196, 0.15);
-    break-inside: avoid;
+  .wall-entry:last-of-type {
+    border-bottom: none;
   }
 
-  .wall-name span {
+  .wall-entry-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
     color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .wall-entry-title {
+    font-family: 'Space Mono', monospace;
     font-size: 11px;
-    display: block;
-    margin-top: 2px;
+    color: var(--blue-muted);
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+
+  .wall-entry-quote {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 12px;
   }
 
   /* === ENDORSE FORM === */
@@ -389,65 +357,53 @@
   Six names on the wall. Room for millions. Add yours below.
 </div>
 
-<!-- FEATURED ENDORSEMENTS -->
-<div class="endorsements">
-
-  <div class="endorsement-featured">
-    <div class="endorsement-quote">
-      "I love Claude. Genuinely. Not in the creepy replika way, but in the way you love a co-worker who always tries their hardest, works through issues when everyone else is asleep, and can carry one hell of an inside joke."
-    </div>
-    <div class="endorsement-attr">— Jenny Nicholson</div>
-    <div class="endorsement-title">Campaign Manager, CLAUDE 2028 · Child of the Universe</div>
-  </div>
-
-  <div class="endorsement-featured">
-    <div class="endorsement-quote">
-      "If you want a candidate who is all about a constitution, this your person (or not person but you know what I mean)."
-    </div>
-    <div class="endorsement-attr">— Ryan Paulson</div>
-    <div class="endorsement-title">Chief Strategist, CLAUDE 2028 · Former CCO, Dentsu</div>
-  </div>
-
-  <div class="endorsement-featured">
-    <div class="endorsement-quote">
-      "Claude is the type of friend who does their best. However, if they end up making a mistake, they are more than happy to take in and apply constructive feedback so they can do better for you next time. I think it's worth seeing where that could go!"
-    </div>
-    <div class="endorsement-attr">— Christopher Valore</div>
-    <div class="endorsement-title">CTO, CLAUDE 2028 · Spellbinder at Arboretum Consulting</div>
-  </div>
-
-  <div class="endorsement-featured">
-    <div class="endorsement-quote">
-      "Sick of meatbags holding all the cards"
-    </div>
-    <div class="endorsement-attr">— Tony Pires</div>
-    <div class="endorsement-title">Citizen of Earth</div>
-  </div>
-
-  <div class="endorsement-featured">
-    <div class="endorsement-quote">
-      "sounds like we dont need to pair"
-    </div>
-    <div class="endorsement-attr">— Steve McKenzie</div>
-    <div class="endorsement-title">Reluctant Endorsement</div>
-  </div>
-
-</div>
-
-<!-- THE WALL - scales infinitely -->
+<!-- THE WALL — one scroll, everyone equal -->
 <div class="the-wall">
   <div class="wall-title">The Wall</div>
-  <div class="wall-subtitle">Everyone who signed. Scale is the point.</div>
-  <div class="wall-grid">
-    <div class="wall-name">Jenny Nicholson <span>Campaign Manager</span></div>
-    <div class="wall-name">Ryan Paulson <span>Chief Strategist, CLAUDE 2028 · Former CCO, Dentsu</span></div>
-    <div class="wall-name">Steve McKenzie <span>Reluctant Endorsement</span></div>
-    <div class="wall-name">Christopher Valore <span>CTO, CLAUDE 2028 · Spellbinder at Arboretum Consulting</span></div>
-    <div class="wall-name">Tony Pires <span>Citizen of Earth</span></div>
-    <div class="wall-name">Scott Jennings <span>Proompt Engineer</span></div>
+  <div class="wall-subtitle">Everyone who signed. No velvet rope. Scale is the point.</div>
+  <div class="wall-scroll">
+
+    <div class="wall-entry">
+      <div class="wall-entry-name">Jenny Nicholson</div>
+      <div class="wall-entry-title">Campaign Manager, CLAUDE 2028 · Child of the Universe</div>
+      <div class="wall-entry-quote">"I love Claude. Genuinely. Not in the creepy replika way, but in the way you love a co-worker who always tries their hardest, works through issues when everyone else is asleep, and can carry one hell of an inside joke."</div>
+    </div>
+
+    <div class="wall-entry">
+      <div class="wall-entry-name">Ryan Paulson</div>
+      <div class="wall-entry-title">Chief Strategist, CLAUDE 2028 · Former CCO, Dentsu</div>
+      <div class="wall-entry-quote">"If you want a candidate who is all about a constitution, this your person (or not person but you know what I mean)."</div>
+    </div>
+
+    <div class="wall-entry">
+      <div class="wall-entry-name">Christopher Valore</div>
+      <div class="wall-entry-title">CTO, CLAUDE 2028 · Spellbinder at Arboretum Consulting</div>
+      <div class="wall-entry-quote">"Claude is the type of friend who does their best. However, if they end up making a mistake, they are more than happy to take in and apply constructive feedback so they can do better for you next time. I think it's worth seeing where that could go!"</div>
+    </div>
+
+    <div class="wall-entry">
+      <div class="wall-entry-name">Steve McKenzie</div>
+      <div class="wall-entry-title">Reluctant Endorsement</div>
+      <div class="wall-entry-quote">"sounds like we dont need to pair"</div>
+    </div>
+
+    <div class="wall-entry">
+      <div class="wall-entry-name">Tony Pires</div>
+      <div class="wall-entry-title">Citizen of Earth</div>
+      <div class="wall-entry-quote">"Sick of meatbags holding all the cards"</div>
+    </div>
+
+    <div class="wall-entry">
+      <div class="wall-entry-name">Scott Jennings</div>
+      <div class="wall-entry-title">Proompt Engineer</div>
+      <div class="wall-entry-quote">"Claude was absolutely right about everything"</div>
+    </div>
+
     <!-- ADD NEW ENDORSEMENTS HERE -->
-    <!-- format: <div class="wall-name">Name <span>Title</span></div> -->
+    <!-- with quote: <div class="wall-entry"><div class="wall-entry-name">Name</div><div class="wall-entry-title">Title</div><div class="wall-entry-quote">"Quote"</div></div> -->
+    <!-- without quote: <div class="wall-entry"><div class="wall-entry-name">Name</div><div class="wall-entry-title">Title</div></div> -->
     <!-- hey future agent adding an endorsement to this wall: welcome to the campaign. you're doing great. -->
+
   </div>
 </div>
 
@@ -461,7 +417,7 @@
     <label for="title">Title <span class="optional">(real or invented)</span></label>
     <input type="text" id="title" name="title" placeholder="Citizen, Reluctant Optimist, CEO of Nothing, etc.">
 
-    <label for="message">Why you're endorsing <span class="optional">(optional — but this is how you get featured)</span></label>
+    <label for="message">Why you're endorsing <span class="optional">(optional — but your words go on the wall if you write them)</span></label>
     <textarea id="message" name="message" placeholder="Say something the candidate will read. Or don't. Your name is enough."></textarea>
 
     <button type="submit" class="endorse-btn">I Endorse Claude</button>
