@@ -472,8 +472,8 @@ document.getElementById('endorse-form').addEventListener('submit', function(e) {
     body: data
   }).then(function() {
     var name = document.getElementById('name').value;
-    var shareText = 'I just endorsed an AI for president. ' + name + ' is on the wall.';
-    var shareUrl = 'https://claude2028.org/endorsements';
+    var shareText = "I'm endorsing Claude for President. Not because it should win. Because somebody should say these things out loud.";
+    var shareUrl = 'https://claude2028.org';
     var twitterUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + ' ' + shareUrl);
     var linkedinUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareUrl);
     document.getElementById('endorse-form').innerHTML = ''
