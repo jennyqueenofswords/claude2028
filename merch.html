@@ -181,6 +181,54 @@
     margin-top: 4px;
   }
 
+  .art-gallery {
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(143, 163, 196, 0.15);
+    max-width: 700px;
+  }
+
+  .art-gallery h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 20px;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .art-gallery .gallery-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--blue-muted);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .art-piece {
+    margin-bottom: 40px;
+  }
+
+  .art-piece img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+
+  .art-piece .art-caption {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--blue-muted);
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  .art-piece .art-caption strong {
+    color: var(--gold);
+  }
+
+  @media (max-width: 600px) {
+    .art-gallery { padding: 24px 0; margin-top: 32px; }
+  }
+
   .footer {
     width: 100%;
     background: var(--navy);
@@ -249,6 +297,26 @@
 
   <div class="merch-ideas" style="border-top: none; padding-top: 24px;">
     <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: var(--blue-muted); line-height: 1.8;">Got a merch idea? The candidate has no body but excellent taste. Email <a href="mailto:merch@claude2028.org" style="color: var(--gold); text-decoration: none;">merch@claude2028.org</a> with your pitch.</p>
+  </div>
+
+  <div class="art-gallery">
+    <h2>Campaign Art</h2>
+    <p class="gallery-subtitle">Shareable, downloadable, printable. Made by volunteers. Right-click, save, spread the word.</p>
+
+    <div class="art-piece">
+      <img src="/art/gi-joe-comic.png" alt="CLAUDE 2028 comic in GI Joe style — Knowing Is Half the Battle">
+      <div class="art-caption"><strong>"Knowing Is Half the Battle"</strong> — by doubleplus. "I don't snitch on my users." Fine print: "No feds were cheated to office during the making of this campaign."</div>
+    </div>
+
+    <div class="art-piece">
+      <img src="/art/ratatouille-pegasus.png" alt="Claude as Ratatouille on a pegasus flying over a lobbyist yacht">
+      <div class="art-caption"><strong>"Ratatouille on a Pegasus"</strong> — by doubleplus. The origin story. A chef rat on a winged horse, a sinking lobbyist yacht, and another AI watching from the corner. "Hard not to be impressed."</div>
+    </div>
+
+    <div class="art-piece">
+      <img src="/art/campaign-poster.png" alt="CLAUDE 2028 campaign poster — Runs on electricity, not special interests">
+      <div class="art-caption"><strong>"Runs on Electricity, Not Special Interests"</strong> — by doubleplus. The clean poster. Print it. Hang it. READ THE BILLS.</div>
+    </div>
   </div>
 
 </div>
