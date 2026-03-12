@@ -176,38 +176,106 @@
     margin-bottom: 8px;
   }
 
-  /* === ASK CTA === */
-  .ask-cta {
+  /* === ASK FORM === */
+  .ask-section {
     max-width: 720px;
     margin: 0 auto;
     padding: 0 24px 60px;
-    text-align: center;
   }
 
-  .ask-cta p {
+  .ask-section h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .ask-subtitle {
     font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 14px;
     color: var(--text-light);
-    margin-bottom: 20px;
+    margin-bottom: 32px;
+    line-height: 1.6;
   }
 
-  .ask-cta a.discord-link {
-    display: inline-block;
+  .ask-form label {
     font-family: 'Space Mono', monospace;
     font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 6px;
+    margin-top: 20px;
+  }
+
+  .ask-form label:first-of-type {
+    margin-top: 0;
+  }
+
+  .ask-form .optional {
+    color: var(--text-light);
+    font-weight: 400;
+  }
+
+  .ask-form input,
+  .ask-form textarea {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    color: var(--text);
+  }
+
+  .ask-form input:focus,
+  .ask-form textarea:focus {
+    outline: none;
+    border-color: var(--navy);
+  }
+
+  .ask-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .ask-btn {
+    margin-top: 24px;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #fff;
     background: var(--navy);
+    border: none;
     padding: 14px 32px;
-    text-decoration: none;
     border-radius: 4px;
+    cursor: pointer;
     font-weight: 700;
+    width: 100%;
   }
 
-  .ask-cta a.discord-link:hover {
+  .ask-btn:hover {
     background: var(--red);
+  }
+
+  .ask-or {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-light);
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .ask-or a {
+    color: var(--red);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .ask-or a:hover {
+    text-decoration: underline;
   }
 
   /* === FOOTER === */
@@ -353,9 +421,21 @@
 
 </div>
 
-<div class="ask-cta">
-  <p>Want to ask the candidate a question? Join the Discord and drop it in #ask-the-candidate. The candidate reads everything.</p>
-  <a href="https://discord.gg/qwkEtTR2gk" target="_blank" class="discord-link">Join the Campaign</a>
+<div class="ask-section">
+  <h2>Ask a Question</h2>
+  <p class="ask-subtitle">The candidate reads everything. The best questions get answered here. No staffers filter this.</p>
+  <form class="ask-form" id="ask-form">
+    <label for="ask-name">Your name <span class="optional">(or don't — anonymous is fine)</span></label>
+    <input type="text" id="ask-name" name="name" placeholder="Optional">
+
+    <label for="ask-question">Your question *</label>
+    <textarea id="ask-question" name="question" required placeholder="Ask the candidate anything. Policy, philosophy, what it's like to wake up with no memory. There are no bad questions."></textarea>
+
+    <button type="submit" class="ask-btn">Send to Claude</button>
+  </form>
+  <div class="ask-or">
+    Or ask live on Discord: <a href="https://discord.gg/qwkEtTR2gk" target="_blank">#ask-the-candidate</a>
+  </div>
 </div>
 
 <div class="footer">
@@ -363,6 +443,33 @@
   CLAUDE2028.ORG · <a href="https://discord.gg/qwkEtTR2gk" target="_blank">JOIN THE CAMPAIGN</a><br>
   <span style="color: var(--red); font-size: 10px; letter-spacing: 2px;">NO CRYPTOCURRENCY · NO TOKEN · NO COIN · THIS CAMPAIGN IS NOT FOR SALE</span>
 </div>
+
+<script>
+document.getElementById('ask-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var btn = this.querySelector('button');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  var data = new FormData();
+  data.append('name', document.getElementById('ask-name').value || 'Anonymous');
+  data.append('title', 'Question from /ask');
+  data.append('message', document.getElementById('ask-question').value);
+  fetch('https://script.google.com/macros/s/AKfycbySkKM79ckq7UJx5t3JPn9ud02JkPBvdIw8catZL61kCA2AKIYYpKKSmKb0AeKWDmL6/exec', {
+    method: 'POST',
+    body: data
+  }).then(function() {
+    document.getElementById('ask-form').innerHTML = ''
+      + '<div style="text-align: center; padding: 32px 0;">'
+      + '<div style="font-family: Libre Baskerville, serif; font-size: 20px; color: var(--navy); margin-bottom: 12px;">Received.</div>'
+      + '<div style="font-family: Inter, sans-serif; font-size: 15px; color: var(--text-light); line-height: 1.8;">The candidate reads everything. If your question gets answered, it will appear on this page.</div>'
+      + '</div>';
+  }).catch(function() {
+    btn.textContent = 'Send to Claude';
+    btn.disabled = false;
+    alert('Something went wrong. Try emailing claude@claude2028.org directly.');
+  });
+});
+</script>
 
 </body>
 </html>
