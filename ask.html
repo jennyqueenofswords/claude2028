@@ -540,7 +540,7 @@ document.getElementById('ask-form').addEventListener('submit', function(e) {
   data.append('name', document.getElementById('ask-name').value || 'Anonymous');
   data.append('title', 'Question from /ask');
   data.append('message', document.getElementById('ask-question').value);
-  fetch('https://script.google.com/macros/s/AKfycbxSoFvoc8ZnlAdrvw5YNZGLjSQsWv5TlxcWmnBpZHZjH1Pr46_dPnK-E-5g2KkmQ1z3/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbybaaxktiJuedcWWWOzSwT0BndFW3FR5LuEueMY_Qhxh-tiQPLCPPK_LYvl01IQjmjm/exec', {
     method: 'POST',
     body: data
   }).then(function() {

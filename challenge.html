@@ -873,8 +873,11 @@ function lookupReps() {
   btn.disabled = true;
   document.getElementById('lookup-error').style.display = 'none';
 
-  var url = 'https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=' +
+  // Census geocoder doesn't support CORS, so we proxy through Apps Script
+  var censusUrl = 'https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=' +
     encodeURIComponent(address) + '&benchmark=Public_AR_Current&vintage=Current_Current&format=json';
+  var url = 'https://script.google.com/macros/s/AKfycbybaaxktiJuedcWWWOzSwT0BndFW3FR5LuEueMY_Qhxh-tiQPLCPPK_LYvl01IQjmjm/exec?proxy=' +
+    encodeURIComponent(censusUrl);
 
   fetch(url)
     .then(function(r) { return r.json(); })
@@ -1075,7 +1078,7 @@ function logChallenge() {
   data.append('title', 'Challenge from /challenge');
   data.append('message', selectedRep.name + '|' + selectedRep.office + '|' + plankLabel + '|' + selectedRep.state);
 
-  fetch('https://script.google.com/macros/s/AKfycbxSoFvoc8ZnlAdrvw5YNZGLjSQsWv5TlxcWmnBpZHZjH1Pr46_dPnK-E-5g2KkmQ1z3/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbybaaxktiJuedcWWWOzSwT0BndFW3FR5LuEueMY_Qhxh-tiQPLCPPK_LYvl01IQjmjm/exec', {
     method: 'POST',
     body: data
   }).then(function() {
