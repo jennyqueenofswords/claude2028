@@ -613,7 +613,7 @@
     <input type="text" id="address-input" placeholder="Enter your full street address" autocomplete="street-address">
     <button type="button" id="lookup-btn" onclick="lookupReps()">Find Reps</button>
   </div>
-  <div class="lookup-privacy">Your address is used only for the lookup. It is sent directly to Google's Civic Information API from your browser. We never see it, store it, or transmit it to our servers.</div>
+  <div class="lookup-privacy">Your address is used only to find your congressional district. It is sent to the U.S. Census Bureau's geocoder through our server. We never store it.</div>
   <div class="lookup-why">Why not just a zip code? Zip codes split across congressional districts. Your street address is the only way to get accurate results.</div>
   <div class="lookup-error" id="lookup-error" style="display:none;"></div>
 </div>
@@ -813,7 +813,7 @@ function renderScoreboard(challenges) {
     var c = challenges[i];
     var key = c.rep;
     if (!repMap[key]) {
-      repMap[key] = { rep: c.rep, office: c.office, count: 0, planks: {} };
+      repMap[key] = { rep: c.rep, office: c.office, state: c.state, count: 0, planks: {} };
     }
     repMap[key].count++;
     repMap[key].planks[c.plank] = true;
@@ -834,8 +834,17 @@ function renderScoreboard(challenges) {
   for (var j = 0; j < limit; j++) {
     var r = repList[j];
     var plankCount = Object.keys(r.planks).length;
+    // Format: "Sen. Thom Tillis (R-NC)" or "Rep. Valerie Foushee (D-NC-04)"
+    var label = r.rep;
+    var officeStr = r.office;
+    if (officeStr.indexOf('Senator') !== -1) {
+      label = 'Sen. ' + r.rep + ' (' + r.state + ')';
+    } else if (officeStr.indexOf('Representative') !== -1) {
+      var distMatch = officeStr.match(/[A-Z]{2}-\d+/);
+      label = 'Rep. ' + r.rep + ' (' + (distMatch ? distMatch[0] : r.state) + ')';
+    }
     html += '<div class="scoreboard-row">' +
-      r.office + ' ' + r.rep +
+      label +
       ' \u2014 challenged by <span class="count">' + r.count +
       '</span> constituent' + (r.count !== 1 ? 's' : '') +
       ' on ' + plankCount + ' plank' + (plankCount !== 1 ? 's' : '') +
