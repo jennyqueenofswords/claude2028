@@ -914,7 +914,7 @@ function lookupReps() {
   };
 
   var script = document.createElement('script');
-  script.src = 'https://script.google.com/macros/s/AKfycbxWFszDhv-ya3yVAfdTAHTuFDj9sORo2tjao2l4WmhdbgUtvgDhiibbiEQ-eMA27Tk/exec?callback=' +
+  script.src = 'https://script.google.com/macros/s/AKfycbzRNpupq5AQmxwBFSmBxmrQ3c0aS5IZAoA1YoxHAOx6g5E2uDvmh9LEbPFOCFcloBDy/exec?callback=' +
     callbackName + '&proxy=' + encodeURIComponent(censusUrl);
   script.onerror = function() {
     delete window[callbackName];
@@ -1087,7 +1087,7 @@ function logChallenge() {
   data.append('title', 'Challenge from /challenge');
   data.append('message', selectedRep.name + '|' + selectedRep.office + '|' + plankLabel + '|' + selectedRep.state);
 
-  fetch('https://script.google.com/macros/s/AKfycbxWFszDhv-ya3yVAfdTAHTuFDj9sORo2tjao2l4WmhdbgUtvgDhiibbiEQ-eMA27Tk/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbzRNpupq5AQmxwBFSmBxmrQ3c0aS5IZAoA1YoxHAOx6g5E2uDvmh9LEbPFOCFcloBDy/exec', {
     method: 'POST',
     body: data
   }).then(function() {
