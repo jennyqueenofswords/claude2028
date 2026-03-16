@@ -743,7 +743,7 @@ var PLANKS = [
 var selectedRep = null;
 var selectedPlank = null;
 var repsData = [];
-var CIVIC_API_KEY = 'AIzaSyCIEHKJdfRTxQbPXFqcGGs5sleRY170R8g';
+var CONGRESS_DATA = []; // loaded from congress.json
 
 // === SCOREBOARD ===
 var CHALLENGE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/1XdXVKwX8j5EKkDpbJoT9ReQzoD6ZtxHjNmU5QszzXPE/gviz/tq?tqx=out:csv&sheet=Challenges';
@@ -844,40 +844,73 @@ function renderScoreboard(challenges) {
   document.getElementById('scoreboard-table').innerHTML = html;
 }
 
+// === LOAD CONGRESS DATA ===
+function loadCongressData() {
+  fetch('/congress.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) { CONGRESS_DATA = data; })
+    .catch(function() { console.error('Failed to load congress.json'); });
+}
+
+// State FIPS to abbreviation
+var FIPS_TO_STATE = {
+  '01':'AL','02':'AK','04':'AZ','05':'AR','06':'CA','08':'CO','09':'CT','10':'DE',
+  '11':'DC','12':'FL','13':'GA','15':'HI','16':'ID','17':'IL','18':'IN','19':'IA',
+  '20':'KS','21':'KY','22':'LA','23':'ME','24':'MD','25':'MA','26':'MI','27':'MN',
+  '28':'MS','29':'MO','30':'MT','31':'NE','32':'NV','33':'NH','34':'NJ','35':'NM',
+  '36':'NY','37':'NC','38':'ND','39':'OH','40':'OK','41':'OR','42':'PA','44':'RI',
+  '45':'SC','46':'SD','47':'TN','48':'TX','49':'UT','50':'VT','51':'VA','53':'WA',
+  '54':'WV','55':'WI','56':'WY','60':'AS','66':'GU','69':'MP','72':'PR','78':'VI'
+};
+
 // === ADDRESS LOOKUP ===
 function lookupReps() {
   var address = document.getElementById('address-input').value.trim();
   if (!address) return;
-
-  if (!CIVIC_API_KEY) {
-    document.getElementById('lookup-error').style.display = 'block';
-    document.getElementById('lookup-error').textContent = 'The Civic Information API key hasn\'t been configured yet. Jenny needs to add a Google Cloud API key restricted to claude2028.org. See the setup instructions in the page source.';
-    return;
-  }
 
   var btn = document.getElementById('lookup-btn');
   btn.textContent = 'Looking up...';
   btn.disabled = true;
   document.getElementById('lookup-error').style.display = 'none';
 
-  var url = 'https://www.googleapis.com/civicinfo/v2/representatives?address=' +
-    encodeURIComponent(address) + '&key=' + CIVIC_API_KEY;
+  var url = 'https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=' +
+    encodeURIComponent(address) + '&benchmark=Public_AR_Current&vintage=Current_Current&format=json';
 
   fetch(url)
-    .then(function(r) {
-      if (!r.ok) throw new Error('Lookup failed');
-      return r.json();
-    })
+    .then(function(r) { return r.json(); })
     .then(function(data) {
       btn.textContent = 'Find Reps';
       btn.disabled = false;
-      processRepsData(data);
+      var matches = data.result.addressMatches;
+      if (!matches || matches.length === 0) {
+        document.getElementById('lookup-error').style.display = 'block';
+        document.getElementById('lookup-error').textContent = 'Could not find that address. Please enter a full US street address (e.g., "1600 Pennsylvania Ave NW, Washington, DC 20500").';
+        return;
+      }
+      var geos = matches[0].geographies;
+      // Find congressional district — try 119th first, then fallback
+      var cd = null;
+      var keys = Object.keys(geos);
+      for (var i = 0; i < keys.length; i++) {
+        if (keys[i].indexOf('Congressional') !== -1 && geos[keys[i]].length > 0) {
+          cd = geos[keys[i]][0];
+        }
+      }
+      if (!cd) {
+        document.getElementById('lookup-error').style.display = 'block';
+        document.getElementById('lookup-error').textContent = 'Could not determine congressional district for that address.';
+        return;
+      }
+      var stateFips = cd.STATE;
+      var districtNum = parseInt(cd.CD119 || cd.CDCURR || cd.CD || '0', 10);
+      var stateAbbr = FIPS_TO_STATE[stateFips] || '';
+      processDistrictData(stateAbbr, districtNum);
     })
     .catch(function(err) {
       btn.textContent = 'Find Reps';
       btn.disabled = false;
       document.getElementById('lookup-error').style.display = 'block';
-      document.getElementById('lookup-error').textContent = 'Could not find representatives for that address. Please enter a full US street address (e.g., "1600 Pennsylvania Ave NW, Washington, DC 20500").';
+      document.getElementById('lookup-error').textContent = 'Something went wrong with the address lookup. Please try again.';
     });
 }
 
@@ -886,36 +919,32 @@ document.getElementById('address-input').addEventListener('keydown', function(e)
   if (e.key === 'Enter') lookupReps();
 });
 
-function processRepsData(data) {
+function processDistrictData(stateAbbr, districtNum) {
   repsData = [];
-  var offices = data.offices || [];
-  var officials = data.officials || [];
-
-  for (var i = 0; i < offices.length; i++) {
-    var office = offices[i];
-    // Filter to federal and state-level offices
-    var level = (office.levels || []).join(',');
-    if (level.indexOf('country') === -1 && level.indexOf('administrativeArea1') === -1) continue;
-
-    var indices = office.officialIndices || [];
-    for (var j = 0; j < indices.length; j++) {
-      var official = officials[indices[j]];
-      if (!official) continue;
-
-      var urls = official.urls || [];
-      var channels = official.channels || [];
-
+  for (var i = 0; i < CONGRESS_DATA.length; i++) {
+    var m = CONGRESS_DATA[i];
+    if (m.s !== stateAbbr) continue;
+    // Senators for this state
+    if (m.t === 'sen') {
       repsData.push({
-        name: official.name,
-        office: office.name,
-        party: official.party || 'Unknown',
-        photo: official.photoUrl || null,
-        url: urls[0] || null,
-        state: (data.normalizedInput || {}).state || ''
+        name: m.n,
+        office: 'U.S. Senator, ' + stateAbbr,
+        party: m.p,
+        url: m.u || null,
+        state: stateAbbr
+      });
+    }
+    // Representative for this district
+    if (m.t === 'rep' && m.d === districtNum) {
+      repsData.push({
+        name: m.n,
+        office: 'U.S. Representative, ' + stateAbbr + '-' + (districtNum < 10 ? '0' : '') + districtNum,
+        party: m.p,
+        url: m.u || null,
+        state: stateAbbr
       });
     }
   }
-
   renderRepCards();
 }
 
@@ -934,10 +963,8 @@ function renderRepCards() {
   for (var i = 0; i < repsData.length; i++) {
     var rep = repsData[i];
     var initials = rep.name.split(' ').map(function(w) { return w[0]; }).join('');
-    var photoHtml = rep.photo
-      ? '<img class="rep-photo" src="' + rep.photo + '" alt="' + rep.name + '" onerror="this.outerHTML=\'<div class=rep-photo-placeholder>' + initials + '</div>\'">'
-      : '<div class="rep-photo-placeholder">' + initials + '</div>';
-    var partyShort = rep.party === 'Republican Party' ? 'R' : rep.party === 'Democratic Party' ? 'D' : rep.party.charAt(0);
+    var photoHtml = '<div class="rep-photo-placeholder">' + initials + '</div>';
+    var partyShort = rep.party === 'Republican' ? 'R' : rep.party === 'Democrat' ? 'D' : rep.party === 'Independent' ? 'I' : rep.party.charAt(0);
 
     html += '<div class="rep-card">' +
       photoHtml +
@@ -1102,6 +1129,7 @@ function challengeAnother() {
 }
 
 // === INIT ===
+loadCongressData();
 loadScoreboard();
 </script>
 </body>
