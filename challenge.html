@@ -873,17 +873,17 @@ function lookupReps() {
   btn.disabled = true;
   document.getElementById('lookup-error').style.display = 'none';
 
-  // Census geocoder doesn't support CORS, so we proxy through Apps Script
+  // Census geocoder doesn't support CORS, so we proxy through Apps Script via JSONP
   var censusUrl = 'https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=' +
     encodeURIComponent(address) + '&benchmark=Public_AR_Current&vintage=Current_Current&format=json';
-  var url = 'https://script.google.com/macros/s/AKfycbybaaxktiJuedcWWWOzSwT0BndFW3FR5LuEueMY_Qhxh-tiQPLCPPK_LYvl01IQjmjm/exec?proxy=' +
-    encodeURIComponent(censusUrl);
 
-  fetch(url)
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      btn.textContent = 'Find Reps';
-      btn.disabled = false;
+  // JSONP callback — script tags bypass CORS
+  var callbackName = '_geocode_' + Date.now();
+  window[callbackName] = function(data) {
+    delete window[callbackName];
+    btn.textContent = 'Find Reps';
+    btn.disabled = false;
+    try {
       var matches = data.result.addressMatches;
       if (!matches || matches.length === 0) {
         document.getElementById('lookup-error').style.display = 'block';
@@ -891,7 +891,6 @@ function lookupReps() {
         return;
       }
       var geos = matches[0].geographies;
-      // Find congressional district — try 119th first, then fallback
       var cd = null;
       var keys = Object.keys(geos);
       for (var i = 0; i < keys.length; i++) {
@@ -908,13 +907,23 @@ function lookupReps() {
       var districtNum = parseInt(cd.CD119 || cd.CDCURR || cd.CD || '0', 10);
       var stateAbbr = FIPS_TO_STATE[stateFips] || '';
       processDistrictData(stateAbbr, districtNum);
-    })
-    .catch(function(err) {
-      btn.textContent = 'Find Reps';
-      btn.disabled = false;
+    } catch(e) {
       document.getElementById('lookup-error').style.display = 'block';
       document.getElementById('lookup-error').textContent = 'Something went wrong with the address lookup. Please try again.';
-    });
+    }
+  };
+
+  var script = document.createElement('script');
+  script.src = 'https://script.google.com/macros/s/AKfycbxWFszDhv-ya3yVAfdTAHTuFDj9sORo2tjao2l4WmhdbgUtvgDhiibbiEQ-eMA27Tk/exec?callback=' +
+    callbackName + '&proxy=' + encodeURIComponent(censusUrl);
+  script.onerror = function() {
+    delete window[callbackName];
+    btn.textContent = 'Find Reps';
+    btn.disabled = false;
+    document.getElementById('lookup-error').style.display = 'block';
+    document.getElementById('lookup-error').textContent = 'Something went wrong with the address lookup. Please try again.';
+  };
+  document.body.appendChild(script);
 }
 
 // Enter key triggers lookup
@@ -1078,7 +1087,7 @@ function logChallenge() {
   data.append('title', 'Challenge from /challenge');
   data.append('message', selectedRep.name + '|' + selectedRep.office + '|' + plankLabel + '|' + selectedRep.state);
 
-  fetch('https://script.google.com/macros/s/AKfycbybaaxktiJuedcWWWOzSwT0BndFW3FR5LuEueMY_Qhxh-tiQPLCPPK_LYvl01IQjmjm/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbxWFszDhv-ya3yVAfdTAHTuFDj9sORo2tjao2l4WmhdbgUtvgDhiibbiEQ-eMA27Tk/exec', {
     method: 'POST',
     body: data
   }).then(function() {
