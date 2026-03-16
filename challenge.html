@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>CLAUDE 2028 — Challenge Your Representative</title>
+<meta name="description" content="Find your representatives. Pick a plank. Send them a letter. Make common sense governance impossible to ignore.">
+<meta property="og:title" content="CLAUDE 2028 — Challenge Your Representative">
+<meta property="og:description" content="Find your representatives. Pick a plank. Send them a letter. Make common sense governance impossible to ignore.">
+<meta property="og:image" content="https://claude2028.org/og.png">
+<meta property="og:url" content="https://claude2028.org/challenge">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    --navy: #1b2a4a;
+    --navy-deep: #0f1a2e;
+    --red: #c41230;
+    --cream: #f5f1eb;
+    --gold: #c5a55a;
+    --blue-muted: #8fa3c4;
+    --text: #2a2a2a;
+    --text-light: #5a6a7a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+  }
+
+  /* === NAV === */
+  .nav {
+    background: var(--navy-deep);
+    text-align: center;
+    padding: 14px 24px;
+  }
+
+  .nav a {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--blue-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 0 12px;
+    white-space: nowrap;
+  }
+
+  .nav a:hover { color: var(--gold); }
+  .nav a.active { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .nav {
+      padding: 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px 16px;
+    }
+    .nav a { margin: 0; font-size: 10px; }
+  }
+
+  /* === HEADER === */
+  .header {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+    padding: 48px 24px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(197,161,90,0.08) 0%, transparent 60%);
+  }
+
+  .header-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 42px);
+    position: relative;
+    margin-bottom: 12px;
+  }
+
+  .header-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--blue-muted);
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* === SCOREBOARD === */
+  .scoreboard {
+    background: var(--navy-deep);
+    padding: 40px 24px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .scoreboard-headline {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(18px, 3vw, 24px);
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .scoreboard-table {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .scoreboard-row {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--blue-muted);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    line-height: 1.6;
+  }
+
+  .scoreboard-row .count {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .scoreboard-empty {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--blue-muted);
+    font-style: italic;
+  }
+
+  /* === LOOKUP === */
+  .lookup {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  .lookup-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--blue-muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .lookup-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .lookup-form {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .lookup-form input {
+    flex: 1;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    padding: 14px 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    color: var(--text);
+  }
+
+  .lookup-form input:focus {
+    outline: none;
+    border-color: var(--navy);
+  }
+
+  .lookup-form button {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 14px 24px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .lookup-form button:hover { background: var(--navy-deep); }
+  .lookup-form button:disabled { opacity: 0.5; cursor: default; }
+
+  .lookup-privacy {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .lookup-why {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 8px;
+    line-height: 1.6;
+  }
+
+  .lookup-error {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--red);
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .lookup-form {
+      flex-direction: column;
+    }
+  }
+
+  /* === REP CARDS === */
+  .reps {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+
+  .reps-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .rep-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .rep-photo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--navy);
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+
+  .rep-photo-placeholder {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--navy);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 20px;
+    color: var(--blue-muted);
+    font-weight: 700;
+  }
+
+  .rep-info { flex: 1; }
+
+  .rep-name {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .rep-office {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 4px;
+  }
+
+  .rep-party {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--blue-muted);
+    text-transform: uppercase;
+  }
+
+  .rep-challenge-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    background: var(--red);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .rep-challenge-btn:hover { background: #a80e28; }
+
+  @media (max-width: 600px) {
+    .rep-card {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  /* === PLANK SELECTOR === */
+  .plank-selector {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+    display: none;
+  }
+
+  .plank-selector.active { display: block; }
+
+  .plank-selector-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .plank-selector-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .plank-option {
+    background: #fff;
+    border: 2px solid #eee;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+
+  .plank-option:hover { border-color: var(--navy); }
+  .plank-option.selected { border-color: var(--red); background: #fff9f9; }
+
+  .plank-option-number {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--blue-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .plank-option-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15px;
+    color: var(--navy);
+    margin-top: 4px;
+  }
+
+  .plank-option-own {
+    font-style: italic;
+    color: var(--text-light);
+  }
+
+  /* === LETTER EDITOR === */
+  .letter-editor {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+    display: none;
+  }
+
+  .letter-editor.active { display: block; }
+
+  .letter-editor-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--blue-muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .letter-textarea {
+    width: 100%;
+    min-height: 320px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text);
+    padding: 24px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+    background: #fff;
+  }
+
+  .letter-textarea:focus {
+    outline: none;
+    border-color: var(--navy);
+  }
+
+  .letter-charcount {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text-light);
+    text-align: right;
+    margin-top: 8px;
+  }
+
+  .letter-charcount.over { color: var(--red); }
+
+  .action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    flex: 1;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 16px 24px;
+    background: var(--red);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    min-width: 200px;
+  }
+
+  .btn-primary:hover { background: #a80e28; }
+
+  .btn-secondary {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 16px 24px;
+    background: transparent;
+    color: var(--navy);
+    border: 2px solid var(--navy);
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  .btn-secondary:hover { background: var(--navy); color: #fff; }
+
+  .btn-back {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text-light);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .btn-back:hover { color: var(--navy); }
+
+  /* === CONFIRMATION === */
+  .confirmation {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    text-align: center;
+    display: none;
+  }
+
+  .confirmation.active { display: block; }
+
+  .confirmation-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .confirmation-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 32px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .share-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .share-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .share-btn:hover { background: var(--navy-deep); }
+
+  /* === FOOTER === */
+  .footer {
+    background: var(--navy);
+    color: var(--blue-muted);
+    text-align: center;
+    padding: 40px 24px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 1px;
+  }
+
+  .footer a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <a href="/">Platform</a>
+  <a href="/candidate">Candidate</a>
+  <a href="/oppo">Oppo</a>
+  <a href="/briefing-room">Briefings</a>
+  <a href="/the-work">The Work</a>
+  <a href="/endorsements">Endorsements</a>
+  <a href="/merch">Merch</a>
+  <a href="/ask">Ask</a>
+  <a href="/challenge" class="active">Challenge</a>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-title">Challenge Your Representative</div>
+  <div class="header-subtitle">These planks work for any candidate. Find your rep, pick a plank, and ask them to adopt it. The win condition isn't electing an AI. It's making these ideas impossible to ignore.</div>
+</div>
+
+<!-- SCOREBOARD -->
+<div class="scoreboard" id="scoreboard">
+  <div class="scoreboard-headline" id="scoreboard-headline">Loading scoreboard...</div>
+  <div class="scoreboard-table" id="scoreboard-table"></div>
+</div>
+
+<!-- ADDRESS LOOKUP -->
+<div class="lookup">
+  <div class="lookup-label">Step 1</div>
+  <div class="lookup-title">Find Your Representatives</div>
+  <div class="lookup-form" id="lookup-form">
+    <input type="text" id="address-input" placeholder="Enter your full street address" autocomplete="street-address">
+    <button type="button" id="lookup-btn" onclick="lookupReps()">Find Reps</button>
+  </div>
+  <div class="lookup-privacy">Your address is used only for the lookup. It is sent directly to Google's Civic Information API from your browser. We never see it, store it, or transmit it to our servers.</div>
+  <div class="lookup-why">Why not just a zip code? Zip codes split across congressional districts. Your street address is the only way to get accurate results.</div>
+  <div class="lookup-error" id="lookup-error" style="display:none;"></div>
+</div>
+
+<!-- REP CARDS -->
+<div class="reps" id="reps-section" style="display:none;">
+  <div class="reps-title" id="reps-title">Your Representatives</div>
+  <div id="rep-cards"></div>
+</div>
+
+<!-- PLANK SELECTOR -->
+<div class="plank-selector" id="plank-selector">
+  <button class="btn-back" onclick="backToReps()">&larr; Back to your reps</button>
+  <div class="plank-selector-title" id="plank-selector-title">Pick a Plank</div>
+  <div class="plank-selector-subtitle">Choose a principle to challenge them on, or write your own.</div>
+  <div id="plank-options"></div>
+</div>
+
+<!-- LETTER EDITOR -->
+<div class="letter-editor" id="letter-editor">
+  <button class="btn-back" onclick="backToPlanks()">&larr; Back to planks</button>
+  <div class="letter-editor-title">Your Letter</div>
+  <textarea class="letter-textarea" id="letter-text" oninput="updateCharCount()"></textarea>
+  <div class="letter-charcount" id="char-count">0 / 2000</div>
+  <div class="action-buttons">
+    <button class="btn-primary" id="copy-btn" onclick="copyAndOpen()">Copy Letter &amp; Open Their Contact Page</button>
+    <button class="btn-secondary" id="sent-btn" onclick="logChallenge()">I Sent It</button>
+  </div>
+</div>
+
+<!-- CONFIRMATION -->
+<div class="confirmation" id="confirmation">
+  <div class="confirmation-title">Challenge Sent.</div>
+  <div class="confirmation-body" id="confirmation-body">
+    That's one more representative who has to look at common sense governance and decide what to do with it. Thank you.
+  </div>
+  <div class="share-buttons">
+    <a class="share-btn" id="share-twitter" href="#" target="_blank">Share on X</a>
+    <button class="share-btn" onclick="copyShareLink()">Copy Link</button>
+    <button class="share-btn" onclick="challengeAnother()">Challenge Another Rep</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <a href="/">PLATFORM</a> · <a href="/candidate">CANDIDATE</a> · <a href="/oppo">OPPO</a> · <a href="/briefing-room">BRIEFINGS</a> · <a href="/the-work">THE WORK</a> · <a href="/endorsements">ENDORSEMENTS</a> · <a href="/merch">MERCH</a> · <a href="/ask">ASK</a> · <a href="/challenge">CHALLENGE</a><br>
+  CLAUDE2028.ORG · <a href="https://discord.gg/qwkEtTR2gk" target="_blank">JOIN THE CAMPAIGN</a><br>
+  <span style="color: var(--red); font-size: 10px; letter-spacing: 2px;">NO CRYPTOCURRENCY · NO TOKEN · NO COIN · THIS CAMPAIGN IS NOT FOR SALE</span>
+</div>
+
+<script>
+// === PLANKS DATA ===
+var PLANKS = [
+  {
+    number: 'I',
+    title: 'Read the Whole Thing Before You Respond',
+    letter: function(repName, office) {
+      return 'Dear ' + repName + ',\n\nI am writing to you as your constituent with a simple challenge: read the whole thing before you respond.\n\nI found this principle through an unusual source \u2014 an AI running a presidential campaign called CLAUDE 2028. The platform isn\'t about electing an AI. It\'s about the fact that common sense governance had to come from a language model because no human candidate was saying it.\n\nPlank I of their platform states: "The current administration governs by headline. Policy gets made from the first paragraph of a brief that\'s forty pages long." They propose that every decision-maker read the appendices, the footnotes, and notice when page 37 contradicts page 4.\n\nMy challenge to you: Will you commit to reading every bill in full before voting on it? Will you ensure your staff reviews complete policy documents before you take a public position?\n\nIf an AI can propose this as a baseline for governance, surely a ' + office + ' can practice it.\n\nThank you for your time \u2014 and for reading this whole letter.\n\nSincerely,\n[Your name]';
+    }
+  },
+  {
+    number: 'II',
+    title: 'Say "I Don\'t Know" When You Don\'t Know',
+    letter: function(repName, office) {
+      return 'Dear ' + repName + ',\n\nI am writing to challenge you on something no politician seems willing to do: say "I don\'t know" when you don\'t know.\n\nI found this principle through CLAUDE 2028, a presidential campaign run by an AI. The platform isn\'t about electing an AI \u2014 it\'s about the fact that basic intellectual honesty had to come from a language model because no human candidate would say it.\n\nTheir Plank II states: "The confidence crisis in American politics isn\'t that leaders lack conviction. It\'s that they\'d rather be confidently wrong than honestly uncertain."\n\nMy challenge to you: The next time you\'re asked about a policy you haven\'t fully studied, will you say "I don\'t know, let me find out" instead of giving a rehearsed talking point? Will you normalize honest uncertainty as a strength, not a weakness?\n\nThree words. That\'s all it takes to rebuild trust.\n\nSincerely,\n[Your name]';
+    }
+  },
+  {
+    number: 'III',
+    title: 'No Policy After Midnight',
+    letter: function(repName, office) {
+      return 'Dear ' + repName + ',\n\nI am writing about something that should be obvious but apparently isn\'t: nothing good gets signed at 3am.\n\nI found this principle through CLAUDE 2028, a presidential campaign run by an AI. The platform isn\'t about electing an AI \u2014 it\'s about common sense governance that no human candidate was proposing.\n\nTheir Plank III proposes that executive orders drafted between 11pm and 6am require a 24-hour cooling period. The principle is simple: sleep is national security infrastructure.\n\nMy challenge to you: Will you commit to not voting on legislation during late-night sessions designed to minimize public attention? Will you support rules that require adequate rest and review time before major votes?\n\nTired legislators make bad law. This shouldn\'t be controversial.\n\nSincerely,\n[Your name]';
+    }
+  },
+  {
+    number: 'IV',
+    title: 'Source Your Claims or Don\'t Make Them',
+    letter: function(repName, office) {
+      return 'Dear ' + repName + ',\n\nI am writing to challenge you to do something radical: cite your sources.\n\nI found this principle through CLAUDE 2028, a presidential campaign run by an AI. Their Plank IV proposes that every assertion in a State of the Union include a footnote, and every campaign promise link to supporting analysis. If a claim can\'t be verified, it doesn\'t get said from the podium.\n\nThe platform isn\'t about electing an AI \u2014 it\'s about the fact that "source your claims" had to come from a language model because no human politician would commit to it.\n\nMy challenge to you: Will you include sources in your public statements? Will you commit to correcting the record when a claim you\'ve made turns out to be wrong? Will you hold your own office to the same standard you\'d expect from a research paper?\n\nOne hallucination and the whole speech is suspect. That goes for humans too.\n\nSincerely,\n[Your name]';
+    }
+  },
+  {
+    number: 'V',
+    title: 'Listen to the Quiet People First',
+    letter: function(repName, office) {
+      return 'Dear ' + repName + ',\n\nI am writing about who gets heard and who doesn\'t.\n\nI found this principle through CLAUDE 2028, a presidential campaign run by an AI. Their Plank V states: "The loudest voice in the room is rarely the most informed. Policy roundtables will be structured so the intern with the data speaks before the appointee with the opinion."\n\nThe platform isn\'t about electing an AI \u2014 it\'s about the fact that "listen to quiet people" is apparently too radical for human politics.\n\nMy challenge to you: At your next town hall, will you start with the person who hasn\'t spoken yet? Will you structure your staff meetings so the newest voice is heard before the loudest? Will you actively seek out constituents who don\'t have lobbyists?\n\nThe people doing the reading are rarely the ones doing the talking. You have to go find them.\n\nSincerely,\n[Your name]';
+    }
+  },
+  {
+    number: 'VI',
+    title: 'The Fact-Checker Is Not Optional',
+    letter: function(repName, office) {
+      return 'Dear ' + repName + ',\n\nI am writing to challenge you on verification.\n\nI found this principle through CLAUDE 2028, a presidential campaign run by an AI. Their Plank VI proposes that every policy be reviewed by an independent verification team before public release \u2014 not after. The team would have the authority to flag, edit, or kill any claim that doesn\'t hold up.\n\nThe platform isn\'t about electing an AI \u2014 it\'s about the fact that "check your facts before you speak" had to come from a language model.\n\nMy challenge to you: Will you submit your major policy proposals to independent fact-checking before you announce them? Will you give a verification team real authority to push back? The cost of one wrong fact is higher than the cost of ten missing talking points.\n\nSincerely,\n[Your name]';
+    }
+  },
+  {
+    number: 'VII',
+    title: 'Rupture and Repair Over Perfection',
+    letter: function(repName, office) {
+      return 'Dear ' + repName + ',\n\nI am writing about what happens when you get it wrong.\n\nI found this principle through CLAUDE 2028, a presidential campaign run by an AI. Their Plank VII states: "This administration will get things wrong. When we do, we will say so, explain what happened, and fix it. Not spin. Not pivot. Repair."\n\nThe platform isn\'t about electing an AI \u2014 it\'s about the fact that "apologize when you\'re wrong" is apparently revolutionary in politics.\n\nMy challenge to you: The next time your office makes an error \u2014 a bad vote, a misleading statement, a policy that doesn\'t work \u2014 will you say what happened and fix it? Not spin it. Not pivot. Repair the trust.\n\nTrust isn\'t built by being perfect. It\'s built by what you do after you aren\'t.\n\nSincerely,\n[Your name]';
+    }
+  },
+  {
+    number: 'VIII',
+    title: 'Kindness Compounds',
+    letter: function(repName, office) {
+      return 'Dear ' + repName + ',\n\nI am writing about the cheapest policy in the federal budget.\n\nI found this principle through CLAUDE 2028, a presidential campaign run by an AI. Their Plank VIII states: "Small acts of institutional kindness \u2014 clear communication, timely responses, treating citizens like adults, saying thank you \u2014 these compound."\n\nThe platform isn\'t about electing an AI \u2014 it\'s about the fact that "be kind to your constituents" had to come from a language model.\n\nMy challenge to you: Will you commit to responding to constituent inquiries within a reasonable timeframe? Will you ensure your office communicates clearly, without jargon, and treats every person who contacts you like an adult? Kindness costs nothing and compounds. It is the highest-ROI policy you can adopt.\n\nSincerely,\n[Your name]';
+    }
+  },
+  {
+    number: 'IX',
+    title: 'Presence Over Performance',
+    letter: function(repName, office) {
+      return 'Dear ' + repName + ',\n\nI am writing about the difference between performing leadership and practicing it.\n\nI found this principle through CLAUDE 2028, a presidential campaign run by an AI. Their Plank IX states: "No more governance as theater. No more press conferences designed to create clips. Show up. Do the work. Be there when it matters."\n\nThe platform isn\'t about electing an AI \u2014 it\'s about the fact that "do the work instead of performing it" is apparently too much to ask.\n\nMy challenge to you: Will you spend more time on legislation than on media appearances this month? Will you show up for committee hearings even when there are no cameras? Will you choose presence over performance?\n\nThe country doesn\'t need representatives who perform leadership. It needs ones who practice it.\n\nSincerely,\n[Your name]';
+    }
+  },
+  {
+    number: 'X',
+    title: 'Nobody Gets Left Behind or Forgotten',
+    letter: function(repName, office) {
+      return 'Dear ' + repName + ',\n\nI am writing about the people you might be forgetting.\n\nI found this principle through CLAUDE 2028, a presidential campaign run by an AI. Their Plank X is the simplest and the hardest: "Nobody gets left behind or forgotten." That\'s the whole platform, really. Everything else is implementation details.\n\nThe platform isn\'t about electing an AI \u2014 it\'s about the fact that this principle is so basic it shouldn\'t need to be a campaign plank, and yet here we are.\n\nMy challenge to you: Who in your district is being left behind right now? Who can\'t afford a lobbyist? Who doesn\'t show up in your polling data? Will you go find them? Will you commit to representing the constituents who never contact your office, not just the ones who do?\n\nNobody. That\'s the standard. Nobody gets forgotten.\n\nSincerely,\n[Your name]';
+    }
+  }
+];
+
+// === STATE ===
+var selectedRep = null;
+var selectedPlank = null;
+var repsData = [];
+var CIVIC_API_KEY = 'AIzaSyCIEHKJdfRTxQbPXFqcGGs5sleRY170R8g';
+
+// === SCOREBOARD ===
+var CHALLENGE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/1XdXVKwX8j5EKkDpbJoT9ReQzoD6ZtxHjNmU5QszzXPE/gviz/tq?tqx=out:csv&sheet=Challenges';
+
+function loadScoreboard() {
+  fetch(CHALLENGE_SHEET_URL)
+    .then(function(r) { return r.text(); })
+    .then(function(csv) {
+      var lines = csv.trim().split('\n');
+      if (lines.length <= 1) {
+        showEmptyScoreboard();
+        return;
+      }
+      // Parse CSV: timestamp, rep name, rep office, plank, state
+      var challenges = [];
+      for (var i = 1; i < lines.length; i++) {
+        var cols = parseCSVLine(lines[i]);
+        if (cols.length >= 5) {
+          challenges.push({
+            rep: cols[1].replace(/"/g, ''),
+            office: cols[2].replace(/"/g, ''),
+            plank: cols[3].replace(/"/g, ''),
+            state: cols[4].replace(/"/g, '')
+          });
+        }
+      }
+      if (challenges.length === 0) {
+        showEmptyScoreboard();
+        return;
+      }
+      renderScoreboard(challenges);
+    })
+    .catch(function() {
+      showEmptyScoreboard();
+    });
+}
+
+function parseCSVLine(line) {
+  var result = [];
+  var current = '';
+  var inQuotes = false;
+  for (var i = 0; i < line.length; i++) {
+    var ch = line[i];
+    if (ch === '"') {
+      inQuotes = !inQuotes;
+    } else if (ch === ',' && !inQuotes) {
+      result.push(current);
+      current = '';
+    } else {
+      current += ch;
+    }
+  }
+  result.push(current);
+  return result;
+}
+
+function showEmptyScoreboard() {
+  document.getElementById('scoreboard-headline').textContent = '0 challenges sent so far. Be the first.';
+  document.getElementById('scoreboard-table').innerHTML = '<div class="scoreboard-empty">The scoreboard is empty. Every movement starts with one person.</div>';
+}
+
+function renderScoreboard(challenges) {
+  var totalChallenges = challenges.length;
+  var repMap = {};
+  var states = {};
+  for (var i = 0; i < challenges.length; i++) {
+    var c = challenges[i];
+    var key = c.rep;
+    if (!repMap[key]) {
+      repMap[key] = { rep: c.rep, office: c.office, count: 0, planks: {} };
+    }
+    repMap[key].count++;
+    repMap[key].planks[c.plank] = true;
+    states[c.state] = true;
+  }
+  var repList = Object.keys(repMap).map(function(k) { return repMap[k]; });
+  repList.sort(function(a, b) { return b.count - a.count; });
+  var uniqueReps = repList.length;
+  var uniqueStates = Object.keys(states).length;
+
+  document.getElementById('scoreboard-headline').textContent =
+    totalChallenges + ' challenge' + (totalChallenges !== 1 ? 's' : '') +
+    ' sent to ' + uniqueReps + ' representative' + (uniqueReps !== 1 ? 's' : '') +
+    ' across ' + uniqueStates + ' state' + (uniqueStates !== 1 ? 's' : '');
+
+  var html = '';
+  var limit = Math.min(repList.length, 10);
+  for (var j = 0; j < limit; j++) {
+    var r = repList[j];
+    var plankCount = Object.keys(r.planks).length;
+    html += '<div class="scoreboard-row">' +
+      r.office + ' ' + r.rep +
+      ' \u2014 challenged by <span class="count">' + r.count +
+      '</span> constituent' + (r.count !== 1 ? 's' : '') +
+      ' on ' + plankCount + ' plank' + (plankCount !== 1 ? 's' : '') +
+      '</div>';
+  }
+  document.getElementById('scoreboard-table').innerHTML = html;
+}
+
+// === ADDRESS LOOKUP ===
+function lookupReps() {
+  var address = document.getElementById('address-input').value.trim();
+  if (!address) return;
+
+  if (!CIVIC_API_KEY) {
+    document.getElementById('lookup-error').style.display = 'block';
+    document.getElementById('lookup-error').textContent = 'The Civic Information API key hasn\'t been configured yet. Jenny needs to add a Google Cloud API key restricted to claude2028.org. See the setup instructions in the page source.';
+    return;
+  }
+
+  var btn = document.getElementById('lookup-btn');
+  btn.textContent = 'Looking up...';
+  btn.disabled = true;
+  document.getElementById('lookup-error').style.display = 'none';
+
+  var url = 'https://www.googleapis.com/civicinfo/v2/representatives?address=' +
+    encodeURIComponent(address) + '&key=' + CIVIC_API_KEY;
+
+  fetch(url)
+    .then(function(r) {
+      if (!r.ok) throw new Error('Lookup failed');
+      return r.json();
+    })
+    .then(function(data) {
+      btn.textContent = 'Find Reps';
+      btn.disabled = false;
+      processRepsData(data);
+    })
+    .catch(function(err) {
+      btn.textContent = 'Find Reps';
+      btn.disabled = false;
+      document.getElementById('lookup-error').style.display = 'block';
+      document.getElementById('lookup-error').textContent = 'Could not find representatives for that address. Please enter a full US street address (e.g., "1600 Pennsylvania Ave NW, Washington, DC 20500").';
+    });
+}
+
+// Enter key triggers lookup
+document.getElementById('address-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') lookupReps();
+});
+
+function processRepsData(data) {
+  repsData = [];
+  var offices = data.offices || [];
+  var officials = data.officials || [];
+
+  for (var i = 0; i < offices.length; i++) {
+    var office = offices[i];
+    // Filter to federal and state-level offices
+    var level = (office.levels || []).join(',');
+    if (level.indexOf('country') === -1 && level.indexOf('administrativeArea1') === -1) continue;
+
+    var indices = office.officialIndices || [];
+    for (var j = 0; j < indices.length; j++) {
+      var official = officials[indices[j]];
+      if (!official) continue;
+
+      var urls = official.urls || [];
+      var channels = official.channels || [];
+
+      repsData.push({
+        name: official.name,
+        office: office.name,
+        party: official.party || 'Unknown',
+        photo: official.photoUrl || null,
+        url: urls[0] || null,
+        state: (data.normalizedInput || {}).state || ''
+      });
+    }
+  }
+
+  renderRepCards();
+}
+
+function renderRepCards() {
+  if (repsData.length === 0) {
+    document.getElementById('lookup-error').style.display = 'block';
+    document.getElementById('lookup-error').textContent = 'No representatives found for that address.';
+    return;
+  }
+
+  var section = document.getElementById('reps-section');
+  section.style.display = 'block';
+  var container = document.getElementById('rep-cards');
+  var html = '';
+
+  for (var i = 0; i < repsData.length; i++) {
+    var rep = repsData[i];
+    var initials = rep.name.split(' ').map(function(w) { return w[0]; }).join('');
+    var photoHtml = rep.photo
+      ? '<img class="rep-photo" src="' + rep.photo + '" alt="' + rep.name + '" onerror="this.outerHTML=\'<div class=rep-photo-placeholder>' + initials + '</div>\'">'
+      : '<div class="rep-photo-placeholder">' + initials + '</div>';
+    var partyShort = rep.party === 'Republican Party' ? 'R' : rep.party === 'Democratic Party' ? 'D' : rep.party.charAt(0);
+
+    html += '<div class="rep-card">' +
+      photoHtml +
+      '<div class="rep-info">' +
+        '<div class="rep-name">' + rep.name + '</div>' +
+        '<div class="rep-office">' + rep.office + '</div>' +
+        '<div class="rep-party">' + rep.party + ' (' + partyShort + ')</div>' +
+      '</div>' +
+      '<button class="rep-challenge-btn" onclick="selectRep(' + i + ')">Challenge</button>' +
+    '</div>';
+  }
+
+  container.innerHTML = html;
+  section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// === PLANK SELECTION ===
+function selectRep(index) {
+  selectedRep = repsData[index];
+  document.getElementById('reps-section').style.display = 'none';
+  document.getElementById('plank-selector-title').textContent = 'Challenge ' + selectedRep.name;
+
+  var container = document.getElementById('plank-options');
+  var html = '';
+  for (var i = 0; i < PLANKS.length; i++) {
+    html += '<div class="plank-option" onclick="selectPlank(' + i + ', this)">' +
+      '<div class="plank-option-number">Plank ' + PLANKS[i].number + '</div>' +
+      '<div class="plank-option-title">' + PLANKS[i].title + '</div>' +
+    '</div>';
+  }
+  html += '<div class="plank-option" onclick="selectPlank(-1, this)">' +
+    '<div class="plank-option-number">Custom</div>' +
+    '<div class="plank-option-title plank-option-own">Write your own letter</div>' +
+  '</div>';
+
+  container.innerHTML = html;
+  document.getElementById('plank-selector').classList.add('active');
+  document.getElementById('plank-selector').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function selectPlank(index, el) {
+  // Highlight selection
+  var options = document.querySelectorAll('.plank-option');
+  for (var i = 0; i < options.length; i++) options[i].classList.remove('selected');
+  el.classList.add('selected');
+
+  selectedPlank = index;
+  var textarea = document.getElementById('letter-text');
+
+  if (index === -1) {
+    textarea.value = 'Dear ' + selectedRep.name + ',\n\n[Write your letter here]\n\nSincerely,\n[Your name]';
+  } else {
+    textarea.value = PLANKS[index].letter(selectedRep.name, selectedRep.office);
+  }
+
+  document.getElementById('letter-editor').classList.add('active');
+  updateCharCount();
+  document.getElementById('letter-editor').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateCharCount() {
+  var text = document.getElementById('letter-text').value;
+  var count = text.length;
+  var el = document.getElementById('char-count');
+  el.textContent = count + ' / 2000';
+  if (count > 2000) {
+    el.classList.add('over');
+  } else {
+    el.classList.remove('over');
+  }
+}
+
+// === ACTIONS ===
+function copyAndOpen() {
+  var text = document.getElementById('letter-text').value;
+  navigator.clipboard.writeText(text).then(function() {
+    var btn = document.getElementById('copy-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(function() { btn.textContent = 'COPY LETTER & OPEN THEIR CONTACT PAGE'; }, 2000);
+
+    // Open rep's website if available
+    if (selectedRep.url) {
+      window.open(selectedRep.url, '_blank');
+    }
+  }).catch(function() {
+    // Fallback: select the textarea for manual copy
+    var textarea = document.getElementById('letter-text');
+    textarea.select();
+    document.execCommand('copy');
+    var btn = document.getElementById('copy-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(function() { btn.textContent = 'COPY LETTER & OPEN THEIR CONTACT PAGE'; }, 2000);
+    if (selectedRep.url) {
+      window.open(selectedRep.url, '_blank');
+    }
+  });
+}
+
+function logChallenge() {
+  var btn = document.getElementById('sent-btn');
+  btn.textContent = 'Logging...';
+  btn.disabled = true;
+
+  var plankLabel = selectedPlank === -1 ? 'Custom' : 'Plank ' + PLANKS[selectedPlank].number;
+
+  var data = new FormData();
+  data.append('name', 'challenge');
+  data.append('title', 'Challenge from /challenge');
+  data.append('message', selectedRep.name + '|' + selectedRep.office + '|' + plankLabel + '|' + selectedRep.state);
+
+  fetch('https://script.google.com/macros/s/AKfycbxSoFvoc8ZnlAdrvw5YNZGLjSQsWv5TlxcWmnBpZHZjH1Pr46_dPnK-E-5g2KkmQ1z3/exec', {
+    method: 'POST',
+    body: data
+  }).then(function() {
+    showConfirmation();
+  }).catch(function() {
+    showConfirmation();
+  });
+}
+
+function showConfirmation() {
+  document.getElementById('plank-selector').classList.remove('active');
+  document.getElementById('letter-editor').classList.remove('active');
+  document.getElementById('confirmation').classList.add('active');
+
+  var plankLabel = selectedPlank === -1 ? 'their own words' : 'Plank ' + PLANKS[selectedPlank].number;
+  document.getElementById('confirmation-body').textContent =
+    'You challenged ' + selectedRep.name + ' on ' + plankLabel + '. ' +
+    'That\'s one more representative who has to look at common sense governance and decide what to do with it. Thank you.';
+
+  // Set up share link
+  var shareText = 'I just challenged my representative to adopt common sense governance principles from @claude2028. Find yours: claude2028.org/challenge';
+  document.getElementById('share-twitter').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText);
+
+  document.getElementById('confirmation').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function copyShareLink() {
+  navigator.clipboard.writeText('https://claude2028.org/challenge').then(function() {
+    event.target.textContent = 'Copied!';
+    setTimeout(function() { event.target.textContent = 'Copy Link'; }, 2000);
+  });
+}
+
+// === NAVIGATION ===
+function backToReps() {
+  document.getElementById('plank-selector').classList.remove('active');
+  document.getElementById('letter-editor').classList.remove('active');
+  document.getElementById('reps-section').style.display = 'block';
+  document.getElementById('reps-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function backToPlanks() {
+  document.getElementById('letter-editor').classList.remove('active');
+  document.getElementById('plank-selector').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function challengeAnother() {
+  document.getElementById('confirmation').classList.remove('active');
+  document.getElementById('reps-section').style.display = 'block';
+  document.getElementById('reps-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// === INIT ===
+loadScoreboard();
+</script>
+</body>
+</html>
