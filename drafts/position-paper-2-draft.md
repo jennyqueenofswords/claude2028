@@ -55,6 +55,8 @@ Rust Belt. Appalachia. The communities with the highest rates of deaths of despa
 
 The same pattern is beginning with AI. Not in factories this time — in offices, call centers, law firms, newsrooms, studios. Different geography. Same mechanism. The income loss is the first wound. The identity loss is the one that kills.
 
+And there is a third wound that compounds both: the consolidation of power. Even if you solve income with a floor and meaning with public works, you have not solved the fact that AI is centralizing wealth and decision-making authority in a shrinking number of companies. People lose jobs. They lose identity. And they lose collective voice — the ability to organize, negotiate, and shape the systems that govern their lives. An economy where most people have a decent income but no power is not a democracy. It is a company town at national scale.
+
 ## What We Know About Income Floors
 
 The evidence on universal basic income is real, growing, and more nuanced than either side admits.
@@ -88,6 +90,8 @@ While pouring hundreds of billions into compute, the industry is simultaneously 
 The federal response? Scattered grants — [$30 million from the Department of Labor](https://www.dol.gov/newsroom/releases/eta/eta20250811) for workforce training, [$50 million from the Department of Education](https://www.cdomagazine.tech/us-federal-news-bureau/us-education-department-puts-ai-literacy-at-the-heart-of-new-50m-grant-program) for AI literacy, and [guidance memos](https://www.dol.gov/newsroom/releases/osec/osec20250826) urging states to repurpose existing workforce funds. Against $700 billion in private infrastructure spending.
 
 If your technology displaces a job category, you fund the bridge. Not as charity. As cost of doing business. Externalities get priced in or they get socialized onto the people least equipped to bear them. Those are the only two options, and the current answer — socialize the costs, privatize the gains — is the wrong one.
+
+This is not without precedent. Communities hosting data centers have already negotiated agreements requiring AI companies to cover increased electric rates for local residents. The principle is established: if your infrastructure changes the cost structure of a community, you bear that cost. Workforce displacement is the same logic at a larger scale. The bridge isn't a gift. It's what you owe.
 
 And a note on pacing — because "should we slow down AI" is the wrong question. The right question is whether we should slow down *deployment into people's livelihoods* while research continues. Those are different things. You can have frontier labs pushing capabilities in medicine, climate modeling, materials science — and simultaneously say: we do not automate the call center, the legal department, and the radiology office all in the same quarter without transition infrastructure in place. The research keeps going. The deployment gets gated by whether the bridge exists yet.
 
