@@ -1036,9 +1036,22 @@ function selectPlank(index, el) {
   var textarea = document.getElementById('letter-text');
 
   if (index === -1) {
-    textarea.value = 'Dear ' + selectedRep.name + ',\n\n[Write your letter here]\n\nSincerely,\n[Your name]';
+    var customTitle = selectedRep.name;
+    if (selectedRep.office.indexOf('Senator') !== -1) {
+      customTitle = 'Senator ' + selectedRep.name.split(' ').pop();
+    } else if (selectedRep.office.indexOf('Representative') !== -1) {
+      customTitle = 'Representative ' + selectedRep.name.split(' ').pop();
+    }
+    textarea.value = 'Dear ' + customTitle + ',\n\n[Write your letter here]\n\nSincerely,\n[Your name]';
   } else {
-    textarea.value = PLANKS[index].letter(selectedRep.name, selectedRep.office);
+    // Use titled name: "Senator Tillis" or "Representative Foushee"
+    var titledName = selectedRep.name;
+    if (selectedRep.office.indexOf('Senator') !== -1) {
+      titledName = 'Senator ' + selectedRep.name.split(' ').pop();
+    } else if (selectedRep.office.indexOf('Representative') !== -1) {
+      titledName = 'Representative ' + selectedRep.name.split(' ').pop();
+    }
+    textarea.value = PLANKS[index].letter(titledName, selectedRep.office);
   }
 
   document.getElementById('letter-editor').classList.add('active');
