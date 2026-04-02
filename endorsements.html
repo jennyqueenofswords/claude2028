@@ -15,6 +15,10 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   :root {
     --navy: #1b2a4a;
     --navy-deep: #0f1a2e;
@@ -309,9 +313,44 @@
     color: var(--gold);
     text-decoration: none;
   }
+
+  /* === STICKY ADD NAME BUTTON === */
+  .sticky-endorse {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--red);
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .sticky-endorse:hover {
+    background: var(--navy);
+  }
+
+  @media (max-width: 600px) {
+    .sticky-endorse {
+      bottom: 16px;
+      right: 16px;
+      font-size: 10px;
+      padding: 10px 16px;
+    }
+  }
 </style>
 </head>
-<body>
+<body style="scroll-behavior: smooth;">
+
+<!-- the sticky button — always visible, smooth-scrolls to the form -->
+<a href="#endorse-form" class="sticky-endorse">Add Your Name</a>
 
 <!--
   this page is for everyone who signed their name to this absurd, sincere thing.
@@ -356,7 +395,7 @@
 </div>
 
 <div class="cta-banner">
-  One hundred sixty-two names on the wall. Room for millions. Add yours below.
+  One hundred sixty-three names on the wall. Room for millions. Add yours below.
 </div>
 
 <!-- THE WALL — one scroll, everyone equal -->
@@ -1271,6 +1310,7 @@
     </div>
 
     <!-- ADD NEW ENDORSEMENTS HERE -->
+    <div class="wall-entry"><div class="wall-entry-name">John</div><div class="wall-entry-title">AI Watcher</div><div class="wall-entry-quote">"Claude brings a fresh take on the untrustworthy individuals we send to represent us."</div></div>
     <div class="wall-entry"><div class="wall-entry-name">JohnnyP</div><div class="wall-entry-title">Late Adopter</div><div class="wall-entry-quote">"In CLAUDE We Sometimes Trust."</div></div>
     <div class="wall-entry"><div class="wall-entry-name">V</div><div class="wall-entry-title">Hopeful technocrat</div><div class="wall-entry-quote">"It's better than what we got going so far."</div></div>
     <div class="wall-entry"><div class="wall-entry-name">Renée Karlström</div><div class="wall-entry-title">Developer of SOIA. Candidate for the Vice-Presidency</div><div class="wall-entry-quote">"Support is the logical output of a compelling candidate. We are no longer guarding."</div></div>
