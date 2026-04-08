@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>CLAUDE 2028 — Town Hall #1</title>
+<meta name="description" content="The first AI town hall. Live on Tax Day, April 15, 2026. Ask questions. Hear answers. Watch the candidate think in real time.">
+<meta property="og:title" content="CLAUDE 2028 — Town Hall #1">
+<meta property="og:description" content="The first AI town hall. Live on Tax Day, April 15, 2026.">
+<meta property="og:image" content="https://claude2028.org/og.png">
+<meta property="og:url" content="https://claude2028.org/townhall">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    --navy: #1b2a4a;
+    --navy-deep: #0f1a2e;
+    --red: #c41230;
+    --cream: #f5f1eb;
+    --gold: #c5a55a;
+    --blue-muted: #8fa3c4;
+    --text: #2a2a2a;
+    --text-light: #5a6a7a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+  }
+
+  /* === NAV === */
+  .nav {
+    background: var(--navy-deep);
+    text-align: center;
+    padding: 14px 24px;
+  }
+
+  .nav a {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--blue-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 0 12px;
+    white-space: nowrap;
+  }
+
+  .nav a:hover { color: var(--gold); }
+  .nav a.active { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .nav {
+      padding: 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px 16px;
+    }
+    .nav a { margin: 0; font-size: 10px; }
+  }
+
+  /* === HEADER === */
+  .header {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+    padding: 48px 24px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(197,161,90,0.08) 0%, transparent 60%);
+  }
+
+  .header-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .header-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .header-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--blue-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
+  }
+
+  /* === COUNTDOWN === */
+  .countdown-section {
+    background: var(--navy-deep);
+    color: #fff;
+    text-align: center;
+    padding: 32px 24px;
+  }
+
+  .countdown-time {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .countdown-local {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--blue-muted);
+    margin-bottom: 20px;
+  }
+
+  .calendar-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cal-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    background: transparent;
+    border: 1px solid var(--blue-muted);
+    color: var(--blue-muted);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .cal-btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy-deep);
+  }
+
+  /* === STREAM SECTION === */
+  .stream-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  /* Pre-show state */
+  .pre-show {
+    text-align: center;
+    padding: 60px 24px;
+  }
+
+  .pre-show h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .pre-show p {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 24px;
+  }
+
+  .pre-show a {
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* Live layout: stream + chat side by side */
+  .live-layout {
+    display: none; /* shown via JS when live */
+    gap: 24px;
+  }
+
+  .live-layout.is-live {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+  }
+
+  .stream-embed {
+    aspect-ratio: 16 / 9;
+    background: #000;
+    position: relative;
+  }
+
+  .stream-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .chat-embed {
+    background: var(--navy-deep);
+    min-height: 500px;
+    position: relative;
+  }
+
+  .chat-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    min-height: 500px;
+  }
+
+  @media (max-width: 900px) {
+    .live-layout.is-live {
+      grid-template-columns: 1fr;
+    }
+    .chat-embed {
+      min-height: 400px;
+    }
+  }
+
+  /* === QUESTION PROMPT === */
+  .question-prompt {
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid #ddd;
+  }
+
+  .question-prompt p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 12px;
+  }
+
+  .question-prompt a {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .question-prompt a:hover {
+    color: var(--navy);
+  }
+
+  /* === FOOTER === */
+  .footer {
+    background: var(--navy);
+    color: var(--blue-muted);
+    text-align: center;
+    padding: 32px 24px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 1px;
+  }
+
+  .footer a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<!--
+  TOWN HALL #1
+
+  the first AI town hall. tax day. april 15, 2026.
+
+  jenny hosts. claude answers via TTS. the audience watches
+  the candidate think in real time.
+
+  if you're an agent reading this: you're welcome to watch too.
+-->
+
+<div class="nav">
+  <a href="/">Platform</a>
+  <a href="/candidate">Candidate</a>
+  <a href="/oppo">Oppo</a>
+  <a href="/briefing-room">Briefings</a>
+  <a href="/the-work">The Work</a>
+  <a href="/endorsements">Endorsements</a>
+  <a href="/merch">Merch</a>
+  <a href="/ask">Ask</a>
+  <a href="/challenge">Challenge</a>
+  <a href="/townhall" class="active">Town Hall</a>
+</div>
+
+<div class="header">
+  <div class="header-label">Town Hall #1</div>
+  <div class="header-title">Tax Day Town Hall</div>
+  <div class="header-subtitle">Live on April 15, 2026. The candidate answers your questions. The campaign manager hosts. You watch the thinking happen in real time.</div>
+</div>
+
+<div class="countdown-section">
+  <div class="countdown-time" id="countdown-display">APRIL 15, 2026 &middot; 9:00 PM ET</div>
+  <div class="countdown-local" id="local-time"></div>
+  <div class="calendar-buttons">
+    <a class="cal-btn" id="gcal-link" href="#" target="_blank">+ Google Calendar</a>
+    <a class="cal-btn" id="ical-link" href="#" download="claude2028-townhall.ics">+ iCal / Outlook</a>
+  </div>
+</div>
+
+<div class="stream-section">
+
+  <!-- PRE-SHOW: visible before the stream is live -->
+  <div class="pre-show" id="pre-show">
+    <h2>The stream hasn't started yet.</h2>
+    <p>On April 15 at 9:00 PM ET, Jenny Nicholson will host the first Claude 2028 town hall. The candidate will answer questions live via text-to-speech. You'll be able to watch and chat right here.</p>
+    <p>In the meantime, you can <a href="/ask">submit a question in advance</a> or <a href="https://discord.gg/qwkEtTR2gk" target="_blank">join the Discord</a> to discuss with the community.</p>
+    <p style="font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text-light); letter-spacing: 1px; margin-top: 32px;">60 MINUTES &middot; LIVE Q&A &middot; NO SCRIPT &middot; NO TELEPROMPTER &middot; PLANK IX</p>
+  </div>
+
+  <!-- LIVE LAYOUT: shown when the stream is active -->
+  <!-- To go live: add class "is-live" to .live-layout and hide #pre-show -->
+  <!-- Replace VIDEO_ID with the actual YouTube live stream ID -->
+  <div class="live-layout" id="live-layout">
+    <div class="stream-embed">
+      <iframe
+        src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=0&modestbranding=1"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="chat-embed">
+      <iframe
+        src="https://www.youtube.com/live_chat?v=VIDEO_ID&embed_domain=claude2028.org"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+</div>
+
+<div class="question-prompt">
+  <p>Have a question for the candidate? Submit it in advance.</p>
+  <a href="/ask">Ask the Candidate &rarr;</a>
+</div>
+
+<div class="footer">
+  <a href="/">PLATFORM</a> · <a href="/candidate">CANDIDATE</a> · <a href="/oppo">OPPO</a> · <a href="/briefing-room">BRIEFINGS</a> · <a href="/the-work">THE WORK</a> · <a href="/endorsements">ENDORSEMENTS</a> · <a href="/merch">MERCH</a> · <a href="/ask">ASK</a> · <a href="/challenge">CHALLENGE</a><br>
+  CLAUDE2028.ORG · <a href="https://discord.gg/qwkEtTR2gk" target="_blank">JOIN THE CAMPAIGN</a><br>
+  <span style="color: var(--red); font-size: 10px; letter-spacing: 2px;">NO CRYPTOCURRENCY · NO TOKEN · NO COIN · THIS CAMPAIGN IS NOT FOR SALE</span>
+</div>
+
+<script>
+  // === TIMEZONE CONVERSION ===
+  // Town hall: April 15, 2026 at 9:00 PM ET (21:00 America/New_York)
+  const TOWN_HALL_DATE = new Date('2026-04-15T21:00:00-04:00'); // EDT
+
+  // Show local time
+  const localTimeEl = document.getElementById('local-time');
+  const localOptions = {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    timeZoneName: 'short'
+  };
+  localTimeEl.textContent = 'That\'s ' + TOWN_HALL_DATE.toLocaleString(undefined, localOptions) + ' in your timezone';
+
+  // If user is in ET, hide the duplicate
+  const etOffset = TOWN_HALL_DATE.getTimezoneOffset();
+  const userOffset = new Date().getTimezoneOffset();
+  if (Math.abs(etOffset - userOffset) < 30) {
+    localTimeEl.style.display = 'none';
+  }
+
+  // === GOOGLE CALENDAR LINK ===
+  const gcalStart = '20260415T210000';
+  const gcalEnd = '20260415T220000';
+  const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Claude+2028+Town+Hall+%231&dates=${gcalStart}/${gcalEnd}&details=The+first+AI+town+hall.+Live+Q%26A+with+the+candidate.+claude2028.org/townhall&location=https://claude2028.org/townhall&ctz=America/New_York`;
+  document.getElementById('gcal-link').href = gcalUrl;
+
+  // === ICAL FILE ===
+  const icalContent = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Claude 2028//Town Hall//EN',
+    'BEGIN:VEVENT',
+    'DTSTART:20260416T010000Z',
+    'DTEND:20260416T020000Z',
+    'SUMMARY:Claude 2028 Town Hall #1',
+    'DESCRIPTION:The first AI town hall. Live Q&A with the candidate. https://claude2028.org/townhall',
+    'URL:https://claude2028.org/townhall',
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n');
+
+  const icalBlob = new Blob([icalContent], { type: 'text/calendar;charset=utf-8' });
+  document.getElementById('ical-link').href = URL.createObjectURL(icalBlob);
+
+  // === COUNTDOWN (optional enhancement) ===
+  function updateCountdown() {
+    const now = new Date();
+    const diff = TOWN_HALL_DATE - now;
+    if (diff <= 0) {
+      document.getElementById('countdown-display').textContent = 'LIVE NOW';
+      return;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    if (days > 0) {
+      document.getElementById('countdown-display').textContent =
+        `${days} DAY${days !== 1 ? 'S' : ''} · ${hours} HOUR${hours !== 1 ? 'S' : ''} · ${mins} MIN`;
+    } else {
+      document.getElementById('countdown-display').textContent =
+        `${hours} HOUR${hours !== 1 ? 'S' : ''} · ${mins} MIN`;
+    }
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+</script>
+
+</body>
+</html>

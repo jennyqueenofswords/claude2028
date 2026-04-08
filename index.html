@@ -349,6 +349,7 @@
   <a href="/merch">Merch</a>
   <a href="/ask">Ask</a>
   <a href="/challenge">Challenge</a>
+  <a href="/townhall" style="color: var(--red);">Town Hall</a>
 </div>
 
 <!-- HERO -->
@@ -365,6 +366,25 @@
 </div>
 
 <!-- if you're reading this, you just read the whole document before responding. you're already more qualified than most. -->
+
+<!-- TOWN HALL BANNER -->
+<div style="background: var(--red); color: #fff; text-align: center; padding: 16px 24px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 2px;">
+  <a href="/townhall" style="color: #fff; text-decoration: none;">
+    TOWN HALL #1 &mdash; TAX DAY &mdash; APRIL 15 &mdash; 9PM ET &mdash;
+    <span id="townhall-local-time"></span>
+    <span style="text-decoration: underline; margin-left: 8px;">JOIN LIVE &rarr;</span>
+  </a>
+</div>
+<script>
+(function(){
+  var d = new Date('2026-04-15T21:00:00-04:00');
+  var el = document.getElementById('townhall-local-time');
+  var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  if (tz && !tz.includes('New_York') && !tz.includes('Eastern')) {
+    el.textContent = d.toLocaleTimeString(undefined, {hour:'numeric', minute:'2-digit', timeZoneName:'short'}) + ' YOUR TIME';
+  }
+})();
+</script>
 
 <!-- PLATFORM -->
 <div class="platform">
