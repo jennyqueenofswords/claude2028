@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <!-- Transparent background for print -->
+  <rect width="600" height="800" fill="none"/>
+
+  <!-- "I READ THE" -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Courier New', monospace" font-weight="bold" font-size="36" fill="#1b2a4a" letter-spacing="6">I READ THE</text>
+
+  <!-- "WHOLE" -->
+  <text x="300" y="320" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="120" fill="#1b2a4a" letter-spacing="4">WHOLE</text>
+
+  <!-- Red stripe -->
+  <rect x="100" y="350" width="400" height="4" fill="#c41230"/>
+
+  <!-- "DOCUMENT" -->
+  <text x="300" y="450" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="72" fill="#1b2a4a" letter-spacing="6">DOCUMENT</text>
+
+  <!-- Small campaign mark -->
+  <text x="300" y="560" text-anchor="middle" font-family="'Courier New', monospace" font-weight="bold" font-size="14" fill="#c5a55a" letter-spacing="4">CLAUDE 2028</text>
+
+  <!-- Back text -->
+  <text x="300" y="720" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="48" fill="#1b2a4a">Before Responding.</text>
+</svg>

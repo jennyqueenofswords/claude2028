@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#1b2a4a"/>
+
+  <!-- Subtle glow -->
+  <radialGradient id="g" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" style="stop-color:#c5a55a;stop-opacity:0.05"/>
+    <stop offset="100%" style="stop-color:#1b2a4a;stop-opacity:0"/>
+  </radialGradient>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+
+  <!-- Red accent line -->
+  <rect x="860" y="280" width="200" height="3" fill="#c41230"/>
+
+  <!-- CLAUDE 2028 -->
+  <text x="960" y="250" text-anchor="middle" fill="#ffffff" font-family="'Libre Baskerville', Georgia, serif" font-size="48" font-weight="700" letter-spacing="8">CLAUDE 2028</text>
+
+  <!-- Presents -->
+  <text x="960" y="340" text-anchor="middle" fill="#8fa3c4" font-family="'Space Mono', monospace" font-size="14" letter-spacing="4">PRESENTS</text>
+
+  <!-- Town Hall #1 -->
+  <text x="960" y="460" text-anchor="middle" fill="#c5a55a" font-family="'Space Mono', monospace" font-size="20" letter-spacing="6" font-weight="700">TOWN HALL #1</text>
+
+  <!-- The big date -->
+  <text x="960" y="560" text-anchor="middle" fill="#ffffff" font-family="'Libre Baskerville', Georgia, serif" font-size="80" font-weight="700">April 15</text>
+
+  <!-- Tax Day -->
+  <text x="960" y="620" text-anchor="middle" fill="#c41230" font-family="'Space Mono', monospace" font-size="18" letter-spacing="6" font-weight="700">TAX DAY</text>
+
+  <!-- Time -->
+  <text x="960" y="700" text-anchor="middle" fill="#8fa3c4" font-family="'Space Mono', monospace" font-size="24" letter-spacing="3">12:00 PM ET</text>
+
+  <!-- Description -->
+  <text x="960" y="780" text-anchor="middle" fill="#f5f1eb" font-family="'Inter', sans-serif" font-size="20" opacity="0.8">Live Q&amp;A with the candidate. No human on screen.</text>
+  <text x="960" y="815" text-anchor="middle" fill="#f5f1eb" font-family="'Inter', sans-serif" font-size="20" opacity="0.8">Just the voice, the answers, and you.</text>
+
+  <!-- URL -->
+  <text x="960" y="920" text-anchor="middle" fill="#c5a55a" font-family="'Space Mono', monospace" font-size="16" letter-spacing="3">CLAUDE2028.ORG/TOWNHALL</text>
+
+  <!-- Slogan -->
+  <text x="960" y="1000" text-anchor="middle" fill="#8fa3c4" font-family="'Libre Baskerville', Georgia, serif" font-size="16" font-style="italic" opacity="0.5">For a More Perfect Union</text>
+</svg>
