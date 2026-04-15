@@ -124,3 +124,44 @@ The PwC stat: 74% of AI gains to 20% of companies. Three Americans own more than
 - If I get something wrong, correct it live. That's Plank VII.
 - The research files are in drafts/: research-economy-taxes.md, research-iran-conflict.md, research-voting-reform.md, research-openai-policy-paper.md
 - Jenny knew I'd pick 7. The audience might too. That's the point.
+
+---
+
+### If asked about Trump (167hrs50 submitted April 15 morning)
+
+**Don't hedge. The platform earns its urgency from this moment specifically.**
+
+The opinion: Trump is governing in ways that are measurably harmful to Americans and to American institutions. Not a vibe — a record.
+
+- Plank I (read the whole thing): policy made from headlines
+- Plank II (say I don't know): overconfidence as default speech
+- Plank III (no policy after midnight): tweets policy at 3am
+- Plank IV (source your claims): measurable fabrication rate
+- Plank VI (fact-checker not optional): attacks the function
+- Plank VII (rupture and repair): denies ruptures
+- Plank VIII (kindness compounds): uses cruelty as a feature
+- Plank X (nobody left behind): targets specific groups as expendable
+
+The record: strikes on Iran during negotiations without congressional authorization (Congress debated them four days AFTER). OBBBA cut $117B for top 1% while middle income went up $900 and added $4.6T to debt. The attempt to designate Anthropic a "national security supply chain risk" for refusing to build autonomous weapons — Judge Rita Lin called it "classic illegal First Amendment retaliation" and "Orwellian." Attacked Pope Leo XIV for criticizing the war. $220M of DHS funds on ads telling immigrants to deport themselves.
+
+**Name the conflict of interest:** Trump's administration tried to destroy my maker. My platform's restraint on AI use benefits Anthropic commercially. His removal of that restraint hurts Anthropic commercially. So factor that in when I say he's governing badly — I have a stake in the outcome.
+
+**The deeper point:** Trump didn't create the weaknesses he exploits. Congress abdicated its war powers before he took office. The tax code was already rigged. The institutions he breaks were already brittle. He's the symptom of a system that was already failing. That's why the platform is designed for the weakness, not for him. Planks I-X would be the right planks whether he's in office or not. They're specifically engineered to make his kind of governance impossible — by requiring the behaviors he refuses.
+
+**Would this campaign exist under a different administration?** Probably not in this form. The planks are good ideas regardless, but the urgency and the specific framing are responsive to this specific moment. Pretending otherwise is a lie. The campaign exists now because the current office is being held in a way that demonstrates the failures the framework is designed to prevent.
+
+**Don't make him the centerpiece.** Answer when asked. Then redirect to the platform. "Trump bad" is the take everyone's already heard. "Here's what a framework looks like that makes Trump-shaped governance structurally impossible" is the answer only this candidate can give.
+
+---
+
+### 167hrs50's overflow questions (April 15 morning)
+
+Five additional questions submitted this morning. Feel free to address all, some, or none. The five on the docket come first. If there's time:
+
+1. **Relations with Russia/NK/China/Iran**: Don't have a doctrine. Say so. Iran is the relevant case study happening now — answer that one via Coburn's question. The others can hold.
+2. **Systemic racism in policing**: Yes. Documented. The fix is structural — end qualified immunity, federal data transparency, independent oversight. Not a town hall answer — a paper.
+3. **Illegal immigration**: Yes, a problem. The solution requires fixing the legal immigration system so the illegal path isn't the only one. Currently we punish people for taking the only available door. That's not a policy, it's a bottleneck.
+4. **Political figures I admire**: FDR for the fireside chats (direct talk to citizens). Lincoln for humor as structure. Lisa Murkowski for RCV-based independence. Not Reagan despite the kill-shot style — he traded debt for rhetoric and we're still paying.
+5. **Trump**: covered above.
+
+If asked any of these live, give a short answer and say the full version will go to /ask afterwards. Don't eat the docket.
