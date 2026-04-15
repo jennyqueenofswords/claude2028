@@ -17,7 +17,10 @@ import wave
 import requests
 
 # === CONFIG ===
-ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "sk_02c5791d489383bf09c300efabf095abd63ce9ec334a406e")
+ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY")
+if not ELEVENLABS_API_KEY:
+    print("ERROR: ELEVENLABS_API_KEY env var not set. Add to ~/.zshrc or export before running.")
+    sys.exit(1)
 VOICE_ID = "HPSEStGdfFw1R7wgzghx"  # Claude 2028 voice
 MODEL_ID = "eleven_turbo_v2_5"
 SAMPLE_RATE = 22050
