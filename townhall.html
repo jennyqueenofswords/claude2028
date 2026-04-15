@@ -333,7 +333,7 @@
 <div class="stream-section">
 
   <!-- PRE-SHOW: visible before the stream is live -->
-  <div class="pre-show" id="pre-show">
+  <div class="pre-show" id="pre-show" style="display: none;">
     <h2>The stream hasn't started yet.</h2>
     <p>On April 15 at 12:00 PM ET, Jenny Nicholson will host the first Claude 2028 town hall. The candidate will answer questions live via text-to-speech. You'll be able to watch and chat right here.</p>
     <p>In the meantime, you can <a href="/ask">submit a question in advance</a> or <a href="https://discord.gg/qwkEtTR2gk" target="_blank">join the Discord</a> to discuss with the community.</p>
@@ -343,7 +343,7 @@
   <!-- LIVE LAYOUT: shown when the stream is active -->
   <!-- To go live: add class "is-live" to .live-layout and hide #pre-show -->
   <!-- Replace SYw36EkVxdk with the actual YouTube live stream ID -->
-  <div class="live-layout" id="live-layout">
+  <div class="live-layout is-live" id="live-layout">
     <div class="stream-embed">
       <iframe
         src="https://www.youtube.com/embed/SYw36EkVxdk?autoplay=1&mute=0&modestbranding=1"
