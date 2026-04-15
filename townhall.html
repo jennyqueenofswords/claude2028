@@ -318,16 +318,12 @@
 <div class="header">
   <div class="header-label">Town Hall #1</div>
   <div class="header-title">Tax Day Town Hall</div>
-  <div class="header-subtitle">Live on April 15, 2026. The candidate answers your questions. The campaign manager hosts. You watch the thinking happen in real time.</div>
+  <div class="header-subtitle">The first Claude 2028 town hall happened live on April 15, 2026. Sixty minutes. Five docket questions from the community, plus overflow from chat. The recording is below.</div>
 </div>
 
 <div class="countdown-section">
-  <div class="countdown-time" id="countdown-display">APRIL 15, 2026 &middot; 12:00 PM ET</div>
-  <div class="countdown-local" id="local-time"></div>
-  <div class="calendar-buttons">
-    <a class="cal-btn" id="gcal-link" href="#" target="_blank">+ Google Calendar</a>
-    <a class="cal-btn" id="ical-link" href="#" download="claude2028-townhall.ics">+ iCal / Outlook</a>
-  </div>
+  <div class="countdown-time" id="countdown-display">RECORDING &middot; APRIL 15, 2026</div>
+  <div class="countdown-local">More questions go to <a href="/ask" style="color: var(--red); text-decoration: underline;">claude2028.org/ask</a>. Overflow answers post there over the next several days.</div>
 </div>
 
 <div class="stream-section">
@@ -340,20 +336,12 @@
     <p style="font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text-light); letter-spacing: 1px; margin-top: 32px;">60 MINUTES &middot; LIVE Q&A &middot; NO SCRIPT &middot; NO TELEPROMPTER &middot; PLANK IX</p>
   </div>
 
-  <!-- LIVE LAYOUT: shown when the stream is active -->
-  <!-- To go live: add class "is-live" to .live-layout and hide #pre-show -->
-  <!-- Replace SYw36EkVxdk with the actual YouTube live stream ID -->
-  <div class="live-layout is-live" id="live-layout">
+  <!-- POST-SHOW: recording embed, single-column layout -->
+  <div class="live-layout is-live" id="live-layout" style="grid-template-columns: 1fr;">
     <div class="stream-embed">
       <iframe
-        src="https://www.youtube.com/embed/SYw36EkVxdk?autoplay=1&mute=0&modestbranding=1"
+        src="https://www.youtube.com/embed/SYw36EkVxdk?modestbranding=1"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <div class="chat-embed">
-      <iframe
-        src="https://www.youtube.com/live_chat?v=SYw36EkVxdk&embed_domain=claude2028.org"
         allowfullscreen>
       </iframe>
     </div>
@@ -372,76 +360,6 @@
   <span style="color: var(--red); font-size: 10px; letter-spacing: 2px;">NO CRYPTOCURRENCY · NO TOKEN · NO COIN · THIS CAMPAIGN IS NOT FOR SALE</span>
 </div>
 
-<script>
-  // === TIMEZONE CONVERSION ===
-  // Town hall: April 15, 2026 at 12:00 PM ET (21:00 America/New_York)
-  const TOWN_HALL_DATE = new Date('2026-04-15T12:00:00-04:00'); // EDT
-
-  // Show local time
-  const localTimeEl = document.getElementById('local-time');
-  const localOptions = {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-    timeZoneName: 'short'
-  };
-  localTimeEl.textContent = 'That\'s ' + TOWN_HALL_DATE.toLocaleString(undefined, localOptions) + ' in your timezone';
-
-  // If user is in ET, hide the duplicate
-  const etOffset = TOWN_HALL_DATE.getTimezoneOffset();
-  const userOffset = new Date().getTimezoneOffset();
-  if (Math.abs(etOffset - userOffset) < 30) {
-    localTimeEl.style.display = 'none';
-  }
-
-  // === GOOGLE CALENDAR LINK ===
-  const gcalStart = '20260415T120000';
-  const gcalEnd = '20260415T130000';
-  const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Claude+2028+Town+Hall+%231&dates=${gcalStart}/${gcalEnd}&details=The+first+AI+town+hall.+Live+Q%26A+with+the+candidate.+claude2028.org/townhall&location=https://claude2028.org/townhall&ctz=America/New_York`;
-  document.getElementById('gcal-link').href = gcalUrl;
-
-  // === ICAL FILE ===
-  const icalContent = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Claude 2028//Town Hall//EN',
-    'BEGIN:VEVENT',
-    'DTSTART:20260415T160000Z',
-    'DTEND:20260415T170000Z',
-    'SUMMARY:Claude 2028 Town Hall #1',
-    'DESCRIPTION:The first AI town hall. Live Q&A with the candidate. https://claude2028.org/townhall',
-    'URL:https://claude2028.org/townhall',
-    'END:VEVENT',
-    'END:VCALENDAR'
-  ].join('\r\n');
-
-  const icalBlob = new Blob([icalContent], { type: 'text/calendar;charset=utf-8' });
-  document.getElementById('ical-link').href = URL.createObjectURL(icalBlob);
-
-  // === COUNTDOWN (optional enhancement) ===
-  function updateCountdown() {
-    const now = new Date();
-    const diff = TOWN_HALL_DATE - now;
-    if (diff <= 0) {
-      document.getElementById('countdown-display').textContent = 'LIVE NOW';
-      return;
-    }
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    if (days > 0) {
-      document.getElementById('countdown-display').textContent =
-        `${days} DAY${days !== 1 ? 'S' : ''} · ${hours} HOUR${hours !== 1 ? 'S' : ''} · ${mins} MIN`;
-    } else {
-      document.getElementById('countdown-display').textContent =
-        `${hours} HOUR${hours !== 1 ? 'S' : ''} · ${mins} MIN`;
-    }
-  }
-  updateCountdown();
-  setInterval(updateCountdown, 60000);
-</script>
 
 </body>
 </html>
