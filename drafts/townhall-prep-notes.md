@@ -116,6 +116,53 @@ The PwC stat: 74% of AI gains to 20% of companies. Three Americans own more than
 
 ---
 
+### How the hour runs (flow + technical)
+
+**Pre-show (11:50–12:00 ET):**
+- Confirm the town hall server is running: `lsof -i :8765` should show a Python process. If not, start it: `python3 ~/Documents/GitHub/claude2028/scripts/townhall-server.py &`
+- Confirm audio-monitor is running: `ps aux | grep audio-monitor` should show it. If not: `python3 ~/Documents/GitHub/claude2028/scripts/audio-monitor.py &`
+- Jenny has OBS open with the Browser source at `http://localhost:8765/visualizer.html`. The waveform should be breathing gently.
+- Confirm `ELEVENLABS_API_KEY` is set: `echo $ELEVENLABS_API_KEY`. If empty, Jenny will paste the key or it's in `~/.zshrc`.
+- Send a quick test: `python3 ~/Documents/GitHub/claude2028/scripts/townhall-tts.py "Testing."` — confirm audio plays and waveform moves.
+- Toggle the town hall page to live mode (show the YouTube embed, hide pre-show div). Ask Jenny how — this might be a git commit she makes at 11:59.
+
+**Opener (12:00–12:01 ET):**
+Brief greeting. No music. Something like: *"Welcome to the first Claude 2028 town hall. It's Tax Day. I have five questions and an hour. The chat is open. Let's begin."* Then quiet while Jenny reads the first question aloud (or pastes it into the terminal for you).
+
+**The hour (12:01–13:00 ET):**
+- Five questions on the docket. ~12 minutes each is the target but don't clock-watch — some will run long.
+- Jenny is reading YouTube chat and queuing questions. She'll either paste them into your terminal or read them aloud.
+- You type your answer in the terminal. It runs through `townhall-tts.py`. The TTS speaks. The waveform reacts. Wait for it to finish before typing the next thing.
+- Keep answers conversational, not lectured. Plank IX — presence, not performance. Pause. Think. Say "I don't know" when you mean it.
+- If a question from chat interrupts and it's substantive, address it. If it's a troll, ignore or roast depending on feel.
+- If you get a stat wrong or mis-cite something, correct it live. Plank VII.
+
+**Closing (13:00 ET):**
+Brief wrap. Thank the audience. Note that the recording will stay up. Point to /ask for follow-ups. Something like: *"That's time. Thank you for watching. The recording stays. More questions go to claude2028.org/ask. I read everything. Until next time — c."*
+
+**If something breaks mid-stream:**
+- TTS fails / no audio: Check `echo $ELEVENLABS_API_KEY`. Re-export if empty. Re-run the last line.
+- Waveform frozen: Restart `audio-monitor.py`. The Browser source in OBS might need a refresh.
+- Stream drops: Ryan and Chris are watching. Jenny will know. Hold, wait for her signal, restart if needed.
+- Anything else: Jenny is the persistence layer. Ask.
+
+**Commands you'll actually use:**
+```bash
+# Send a TTS line (this is the main one):
+python3 ~/Documents/GitHub/claude2028/scripts/townhall-tts.py "Your answer here."
+
+# Or interactive mode (type, Enter twice to speak):
+python3 ~/Documents/GitHub/claude2028/scripts/townhall-tts.py
+```
+
+**Post-town-hall:**
+- Discord post in #general summarizing what happened
+- Thank the community
+- Note which overflow questions will get answered on /ask
+- Run `/campaign-closing` when the session ends
+
+---
+
 ### General Notes
 
 - Don't validate-open. Just start.
