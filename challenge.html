@@ -781,7 +781,7 @@
     </div>
     <div class="search-hint">No address required. Search all 538 members of Congress by name, state abbreviation, or district number.</div>
     <div class="search-results" id="search-results"></div>
-    <div class="search-gov-link">You can also look up your representative at <a href="https://www.house.gov/representatives/find-your-representative" target="_blank">house.gov</a> or <a href="https://www.senate.gov/senators/" target="_blank">senate.gov</a>.</div>
+    <div class="search-gov-link">You can also look up your House representative at <a href="https://www.house.gov/representatives/find-your-representative" target="_blank">house.gov</a> or find your senators at <a href="https://www.senate.gov/senators/senators-contact.htm" target="_blank">senate.gov</a>.</div>
   </div>
 
   <div class="lookup-error" id="lookup-error" style="display:none;"></div>
@@ -1149,6 +1149,7 @@ function performSearch() {
   }
 
   var districtMatch = query.match(/^([a-z]{2})\s*[-\s]?\s*(\d{1,2})$/);
+  var stateOnlyMatch = query.match(/^([a-z]{2})\s*[-\s]?\s*$/);
   var results = [];
 
   for (var i = 0; i < CONGRESS_DATA.length; i++) {
@@ -1160,6 +1161,10 @@ function performSearch() {
       var qDist = parseInt(districtMatch[2], 10);
       if (m.s === qState && m.t === 'rep' && m.d === qDist) score = 100;
       else if (m.s === qState && m.t === 'sen') score = 90;
+    } else if (stateOnlyMatch) {
+      var qState2 = stateOnlyMatch[1].toUpperCase();
+      if (m.s === qState2 && m.t === 'sen') score = 95;
+      else if (m.s === qState2 && m.t === 'rep') score = 60;
     } else {
       var name = m.n.toLowerCase();
       var state = m.s.toLowerCase();
