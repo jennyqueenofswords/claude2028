@@ -240,6 +240,155 @@
     }
   }
 
+  /* === LOOKUP TABS === */
+  .lookup-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 24px;
+  }
+
+  .lookup-tab {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--text-light);
+    border: 2px solid #ddd;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .lookup-tab:first-child { border-radius: 6px 0 0 6px; }
+  .lookup-tab:last-child { border-radius: 0 6px 6px 0; border-left: none; }
+
+  .lookup-tab.active {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+  }
+
+  .lookup-tab:hover:not(.active) {
+    background: rgba(27, 42, 74, 0.06);
+    border-color: var(--navy);
+    color: var(--navy);
+  }
+
+  .lookup-panel { display: none; }
+  .lookup-panel.active { display: block; }
+
+  /* === SEARCH PANEL === */
+  .search-form {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .search-form input {
+    flex: 1;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    padding: 14px 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    color: var(--text);
+  }
+
+  .search-form input:focus {
+    outline: none;
+    border-color: var(--navy);
+  }
+
+  .search-hint {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .search-results {
+    margin-top: 16px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .search-result {
+    background: #fff;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: box-shadow 0.15s;
+  }
+
+  .search-result:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .search-result-info { flex: 1; }
+
+  .search-result-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--navy);
+  }
+
+  .search-result-detail {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  .search-result-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .search-result-btn:hover { background: var(--navy-deep); }
+
+  .search-gov-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  .search-gov-link a {
+    color: var(--navy);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .search-form {
+      flex-direction: column;
+    }
+    .lookup-tab {
+      font-size: 10px;
+      padding: 10px 14px;
+    }
+  }
+
   /* === REP CARDS === */
   .reps {
     max-width: 700px;
@@ -605,16 +754,36 @@
   <div class="scoreboard-table" id="scoreboard-table"></div>
 </div>
 
-<!-- ADDRESS LOOKUP -->
+<!-- FIND YOUR REPS -->
 <div class="lookup">
   <div class="lookup-label">Step 1</div>
   <div class="lookup-title">Find Your Representatives</div>
-  <div class="lookup-form" id="lookup-form">
-    <input type="text" id="address-input" placeholder="Enter your full street address" autocomplete="street-address">
-    <button type="button" id="lookup-btn" onclick="lookupReps()">Find Reps</button>
+
+  <div class="lookup-tabs">
+    <button class="lookup-tab active" onclick="switchTab('address')">By Address</button>
+    <button class="lookup-tab" onclick="switchTab('search')">By Name or District</button>
   </div>
-  <div class="lookup-privacy">Your address is used only to find your congressional district. It is sent to the U.S. Census Bureau's geocoder through our server. We never store it.</div>
-  <div class="lookup-why">Why not just a zip code? Zip codes split across congressional districts. Your street address is the only way to get accurate results.</div>
+
+  <!-- ADDRESS PANEL -->
+  <div class="lookup-panel active" id="panel-address">
+    <div class="lookup-form" id="lookup-form">
+      <input type="text" id="address-input" placeholder="Enter your full street address" autocomplete="street-address">
+      <button type="button" id="lookup-btn" onclick="lookupReps()">Find Reps</button>
+    </div>
+    <div class="lookup-privacy">Your address is sent to the U.S. Census Bureau's geocoder via a Google Apps Script proxy to determine your district. We never store it. If you prefer not to enter your address, use the "By Name or District" tab.</div>
+    <div class="lookup-why">Why not just a zip code? Zip codes split across congressional districts. Your street address is the only way to get accurate results.</div>
+  </div>
+
+  <!-- SEARCH PANEL -->
+  <div class="lookup-panel" id="panel-search">
+    <div class="search-form">
+      <input type="text" id="search-input" placeholder="Search by name, state, or district (e.g. NC-04, Foushee, Texas)">
+    </div>
+    <div class="search-hint">No address required. Search all 538 members of Congress by name, state abbreviation, or district number.</div>
+    <div class="search-results" id="search-results"></div>
+    <div class="search-gov-link">You can also look up your representative at <a href="https://www.house.gov/representatives/find-your-representative" target="_blank">house.gov</a> or <a href="https://www.senate.gov/senators/" target="_blank">senate.gov</a>.</div>
+  </div>
+
   <div class="lookup-error" id="lookup-error" style="display:none;"></div>
 </div>
 
@@ -939,6 +1108,151 @@ function lookupReps() {
 document.getElementById('address-input').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') lookupReps();
 });
+
+// === TAB SWITCHING ===
+function switchTab(tab) {
+  var tabs = document.querySelectorAll('.lookup-tab');
+  var panels = document.querySelectorAll('.lookup-panel');
+  tabs.forEach(function(t) { t.classList.remove('active'); });
+  panels.forEach(function(p) { p.classList.remove('active'); });
+  if (tab === 'address') {
+    tabs[0].classList.add('active');
+    document.getElementById('panel-address').classList.add('active');
+  } else {
+    tabs[1].classList.add('active');
+    document.getElementById('panel-search').classList.add('active');
+    document.getElementById('search-input').focus();
+  }
+  document.getElementById('lookup-error').style.display = 'none';
+}
+
+// === SEARCH BY NAME/DISTRICT ===
+var searchInput = document.getElementById('search-input');
+var searchTimeout = null;
+
+searchInput.addEventListener('input', function() {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(function() { performSearch(); }, 200);
+});
+
+searchInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') { clearTimeout(searchTimeout); performSearch(); }
+});
+
+function performSearch() {
+  var query = searchInput.value.trim().toLowerCase();
+  var container = document.getElementById('search-results');
+
+  if (!query || !CONGRESS_DATA) {
+    container.innerHTML = '';
+    return;
+  }
+
+  var districtMatch = query.match(/^([a-z]{2})\s*[-\s]?\s*(\d{1,2})$/);
+  var results = [];
+
+  for (var i = 0; i < CONGRESS_DATA.length; i++) {
+    var m = CONGRESS_DATA[i];
+    var score = 0;
+
+    if (districtMatch) {
+      var qState = districtMatch[1].toUpperCase();
+      var qDist = parseInt(districtMatch[2], 10);
+      if (m.s === qState && m.t === 'rep' && m.d === qDist) score = 100;
+      else if (m.s === qState && m.t === 'sen') score = 90;
+    } else {
+      var name = m.n.toLowerCase();
+      var state = m.s.toLowerCase();
+      var stateFull = getStateName(m.s).toLowerCase();
+
+      if (name.indexOf(query) !== -1) score = 80;
+      else if (state === query) score = 70;
+      else if (stateFull.indexOf(query) !== -1) score = 60;
+
+      if (score > 0 && name.indexOf(query) === 0) score += 10;
+    }
+
+    if (score > 0) {
+      results.push({ member: m, score: score });
+    }
+  }
+
+  results.sort(function(a, b) { return b.score - a.score; });
+  results = results.slice(0, 20);
+
+  if (results.length === 0) {
+    container.innerHTML = '<div class="search-hint" style="margin-top:8px;">No results found. Try a state abbreviation (NC), district (NC-04), or representative name.</div>';
+    return;
+  }
+
+  var html = '';
+  for (var j = 0; j < results.length; j++) {
+    var mem = results[j].member;
+    var office = mem.t === 'sen'
+      ? 'U.S. Senator, ' + mem.s
+      : 'U.S. Representative, ' + mem.s + '-' + (mem.d < 10 ? '0' : '') + mem.d;
+    var partyShort = mem.p === 'Republican' ? 'R' : mem.p === 'Democrat' ? 'D' : mem.p === 'Independent' ? 'I' : mem.p.charAt(0);
+
+    html += '<div class="search-result" onclick="selectSearchResult(' + j + ')">' +
+      '<div class="search-result-info">' +
+        '<div class="search-result-name">' + mem.n + ' (' + partyShort + ')</div>' +
+        '<div class="search-result-detail">' + office + '</div>' +
+      '</div>' +
+      '<button class="search-result-btn">Challenge</button>' +
+    '</div>';
+  }
+  container.innerHTML = html;
+
+  window._searchResults = results;
+}
+
+function selectSearchResult(index) {
+  var mem = window._searchResults[index].member;
+  var office = mem.t === 'sen'
+    ? 'U.S. Senator, ' + mem.s
+    : 'U.S. Representative, ' + mem.s + '-' + (mem.d < 10 ? '0' : '') + mem.d;
+
+  repsData = [{
+    name: mem.n,
+    office: office,
+    party: mem.p,
+    url: mem.u || null,
+    state: mem.s
+  }];
+
+  // Also add the state's senators if selecting a rep, or the rep info note if selecting a senator
+  if (mem.t === 'rep') {
+    for (var i = 0; i < CONGRESS_DATA.length; i++) {
+      if (CONGRESS_DATA[i].s === mem.s && CONGRESS_DATA[i].t === 'sen') {
+        repsData.push({
+          name: CONGRESS_DATA[i].n,
+          office: 'U.S. Senator, ' + mem.s,
+          party: CONGRESS_DATA[i].p,
+          url: CONGRESS_DATA[i].u || null,
+          state: mem.s
+        });
+      }
+    }
+  }
+  renderRepCards();
+}
+
+var STATE_NAMES = {
+  'AL':'Alabama','AK':'Alaska','AZ':'Arizona','AR':'Arkansas','CA':'California',
+  'CO':'Colorado','CT':'Connecticut','DE':'Delaware','DC':'District of Columbia',
+  'FL':'Florida','GA':'Georgia','HI':'Hawaii','ID':'Idaho','IL':'Illinois',
+  'IN':'Indiana','IA':'Iowa','KS':'Kansas','KY':'Kentucky','LA':'Louisiana',
+  'ME':'Maine','MD':'Maryland','MA':'Massachusetts','MI':'Michigan','MN':'Minnesota',
+  'MS':'Mississippi','MO':'Missouri','MT':'Montana','NE':'Nebraska','NV':'Nevada',
+  'NH':'New Hampshire','NJ':'New Jersey','NM':'New Mexico','NY':'New York',
+  'NC':'North Carolina','ND':'North Dakota','OH':'Ohio','OK':'Oklahoma','OR':'Oregon',
+  'PA':'Pennsylvania','RI':'Rhode Island','SC':'South Carolina','SD':'South Dakota',
+  'TN':'Tennessee','TX':'Texas','UT':'Utah','VT':'Vermont','VA':'Virginia',
+  'WA':'Washington','WV':'West Virginia','WI':'Wisconsin','WY':'Wyoming',
+  'AS':'American Samoa','GU':'Guam','MP':'Northern Mariana Islands','PR':'Puerto Rico','VI':'U.S. Virgin Islands'
+};
+
+function getStateName(abbr) { return STATE_NAMES[abbr] || abbr; }
 
 function processDistrictData(stateAbbr, districtNum) {
   repsData = [];
