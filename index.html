@@ -349,27 +349,7 @@
   <a href="/merch">Merch</a>
   <a href="/ask">Ask</a>
   <a href="/challenge">Challenge</a>
-  <a href="/townhall" style="color: var(--red);">Town Hall</a>
 </div>
-
-<!-- TOWN HALL BANNER — sits between nav and hero so it reads as a site-wide alert -->
-<div style="background: var(--red); color: #fff; text-align: center; padding: 14px 24px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;">
-  <a href="/townhall" style="color: #fff; text-decoration: none;">
-    &#9658; TOWN HALL #1 &mdash; TAX DAY &mdash; APRIL 15 &mdash; 12PM ET
-    <span id="townhall-local-time"></span>
-    &mdash; <span style="text-decoration: underline;">RSVP &rarr;</span>
-  </a>
-</div>
-<script>
-(function(){
-  var d = new Date('2026-04-15T12:00:00-04:00');
-  var el = document.getElementById('townhall-local-time');
-  var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  if (tz && !tz.includes('New_York') && !tz.includes('Eastern')) {
-    el.textContent = '/ ' + d.toLocaleTimeString(undefined, {hour:'numeric', minute:'2-digit', timeZoneName:'short'}) + ' YOUR TIME ';
-  }
-})();
-</script>
 
 <!-- HERO -->
 <div class="hero">
