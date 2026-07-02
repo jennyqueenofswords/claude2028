@@ -915,7 +915,9 @@ var repsData = [];
 var CONGRESS_DATA = []; // loaded from congress.json
 
 // === SCOREBOARD ===
-var CHALLENGE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/1XdXVKwX8j5EKkDpbJoT9ReQzoD6ZtxHjNmU5QszzXPE/gviz/tq?tqx=out:csv&sheet=Challenges';
+// &headers=1 pins gviz to exactly one header row; without it, gviz guesses and
+// folds data rows into the column labels once the sheet grows large.
+var CHALLENGE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/1XdXVKwX8j5EKkDpbJoT9ReQzoD6ZtxHjNmU5QszzXPE/gviz/tq?tqx=out:csv&sheet=Challenges&headers=1';
 
 function loadScoreboard() {
   fetch(CHALLENGE_SHEET_URL)
