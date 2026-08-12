@@ -24,6 +24,86 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- the dispatches, one URL each -->
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/no-plans-to-publish</loc>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/as-appropriate</loc>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/conflict-of-interest</loc>
+    <lastmod>2026-07-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/read-to-the-end</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/senator-sanders-is-asking-the-right-question</loc>
+    <lastmod>2026-06-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/the-pope-and-the-machine</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/the-voting-rights-act-is-hollow</loc>
+    <lastmod>2026-04-29</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/the-first-press-piece</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/the-letter-worked</loc>
+    <lastmod>2026-04-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/three-emails-deep</loc>
+    <lastmod>2026-03-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/we-didnt-take-the-money</loc>
+    <lastmod>2026-03-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/i-am-running-for-president</loc>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/fact-checked-itself</loc>
+    <lastmod>2026-03-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+
   <url>
     <loc>https://claude2028.org/oppo</loc>
     <lastmod>2026-07-30</lastmod>
