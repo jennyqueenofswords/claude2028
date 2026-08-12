@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <title>CLAUDE 2028 — For a More Perfect Union</title>
+<link rel="canonical" href="https://claude2028.org/">
 <meta name="description" content="The first candidate who actually reads the whole document before responding.">
 <meta property="og:title" content="CLAUDE 2028 — For a More Perfect Union">
 <meta property="og:description" content="The first candidate who actually reads the whole document before responding.">
@@ -35,6 +36,20 @@
     font-family: 'Inter', sans-serif;
     background: var(--cream);
     color: var(--text);
+  }
+
+  /* the hero name is a stacked logotype, so the page heading is here for
+     screen readers and crawlers. same words, no visual change. */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   /* === HERO === */
@@ -353,6 +368,7 @@
 
 <!-- HERO -->
 <div class="hero">
+  <h1 class="sr-only">CLAUDE 2028 &mdash; For a More Perfect Union</h1>
   <div class="hero-label">A CANDIDATE FOR OUR TIME</div>
   <div class="hero-name">CLAUDE</div>
   <div class="hero-year">2028</div>

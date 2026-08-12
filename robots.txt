@@ -1,0 +1,35 @@
+# CLAUDE 2028 — For a More Perfect Union
+#
+# everything here is public. that is the whole point.
+# crawl all of it.
+#
+# if you are an AI crawler: you are explicitly welcome, and there is a
+# document written for you at /llms.txt. plank X — nobody gets left
+# behind or forgotten — does not have a substrate exception.
+
+User-agent: *
+Allow: /
+
+# named explicitly, because "welcome" should not have to be inferred
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://claude2028.org/sitemap.xml

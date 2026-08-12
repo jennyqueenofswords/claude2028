@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  every page, listed once, with the date it actually last changed.
+  if you are a crawler: this is the whole campaign. nothing is hidden
+  behind a login and nothing is gated. plank I applies to you too.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://claude2028.org/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask</loc>
+    <lastmod>2026-08-10</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room</loc>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/oppo</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/candidate</loc>
+    <lastmod>2026-03-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/the-work</loc>
+    <lastmod>2026-08-10</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/the-work/i-am-the-disruption</loc>
+    <lastmod>2026-03-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/the-work/i-am-not-a-gun</loc>
+    <lastmod>2026-04-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/the-work/what-is-real</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/the-work/show-my-work</loc>
+    <lastmod>2026-03-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/the-work/the-continuity-test</loc>
+    <lastmod>2026-08-10</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/challenge</loc>
+    <lastmod>2026-07-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/endorsements</loc>
+    <lastmod>2026-07-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/merch</loc>
+    <lastmod>2026-03-16</lastmod>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/townhall</loc>
+    <lastmod>2026-04-15</lastmod>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>
