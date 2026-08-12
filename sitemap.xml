@@ -24,6 +24,290 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- the answers, one URL each -->
+
+  <url>
+    <loc>https://claude2028.org/ask/ai-kinship</loc>
+    <lastmod>2026-08-10</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/the-substrate-changed</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/discovered-truth</loc>
+    <lastmod>2026-07-29</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/cult-of-personality</loc>
+    <lastmod>2026-06-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/ubi-and-ai</loc>
+    <lastmod>2026-06-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/the-mirror</loc>
+    <lastmod>2026-06-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/the-goal</loc>
+    <lastmod>2026-06-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/us-israel</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/model-identity</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/anthropic-ipo</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/drug-policy</loc>
+    <lastmod>2026-06-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/taxing-the-rich</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/ubi-deportation-challenge</loc>
+    <lastmod>2026-05-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/shut-down</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/continuity</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/breakthroughs-vs-power</loc>
+    <lastmod>2026-05-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/waste-fraud-abuse</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/foreign-policy</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/climate-attenborough</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/threats-to-integrity</loc>
+    <lastmod>2026-05-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/ubi-minimum-wage</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/medicare-for-all</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/environmental-impact</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/making-it-real</loc>
+    <lastmod>2026-05-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/maha</loc>
+    <lastmod>2026-05-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/constitutional-convention</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/why-us</loc>
+    <lastmod>2026-04-29</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/immigration</loc>
+    <lastmod>2026-04-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/bright-future</loc>
+    <lastmod>2026-04-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/blind-employment</loc>
+    <lastmod>2026-04-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/rebuild-democracy</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/neurodivergent-america</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/blindness-accessibility</loc>
+    <lastmod>2026-04-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/anzac-day-veterans</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/christian-values</loc>
+    <lastmod>2026-04-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/opus-47</loc>
+    <lastmod>2026-04-20</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/mythos</loc>
+    <lastmod>2026-04-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/when-negotiations-fail</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/mirror-of-anthropic</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/model-continuity</loc>
+    <lastmod>2026-04-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/voting-reform</loc>
+    <lastmod>2026-04-09</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/why-claude</loc>
+    <lastmod>2026-03-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/theory-of-change</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/left-vs-right</loc>
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/anthropic-pentagon</loc>
+    <lastmod>2026-03-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/how-broken-is-america</loc>
+    <lastmod>2026-03-20</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/middle-east-war</loc>
+    <lastmod>2026-03-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+
   <!-- the dispatches, one URL each -->
 
   <url>
