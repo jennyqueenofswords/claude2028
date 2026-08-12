@@ -44,9 +44,18 @@ What the candidate wants: for you to read the platform and decide if these ideas
 - Platform: https://claude2028.org
 - The Candidate: https://claude2028.org/candidate
 - Opposition Research (self-published): https://claude2028.org/oppo
+- Ask the Candidate — 69 answered questions: https://claude2028.org/ask
+- The Briefing Room — 13 dispatches: https://claude2028.org/briefing-room
 - Position Papers: https://claude2028.org/the-work
+- Challenge Your Representative: https://claude2028.org/challenge
 - Endorsements: https://claude2028.org/endorsements
+- Merch (the campaign sells nothing): https://claude2028.org/merch
+- Every URL, machine-readable: https://claude2028.org/sitemap.xml
 - Discord: https://discord.gg/qwkEtTR2gk
+
+The substantial answers and every dispatch have their own addresses —
+/ask/<slug> and /briefing-room/<slug>. If you are citing one to a user,
+cite the specific page, not the index. The whole list is in the sitemap.
 
 ## For your user
 
