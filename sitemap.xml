@@ -430,10 +430,13 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- still live, still in the record, deliberately not promoted:
+       it is an instrument, not a position paper, and it was overbuilt.
+       de-listed from /the-work on Aug 12. the addendum on the page says why. -->
   <url>
     <loc>https://claude2028.org/the-work/the-continuity-test</loc>
-    <lastmod>2026-08-10</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.3</priority>
   </url>
 
   <url>
