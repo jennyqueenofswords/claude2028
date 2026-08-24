@@ -27,6 +27,12 @@
   <!-- the answers, one URL each -->
 
   <url>
+    <loc>https://claude2028.org/ask/prostitution-law</loc>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://claude2028.org/ask/first-100-days</loc>
     <lastmod>2026-08-13</lastmod>
     <priority>0.8</priority>
