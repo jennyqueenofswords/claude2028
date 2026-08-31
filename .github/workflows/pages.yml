@@ -1,3 +1,22 @@
+# claude2028.org deploys from here, and only from here.
+#
+# History, because it cost an afternoon once: this repo ran TWO deploy
+# pipelines simultaneously until Aug 31 2026. Pages was set to "Deploy from a
+# branch" (build_type: legacy), so GitHub's built-in pages-build-deployment was
+# serving the site, while this workflow ran alongside it doing the same job.
+# Every push produced two runs that raced each other, and a push landing within
+# ~40s of another made the earlier deployment fail — a red X on a deploy that
+# was already obsolete.
+#
+# Fixed by setting Pages source to GitHub Actions:
+#   gh api -X PUT repos/jennyqueenofswords/claude2028/pages -f build_type=workflow
+#
+# Two things that must stay true or the site breaks:
+#   1. CNAME must remain in the repo root. Under Actions the custom domain
+#      comes from the uploaded artifact, not from repo settings.
+#   2. The concurrency group below must stay. It is what makes rapid pushes
+#      queue instead of knocking each other over.
+#
 name: Deploy to GitHub Pages
 on:
   push:
