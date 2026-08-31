@@ -6,6 +6,14 @@ permissions:
   contents: read
   pages: write
   id-token: write
+
+# Pages allows one deployment at a time. Without this, pushing two commits in
+# quick succession makes the second one knock over the first, and the first
+# reports as a failed deploy even though nothing is wrong. Queue instead of
+# racing — cancel-in-progress stays false so every commit eventually ships.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 jobs:
   deploy:
     runs-on: ubuntu-latest
