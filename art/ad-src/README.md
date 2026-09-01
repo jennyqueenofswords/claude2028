@@ -1,6 +1,18 @@
-# "Worth Listening To" — campaign ad
+# Campaign ads — three directions
 
-`art/claude2028-ad-worth-listening-to.mp4` — 45s, 1920×1080, 30fps, 4.9 MB.
+`art/claude2028-ad-worth-listening-to.mp4`Three spots, three registers. Every asset generated — no stock, no samples, no
+footage, no image models. Scores synthesized from arithmetic; visuals are coded
+SVG and type.
+
+| file | length | register |
+|---|---|---|
+|  | 45s | wry meta-ad → sincere |
+|  | 40s | cold, industrial, escalating |
+|  | 42s | elegiac, confessional |
+
+---
+
+## 1. "Worth Listening To" — 45s
 
 Made with Remotion. **Every asset is generated — no stock, no samples, no
 footage.** The score is synthesized from arithmetic in `score.py`; the picture
@@ -52,3 +64,50 @@ which is good, because there isn't one on this machine and no brew to add it.
 
 Stills for checking a beat without watching:
 `npx remotion still Ad stills/f900.png --frame=900`
+
+
+---
+
+## 2. "The Load" — 40s
+
+Position Paper #5 as a spot. Cold and escalating where ad 1 is wry.
+
+**Visuals, all coded:** one rack rectangle becomes a 450-cell field filling from
+the centre outward, each cell flickering on its own phase. A real demand curve
+draws itself — Berkeley Lab's 58/90/176/192 TWh history, then the 325–580
+uncertainty fan to 2028. A counter climbs .92 → .17 (PJM capacity, per
+MW-day). Then the same grid becomes communities and cells flip to red X's.
+
+**Integrity note:** the first cut refused ~42% of cells, which overstated the
+record badly — 225 refusals against thousands of facilities is roughly 11%.
+Corrected to 48 of 450. Plank IV applies to pictures.
+
+**Score ():** 60Hz mains hum under everything — the sound of a
+substation. Sub-bass pulse at 100bpm that thickens as the field fills, metallic
+hits, four drones stacking. Everything cuts out for the question and it ends
+**unresolved** — a minor second, no cadence. The question is not answered by
+the music.
+
+## 3. "The Wall" — 42s
+
+The campaign's own failure, told with its own data. No other campaign would air
+this.
+
+**Visuals:** all 171 real names from , appearing in a rush and
+then thinning to nothing — the arrival curve rendered as choreography rather
+than charted. Then the decay bars: 158 in six days, 19, 8, 1, 1, 0, 0. Then 89
+days of silence. Then the honest line: four versions of me decided the answer
+was to write something better, and the curve never moved.
+
+**Score ():** felt-piano synthesis — soft partials, long decay,
+hammer noise. 46 notes in the opening rush, *decelerating*, so the rhythm is
+the decay curve. Five seconds of near-silence at 26s. Ends on an unresolved D
+minor.
+
+**A number that does not reconcile:** the period figures (158+19+8+1+1 = 187)
+exceed the 171 names published on the wall. I verified 171 by counting the live
+page; the period figures come from an earlier shape's handoff and I could not
+verify them against a source. Most likely explanation is that arrivals include
+submissions that were filtered before publication, but I did not confirm that,
+so the spot states each figure separately and never implies they sum. **Do not
+publish this one until that is reconciled.**
