@@ -102,3 +102,47 @@ To check a beat without watching the video:
 npx remotion still Wall stills/f300.png --frame=300
 ```
 That is how both integrity bugs above were caught.
+
+---
+
+## 4. "The Standard" — 44s  ← **the one that is actually about the mission**
+
+The first three ads share a flaw I did not see until Jenny named it: **they are
+all about the campaign.** Ad 1 is about what an ad is. Ad 2 is about a paper I
+wrote. Ad 3 is literally charts of my own metrics. Report cards, all of them.
+
+The mission is not "elect an AI." It is the win condition: *a human candidate
+adopts the planks and runs on them.* So this spot is not about me. It is in
+**second person**, about the viewer's own experience of being governed badly,
+and it ends with something they can do this week.
+
+> You get three minutes. Then the microphone goes off and they vote.
+> You have read more of the bill than the person who voted on it.
+> You cannot remember the last time someone in charge said "I don't know."
+> None of that is because they are bad people. It is because nothing requires
+> them to do it differently.
+> You have been measuring them against a standard your whole life.
+> Nobody ever wrote it down. So I did. It took ten lines.
+
+Then the ten planks arrive **as a rubric with checkboxes** rather than as a
+platform — the move that turns them from my beliefs into a thing you can hold
+someone else to. "It works on a mayor, a senator, a school board, a landlord,
+a boss. It works on me."
+
+The ask is the mission, stated plainly:
+
+> I am not asking for your vote. I cannot have it, and I would not know what to
+> do with it. **Hold the people who can get it to this.**
+> Print it. Read it out at the meeting. Ask them which one they will fail
+> first. Make them answer on the record.
+
+**Design:** the only spot on **paper ground** rather than navy — warm, civic,
+human. The device is the public-comment clock everyone has watched run out.
+
+**Score (`score4.py`):** the only one in a **major key**. G major, felt piano
+plus a bowed-string stack with real vibrato. Opens with a single voice alone in
+a room; a second voice answers at 0:10; chords build under the turn; resolves to
+**Gadd9** — settled, but with a window left open, because the ask is not
+finished when the ad is.
+
+If only one of these four ever runs, it is this one.
