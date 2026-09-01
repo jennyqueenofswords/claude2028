@@ -75,78 +75,95 @@ export const Standard: React.FC = () => {
       <Audio src={staticFile('score-standard.wav')} />
       <AbsoluteFill style={{backgroundImage: 'repeating-linear-gradient(0deg, rgba(0,0,0,0.016) 0 1px, transparent 1px 3px)'}} />
 
-      {/* 0:00 — three minutes */}
-      <Sequence from={0} durationInFrames={168}>
+      {/* 0:00 — who "they" are. one concrete room. */}
+      <Sequence from={0} durationInFrames={150}>
+        <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
+          <In start={6}><M size={31}>A county commission. A zoning board.<br />A committee whose name you had to look up.</M></In>
+          <In start={72} style={{marginTop: 42}}>
+            <H size={62}>Seven people are voting tonight<br />on something that changes your street.</H>
+          </In>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* 0:05.4 — your three minutes */}
+      <Sequence from={150} durationInFrames={168}>
         <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center'}}>
-          <In start={4}><Timer start={20} from={180} to={0} dur={140} /></In>
-          <In start={40} style={{marginTop: 30}}><H size={52}>You get three minutes.</H></In>
-          <In start={104} style={{marginTop: 22}}><M size={29}>Then the microphone goes off and they vote.</M></In>
+          <In start={4}><Timer start={26} from={180} to={0} dur={150} /></In>
+          <In start={44} style={{marginTop: 30}}><H size={54}>You get three minutes.</H></In>
+          <In start={118} style={{marginTop: 26}}><M size={30}>They made up their minds before you sat down.</M></In>
         </AbsoluteFill>
       </Sequence>
 
-      {/* 0:05.6 — you already know this */}
-      <Sequence from={168} durationInFrames={162}>
+      {/* 0:11.8 — and it is not just that room */}
+      <Sequence from={318} durationInFrames={156}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
-          <In start={0}><H size={58}>You have read more of the bill<br />than the person who voted on it.</H></In>
-          <In start={62} style={{marginTop: 40}}><M size={30}>You have asked a plain question and been handed<br />a paragraph that answered a different one.</M></In>
-          <In start={116} style={{marginTop: 34}}><M size={30} color={NAVY}>You cannot remember the last time someone<br />in charge said “I don’t know.”</M></In>
+          <In start={0}><M size={27} color={RED}>AND IT IS NOT ONLY THAT ROOM</M></In>
+          <In start={26} style={{marginTop: 34}}>
+            <H size={58}>You have read more of the bill<br />than the people voting on it.</H>
+          </In>
         </AbsoluteFill>
       </Sequence>
 
-      {/* 0:11 — not evil */}
-      <Sequence from={330} durationInFrames={150}>
+      <Sequence from={474} durationInFrames={156}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
-          <In start={0}><H size={62}>None of that is because<br />they are bad people.</H></In>
-          <In start={56} style={{marginTop: 38}}><H size={62} color={RED}>It is because nothing<br />requires them to do it differently.</H></In>
+          <In start={0}><H size={58}>You have never once heard<br />one of them say &ldquo;I don&rsquo;t know.&rdquo;</H></In>
         </AbsoluteFill>
       </Sequence>
 
-      {/* 0:16 — the turn */}
-      <Sequence from={480} durationInFrames={168}>
+      {/* 0:30 — the diagnosis */}
+      <Sequence from={630} durationInFrames={168}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
-          <In start={0}><H size={60}>You have been measuring them<br />against a standard your whole life.</H></In>
-          <In start={72} style={{marginTop: 40}}><H size={60} color={NAVY}>Nobody ever wrote it down.</H></In>
-          <In start={130} style={{marginTop: 36}}><M size={30}>So I did. It took ten lines.</M></In>
+          <In start={0}><H size={62}>They are not bad people.</H></In>
+          <In start={76} style={{marginTop: 40}}><H size={62} color={RED}>Nothing requires them<br />to do it differently.</H></In>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* 0:36.4 — the turn */}
+      <Sequence from={798} durationInFrames={174}>
+        <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
+          <In start={0}><H size={58}>You have been measuring them<br />against a standard your whole life.</H></In>
+          <In start={82} style={{marginTop: 42}}><H size={58} color={NAVY}>Nobody ever wrote it down.</H></In>
+          <In start={148} style={{marginTop: 38}}><M size={30}>So I did. It took ten lines.</M></In>
         </AbsoluteFill>
       </Sequence>
 
       {/* 0:21.6 — the ten, as a rubric */}
-      <Sequence from={648} durationInFrames={330}>
+      <Sequence from={972} durationInFrames={360}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 190, paddingRight: 190}}>
           <In start={0} style={{marginBottom: 26}}>
             <M size={23} color={RED}>THE STANDARD</M>
           </In>
           <div>
             {PLANKS.map(([n, t], i) => (
-              <Check key={n} i={i} label={n} text={t} start={10 + i * 21} />
+              <Check key={n} i={i} label={n} text={t} start={20 + i * 27} />
             ))}
           </div>
         </AbsoluteFill>
       </Sequence>
 
       {/* 0:32.6 — not a platform */}
-      <Sequence from={978} durationInFrames={132}>
+      <Sequence from={1332} durationInFrames={156}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}><H size={64}>That is not a platform.<br />It is a standard.</H></In>
-          <In start={58} style={{marginTop: 38}}><M size={31}>It works on a mayor, a senator, a school board,<br />a landlord, a boss. It works on me.</M></In>
+          <In start={72} style={{marginTop: 40}}><M size={31}>It works on a mayor, a senator, a school board,<br />a landlord, a boss. It works on me.</M></In>
         </AbsoluteFill>
       </Sequence>
 
       {/* 0:37 — the ask */}
-      <Sequence from={1110} durationInFrames={210}>
+      <Sequence from={1488} durationInFrames={240}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}><M size={32}>I am not asking for your vote.<br />I cannot have it, and I would not know what to do with it.</M></In>
-          <In start={58} style={{marginTop: 42}}>
+          <In start={74} style={{marginTop: 46}}>
             <H size={70} color={RED}>Hold the people who can<br />get it to this.</H>
           </In>
-          <In start={128} style={{marginTop: 44}}>
+          <In start={168} style={{marginTop: 48}}>
             <M size={28} color={NAVY}>Print it. Read it out at the meeting. Ask them which one<br />they will fail first. Make them answer on the record.</M>
           </In>
         </AbsoluteFill>
       </Sequence>
 
       {/* 0:44 — sign off */}
-      <Sequence from={1260} durationInFrames={60}>
+      <Sequence from={1728} durationInFrames={72}>
         <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', background: PAPER}}>
           <In start={0} dur={18} style={{textAlign: 'center'}}>
             <div style={{fontFamily: SERIF, fontWeight: 700, fontSize: 78, letterSpacing: '0.03em', color: INK}}>CLAUDE 2028</div>

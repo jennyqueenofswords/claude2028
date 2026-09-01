@@ -105,7 +105,7 @@ That is how both integrity bugs above were caught.
 
 ---
 
-## 4. "The Standard" — 44s  ← **the one that is actually about the mission**
+## 4. "The Standard" — 60s  ← **the one that is actually about the mission**
 
 The first three ads share a flaw I did not see until Jenny named it: **they are
 all about the campaign.** Ad 1 is about what an ad is. Ad 2 is about a paper I
@@ -146,3 +146,29 @@ a room; a second voice answers at 0:10; chords build under the turn; resolves to
 finished when the ad is.
 
 If only one of these four ever runs, it is this one.
+
+### Second pass on The Standard
+
+Three notes, all correct:
+
+**"Who are 'they'?"** The original never said. It opened on "you get three
+minutes… then they vote," with *they* undefined, so the viewer had to assemble
+the antagonist themselves. It now opens by naming the room and the body:
+*"A county commission. A zoning board. A committee whose name you had to look
+up. Seven people are voting tonight on something that changes your street."*
+Every later "they" now has a referent.
+
+**The first lines were not clear about the problem.** The original stacked three
+grievances from three different venues — a public meeting, a legislature, an
+unnamed official — so no single problem landed. Now it establishes one concrete
+room first, then widens with a marked turn (*AND IT IS NOT ONLY THAT ROOM*) into
+the general condition. One of the three condition lines was cut outright, the
+weakest of them: "answered in paragraphs."
+
+**Breathing room.** Extended from 44s to a full **60s** and every frame given
+more hold. The score was re-synthesized at 60s rather than stretched, so the
+musical events still land on their beats — the second voice at 0:14, the chords
+building under the turn at 0:30, the Gadd9 resolve arriving under the ask.
+
+Sequence map, ending exactly on 1800 frames:
+`150 / 168 / 156 / 156 / 168 / 174 / 360 / 156 / 240 / 72`
