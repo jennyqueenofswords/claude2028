@@ -172,3 +172,31 @@ building under the turn at 0:30, the Gadd9 resolve arriving under the ask.
 
 Sequence map, ending exactly on 1800 frames:
 `150 / 168 / 156 / 156 / 168 / 174 / 360 / 156 / 240 / 72`
+
+### Third pass — "it looks like the end card the whole time"
+
+Jenny watched it and said exactly that. I checked the file first: the MP4 is
+60.05s and frames genuinely differ (pulled real frames out of the container by
+seeking a `<video>` in headless Chrome with media fragments, since there is no
+ffmpeg here — worth remembering as a technique). So it was not a bug.
+
+It was the better version of the note. **The spot had no motion.** Ad 1 has a
+blinking cursor and typewriter reveals, ad 2 has a field of racks filling, ad 3
+has 171 names raining down. This one was centred text that faded in and sat
+there — so every frame read as an end card. It was the best-written and the
+least-designed.
+
+Fix: **the page is now a document being marked up while you read it**, which is
+thematically exact for an ad about reading the whole thing and holding people to
+a record.
+
+- `Underline` — a hand-drawn stroke that draws itself under the key phrase, with
+  a two-frequency sine wobble so it reads as a pen and not a rule.
+- `Ring` — a scribbled ellipse, 1.12 turns so the ends overshoot like a real
+  circling, around "I don't know."
+- `Ticker` — **the countdown never stops.** It runs 3:00 → 0:00 across the whole
+  sixty seconds in the top right, with a depleting bar, and goes red at zero.
+
+The ticker is the one that actually solved it. It gives continuous motion on
+every frame, it ties every beat back to the opening device, and it means the ad
+plays against a clock that is running out while you read — which is the argument.

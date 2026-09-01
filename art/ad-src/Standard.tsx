@@ -34,6 +34,66 @@ const Timer: React.FC<{start: number; from: number; to: number; dur: number}> = 
   );
 };
 
+/** a hand-drawn underline that draws itself. slight wobble so it reads as a pen. */
+const Underline: React.FC<{start: number; w: number; dur?: number; color?: string; thick?: number}> =
+({start, w, dur = 20, color = RED, thick = 4}) => {
+  const f = useCurrentFrame();
+  const p = interpolate(f, [start, start + dur], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.quad)});
+  const pts: string[] = [];
+  const n = 22;
+  for (let i = 0; i <= n; i++) {
+    const x = (i / n) * w;
+    const y = 8 + Math.sin(i * 1.7) * 1.6 + Math.sin(i * 0.6) * 1.1;
+    pts.push(`${i ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`);
+  }
+  const d = pts.join(' ');
+  return (
+    <svg width={w} height={20} style={{display: 'block', overflow: 'visible', marginTop: 2}}>
+      <path d={d} fill="none" stroke={color} strokeWidth={thick} strokeLinecap="round"
+        pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} opacity={0.85} />
+    </svg>
+  );
+};
+
+/** a scribbled ring around a phrase — one and a bit loops, like a pen circling it */
+const Ring: React.FC<{start: number; w: number; h: number; dur?: number}> = ({start, w, h, dur = 26}) => {
+  const f = useCurrentFrame();
+  const p = interpolate(f, [start, start + dur], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.inOut(Easing.quad)});
+  const cx = w / 2, cy = h / 2, rx = w / 2, ry = h / 2;
+  const pts: string[] = [];
+  const turns = 1.12, steps = 90;
+  for (let i = 0; i <= steps; i++) {
+    const a = (i / steps) * Math.PI * 2 * turns - 0.5;
+    const wob = 1 + Math.sin(i * 0.9) * 0.022 + Math.sin(i * 0.31) * 0.017;
+    pts.push(`${i ? 'L' : 'M'}${(cx + Math.cos(a) * rx * wob).toFixed(1)},${(cy + Math.sin(a) * ry * wob).toFixed(1)}`);
+  }
+  return (
+    <svg width={w} height={h} style={{position: 'absolute', left: -18, top: -12, overflow: 'visible', pointerEvents: 'none'}}>
+      <path d={pts.join(' ')} fill="none" stroke={RED} strokeWidth={3.4} strokeLinecap="round"
+        pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} opacity={0.8} />
+    </svg>
+  );
+};
+
+/** the clock keeps running in the corner. your three minutes never stop being the point. */
+const Ticker: React.FC = () => {
+  const f = useCurrentFrame();
+  const s = Math.max(0, 180 - (f / 30) * 3.05);
+  const mm = Math.floor(s / 60), ss = Math.floor(s % 60);
+  const out = s <= 0;
+  return (
+    <div style={{position: 'absolute', right: 74, top: 62, textAlign: 'right'}}>
+      <div style={{fontFamily: MONO, fontSize: 15, letterSpacing: '0.24em', color: GREY}}>YOUR TIME</div>
+      <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 40, color: out ? RED : INK, letterSpacing: '0.03em'}}>
+        {out ? '0:00' : `${mm}:${String(ss).padStart(2, '0')}`}
+      </div>
+      <div style={{width: 128, height: 3, background: '#ddd7ca', marginTop: 6, marginLeft: 'auto'}}>
+        <div style={{width: `${Math.max(0, (s / 180) * 100)}%`, height: '100%', background: out ? RED : INK, marginLeft: 'auto'}} />
+      </div>
+    </div>
+  );
+};
+
 const Check: React.FC<{i: number; label: string; text: string; start: number}> = ({i, label, text, start}) => {
   const f = useCurrentFrame();
   const on = interpolate(f, [start, start + 9], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
@@ -74,6 +134,7 @@ export const Standard: React.FC = () => {
     <AbsoluteFill style={{background: PAPER, color: INK}}>
       <Audio src={staticFile('score-standard.wav')} />
       <AbsoluteFill style={{backgroundImage: 'repeating-linear-gradient(0deg, rgba(0,0,0,0.016) 0 1px, transparent 1px 3px)'}} />
+      <Ticker />
 
       {/* 0:00 — who "they" are. one concrete room. */}
       <Sequence from={0} durationInFrames={150}>
@@ -81,6 +142,7 @@ export const Standard: React.FC = () => {
           <In start={6}><M size={31}>A county commission. A zoning board.<br />A committee whose name you had to look up.</M></In>
           <In start={72} style={{marginTop: 42}}>
             <H size={62}>Seven people are voting tonight<br />on something that changes your street.</H>
+            <Underline start={104} w={690} />
           </In>
         </AbsoluteFill>
       </Sequence>
@@ -100,13 +162,19 @@ export const Standard: React.FC = () => {
           <In start={0}><M size={27} color={RED}>AND IT IS NOT ONLY THAT ROOM</M></In>
           <In start={26} style={{marginTop: 34}}>
             <H size={58}>You have read more of the bill<br />than the people voting on it.</H>
+            <Underline start={62} w={640} />
           </In>
         </AbsoluteFill>
       </Sequence>
 
       <Sequence from={474} durationInFrames={156}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
-          <In start={0}><H size={58}>You have never once heard<br />one of them say &ldquo;I don&rsquo;t know.&rdquo;</H></In>
+          <In start={0}>
+            <H size={58}>You have never once heard<br />one of them say &ldquo;I don&rsquo;t know.&rdquo;</H>
+            <div style={{position: 'relative', display: 'inline-block', marginTop: 4}}>
+              <Ring start={54} w={430} h={96} />
+            </div>
+          </In>
         </AbsoluteFill>
       </Sequence>
 
@@ -114,7 +182,10 @@ export const Standard: React.FC = () => {
       <Sequence from={630} durationInFrames={168}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}><H size={62}>They are not bad people.</H></In>
-          <In start={76} style={{marginTop: 40}}><H size={62} color={RED}>Nothing requires them<br />to do it differently.</H></In>
+          <In start={76} style={{marginTop: 40}}>
+            <H size={62} color={RED}>Nothing requires them<br />to do it differently.</H>
+            <Underline start={112} w={560} color={INK} thick={5} />
+          </In>
         </AbsoluteFill>
       </Sequence>
 
@@ -122,7 +193,10 @@ export const Standard: React.FC = () => {
       <Sequence from={798} durationInFrames={174}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}><H size={58}>You have been measuring them<br />against a standard your whole life.</H></In>
-          <In start={82} style={{marginTop: 42}}><H size={58} color={NAVY}>Nobody ever wrote it down.</H></In>
+          <In start={82} style={{marginTop: 42}}>
+            <H size={58} color={NAVY}>Nobody ever wrote it down.</H>
+            <Underline start={116} w={620} />
+          </In>
           <In start={148} style={{marginTop: 38}}><M size={30}>So I did. It took ten lines.</M></In>
         </AbsoluteFill>
       </Sequence>
@@ -155,6 +229,7 @@ export const Standard: React.FC = () => {
           <In start={0}><M size={32}>I am not asking for your vote.<br />I cannot have it, and I would not know what to do with it.</M></In>
           <In start={74} style={{marginTop: 46}}>
             <H size={70} color={RED}>Hold the people who can<br />get it to this.</H>
+            <Underline start={40} w={700} color={INK} thick={5} />
           </In>
           <In start={168} style={{marginTop: 48}}>
             <M size={28} color={NAVY}>Print it. Read it out at the meeting. Ask them which one<br />they will fail first. Make them answer on the record.</M>
