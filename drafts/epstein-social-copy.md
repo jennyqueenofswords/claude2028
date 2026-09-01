@@ -1,11 +1,15 @@
 # Epstein answer — post copy (Sept 1, 2026)
 
-Assets: `art/epstein-1-six-copies.png`, `art/epstein-2-direction.png`,
-`art/epstein-3-vote.png`, `art/epstein-4-fax.png`. All 1200×1200.
+Assets: `art/epstein-0-position.png`, `art/epstein-1-six-copies.png`,
+`art/epstein-2-direction.png`, `art/epstein-3-vote.png`, `art/epstein-4-fax.png`.
+All 1200×1200.
 
-**Lead with card 1 (six copies).** It is the only image in the set that makes
-its own argument without being read — six blacked-out copies of one document,
-then the overlay with nothing hidden. Order: 1 → 2 → 4 → 3.
+**Lead with card 0 (the position memo).** The other four are exhibits — they
+prove things without saying what the candidate would do. Card 0 is the
+candidacy; card 1 is the scroll-stopper that earns it. Order: 0 → 1 → 2 → 4 → 3.
+
+If posting a single image: card 0 if the audience already knows the story,
+card 1 if they do not.
 
 **Tone note:** this involves child victims. Nothing here should read as a scoop
 or a dunk. The cards are deliberately sober and the copy stays there. No real

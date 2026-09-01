@@ -1,6 +1,6 @@
 # Epstein — social cards
 
-Four cards, 1200×1200. **A different design language from the /the-work/the-load
+Five cards, 1200×1200. **A different design language from the /the-work/the-load
 set, on purpose.**
 
 ## The brief, and two corrections
@@ -29,6 +29,16 @@ Any card added later gets the masthead too.
 
 ## The cards
 
+**0. `epstein-0-position.png` — the position.** Added last, and it is the lead.
+The other four are exhibits: they prove things and never say what the candidate
+would *do*. This one is a memorandum — a different document type, which keeps
+the set from reading as one repeated layout — carrying the four actions and the
+line nobody else in this argument will say: *I do not know whether there is a
+cover-up, and right now nobody else does either.*
+
+A set of evidence cards makes the campaign look like a research desk. One
+position card makes it a candidacy.
+
 1. **`epstein-1-six-copies.png`** — six thumbnails of the same DOJ presentation
    with different lines blacked out in each, then a full-width strip labelled
    ALL SIX, OVERLAID with nothing hidden. The argument is the picture: a rule
@@ -40,14 +50,15 @@ Any card added later gets the masthead too.
 4. **`epstein-4-fax.png`** — the compliance report as six empty
    `[TIFF OMITTED]` tiles. "They filed it as a fax."
 
-Recommended lead: **1**, then 2, 4, 3.
+Recommended order: **0 → 1 → 2 → 4 → 3.** Position first, then the
+evidence that earns it.
 
 ## Re-render
 
 ```bash
 CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 cd art/epstein-src
-for pair in c1-six:1-six-copies c2-direction:2-direction c3-vote:3-vote c4-fax:4-fax; do
+for pair in c5-position:0-position c1-six:1-six-copies c2-direction:2-direction c3-vote:3-vote c4-fax:4-fax; do
   "$CHROME" --headless --disable-gpu --hide-scrollbars \
     --force-device-scale-factor=1 --window-size=1200,1200 \
     --virtual-time-budget=6000 --screenshot="../epstein-${pair##*:}.png" \
