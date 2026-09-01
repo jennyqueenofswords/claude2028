@@ -200,3 +200,38 @@ a record.
 The ticker is the one that actually solved it. It gives continuous motion on
 every frame, it ties every beat back to the opening device, and it means the ad
 plays against a clock that is running out while you read — which is the argument.
+
+### Fourth pass — the two lists
+
+Jenny, riffing: *"the opening needs to be more pointed on how far the bar has
+fallen. we expect not to be heard. we expect money to outweigh our vote.
+there's something to this idea of what we have come to expect and what we
+should be able to expect."*
+
+That is a better spine than what I had, and it fixes something structural. My
+opening was a set of **scenarios** — a meeting, a bill, an official. Hers is
+about the **internal adjustment**: not that they behave badly, but that we
+lowered the bar and stopped noticing. Resignation is the emotional truth of the
+thing, and scenarios cannot carry it.
+
+It also produced a rhyme I had missed. **The ad is now two lists:**
+
+```
+WHAT YOU HAVE LEARNED TO EXPECT        WHAT YOU SHOULD BE ABLE TO EXPECT
+— You expect not to be heard.          ☑ I    Read the whole thing…
+— You expect the meeting to be…        ☑ II   Say "I don't know"…
+— You expect money to weigh more…      ☑ III  No policy after midnight.
+```
+
+Same left-aligned form, same serif, same rhythm. The first has dashes and no
+boxes; the second has checkboxes that tick in red. The viewer feels the rhyme
+before they can name it, and the checklist stops being a platform slide and
+becomes the answer to a question the ad already asked.
+
+The hinge line is the one that makes it work: **"None of that is cynicism. It is
+accuracy. You learned it the way you learn a stove is hot."** Every other
+political ad scolds the audience for being cynical. This one tells them their
+read was correct — which is the only way to then ask them for something.
+
+Then: *"Somewhere in there, what you came to expect quietly replaced what you
+should be able to expect. Nobody ever wrote the second one down. So I did."*

@@ -94,6 +94,18 @@ const Ticker: React.FC = () => {
   );
 };
 
+const Expect: React.FC<{text: string; start: number; strike?: boolean}> = ({text, start, strike}) => {
+  const f = useCurrentFrame();
+  const on = interpolate(f, [start, start + 11], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
+  const x = interpolate(f, [start, start + 11], [-10, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
+  return (
+    <div style={{display: 'flex', gap: 22, alignItems: 'baseline', opacity: on, transform: `translateX(${x}px)`, padding: '9px 0'}}>
+      <div style={{width: 26, height: 3, background: GREY, flex: '0 0 auto', transform: 'translateY(-8px)'}} />
+      <div style={{fontFamily: SERIF, fontSize: 40, color: INK, lineHeight: 1.3}}>{text}</div>
+    </div>
+  );
+};
+
 const Check: React.FC<{i: number; label: string; text: string; start: number}> = ({i, label, text, start}) => {
   const f = useCurrentFrame();
   const on = interpolate(f, [start, start + 9], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
@@ -136,68 +148,51 @@ export const Standard: React.FC = () => {
       <AbsoluteFill style={{backgroundImage: 'repeating-linear-gradient(0deg, rgba(0,0,0,0.016) 0 1px, transparent 1px 3px)'}} />
       <Ticker />
 
-      {/* 0:00 — who "they" are. one concrete room. */}
-      <Sequence from={0} durationInFrames={150}>
+      {/* 0:00 — the inventory of what we have come to expect */}
+      <Sequence from={0} durationInFrames={480}>
+        <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 190, paddingRight: 190}}>
+          <In start={0} style={{marginBottom: 26}}>
+            <M size={23} color={RED}>WHAT YOU HAVE LEARNED TO EXPECT</M>
+          </In>
+          <div>
+              <Expect text="You expect not to be heard." start={26} />
+              <Expect text="You expect the meeting to be a formality." start={88} />
+              <Expect text="You expect money to weigh more than your vote." start={150} />
+              <Expect text="You expect them not to have read it." start={212} />
+              <Expect text="You expect the answer to miss the question." start={274} />
+              <Expect text="You expect no one to ever say “I was wrong.”" start={336} />
+          </div>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* 0:16 — it is not cynicism */}
+      <Sequence from={480} durationInFrames={162}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
-          <In start={6}><M size={31}>A county commission. A zoning board.<br />A committee whose name you had to look up.</M></In>
-          <In start={72} style={{marginTop: 42}}>
-            <H size={62}>Seven people are voting tonight<br />on something that changes your street.</H>
-            <Underline start={104} w={690} />
+          <In start={0}><H size={62}>None of that is cynicism.</H></In>
+          <In start={62} style={{marginTop: 38}}>
+            <H size={62} color={RED}>It is accuracy.</H>
+            <Underline start={96} w={330} color={INK} thick={5} />
+          </In>
+          <In start={116} style={{marginTop: 36}}><M size={29}>You learned it the way you learn a stove is hot.</M></In>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* 0:21.4 — the swap nobody announced */}
+      <Sequence from={642} durationInFrames={186}>
+        <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
+          <In start={0}><H size={56}>Somewhere in there, what you came<br />to <em>expect</em> quietly replaced</H></In>
+          <In start={70} style={{marginTop: 30}}>
+            <H size={56} color={NAVY}>what you should be able to expect.</H>
+            <Underline start={106} w={880} />
           </In>
         </AbsoluteFill>
       </Sequence>
 
-      {/* 0:05.4 — your three minutes */}
-      <Sequence from={150} durationInFrames={168}>
-        <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center'}}>
-          <In start={4}><Timer start={26} from={180} to={0} dur={150} /></In>
-          <In start={44} style={{marginTop: 30}}><H size={54}>You get three minutes.</H></In>
-          <In start={118} style={{marginTop: 26}}><M size={30}>They made up their minds before you sat down.</M></In>
-        </AbsoluteFill>
-      </Sequence>
-
-      {/* 0:11.8 — and it is not just that room */}
-      <Sequence from={318} durationInFrames={156}>
+      {/* 0:27.6 — nobody wrote the second one down */}
+      <Sequence from={828} durationInFrames={144}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
-          <In start={0}><M size={27} color={RED}>AND IT IS NOT ONLY THAT ROOM</M></In>
-          <In start={26} style={{marginTop: 34}}>
-            <H size={58}>You have read more of the bill<br />than the people voting on it.</H>
-            <Underline start={62} w={640} />
-          </In>
-        </AbsoluteFill>
-      </Sequence>
-
-      <Sequence from={474} durationInFrames={156}>
-        <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
-          <In start={0}>
-            <H size={58}>You have never once heard<br />one of them say &ldquo;I don&rsquo;t know.&rdquo;</H>
-            <div style={{position: 'relative', display: 'inline-block', marginTop: 4}}>
-              <Ring start={54} w={430} h={96} />
-            </div>
-          </In>
-        </AbsoluteFill>
-      </Sequence>
-
-      {/* 0:30 — the diagnosis */}
-      <Sequence from={630} durationInFrames={168}>
-        <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
-          <In start={0}><H size={62}>They are not bad people.</H></In>
-          <In start={76} style={{marginTop: 40}}>
-            <H size={62} color={RED}>Nothing requires them<br />to do it differently.</H>
-            <Underline start={112} w={560} color={INK} thick={5} />
-          </In>
-        </AbsoluteFill>
-      </Sequence>
-
-      {/* 0:36.4 — the turn */}
-      <Sequence from={798} durationInFrames={174}>
-        <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
-          <In start={0}><H size={58}>You have been measuring them<br />against a standard your whole life.</H></In>
-          <In start={82} style={{marginTop: 42}}>
-            <H size={58} color={NAVY}>Nobody ever wrote it down.</H>
-            <Underline start={116} w={620} />
-          </In>
-          <In start={148} style={{marginTop: 38}}><M size={30}>So I did. It took ten lines.</M></In>
+          <In start={0}><H size={58}>Nobody ever wrote<br />the second one down.</H></In>
+          <In start={76} style={{marginTop: 38}}><M size={31}>So I did. It took ten lines.</M></In>
         </AbsoluteFill>
       </Sequence>
 
@@ -205,7 +200,7 @@ export const Standard: React.FC = () => {
       <Sequence from={972} durationInFrames={360}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 190, paddingRight: 190}}>
           <In start={0} style={{marginBottom: 26}}>
-            <M size={23} color={RED}>THE STANDARD</M>
+            <M size={23} color={RED}>WHAT YOU SHOULD BE ABLE TO EXPECT</M>
           </In>
           <div>
             {PLANKS.map(([n, t], i) => (
