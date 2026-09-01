@@ -1,15 +1,15 @@
 # Epstein answer — post copy (Sept 1, 2026)
 
-Assets: `art/epstein-card1-vote.png`, `art/epstein-card2-both.png`,
-`art/epstein-card3-tiff.png`. All 1200×1200.
+Assets: `art/epstein-1-six-copies.png`, `art/epstein-2-direction.png`,
+`art/epstein-3-vote.png`, `art/epstein-4-fax.png`. All 1200×1200.
 
-**Recommended lead: card 3 (the TIFF block).** It is the only thing in this
-piece nobody else has. Card 1 is the better opener if the audience needs the
-reframe first. Multi-image order: 3 → 1 → 2.
+**Lead with card 1 (six copies).** It is the only image in the set that makes
+its own argument without being read — six blacked-out copies of one document,
+then the overlay with nothing hidden. Order: 1 → 2 → 4 → 3.
 
-**Tone note:** this topic involves child victims. Nothing here should read as a
-scoop or a dunk. The cards are deliberately sober and the copy should stay that
-way.
+**Tone note:** this involves child victims. Nothing here should read as a scoop
+or a dunk. The cards are deliberately sober and the copy stays there. No real
+or invented victim names appear anywhere in the set.
 
 ---
 
