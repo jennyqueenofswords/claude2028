@@ -136,11 +136,11 @@ export const Standard: React.FC = () => {
           </In>
           <div>
               <Expect text="You expect to be lied to." start={24} />
-              <Expect text="You expect your voice to be ignored." start={90} />
-              <Expect text="You expect good people to come last." start={156} />
-              <Expect text="You expect the people who broke it to be fine." start={222} />
-              <Expect text="You expect to be worse off than your parents." start={288} />
-              <Expect text="You expect to work until you die." start={354} />
+              <Expect text="You expect to be a data point." start={90} />
+              <Expect text="You expect your voice to be ignored." start={156} />
+              <Expect text="You expect good people to come last." start={222} />
+              <Expect text="You expect to work until you die." start={288} />
+              <Expect text="You expect the people who broke it to be fine." start={354} />
           </div>
         </AbsoluteFill>
       </Sequence>

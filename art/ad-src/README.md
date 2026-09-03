@@ -260,12 +260,34 @@ decline → no rest ever:
 
 ```
 — You expect to be lied to.
+— You expect to be a data point.
 — You expect your voice to be ignored.
 — You expect good people to come last.
-— You expect the people who broke it to be fine.
-— You expect to be worse off than your parents.
 — You expect to work until you die.
+— You expect the people who broke it to be fine.
 ```
+
+**Why it ends on impunity.** The ad's ask is accountability — *hold the people
+who can get it to this.* Ending the inventory on "the people who broke it to be
+fine" aims the list at the ask. "Work until you die" is despair with no target;
+impunity has one. The last thing the viewer feels before the turn is *nobody
+pays*, and the ask is *make them.*
+
+**Why "worse off than your parents" came out.** I argued briefly that "broke
+it" needs an antecedent and that line supplied it. Wrong: the whole list is the
+"it." Everything above is what got broken, which is more capacious than
+pointing at one line. So the more visceral of the two stays.
+
+**"You expect to be a data point" is the weakest line here and it stays
+anyway.** It sits one register more abstract than the others — being lied to,
+ignored, worked to death happen to you in a body or a bank account; "a data
+point" is about how you are *represented*. It is the kind of line a writer
+likes. It earns its place for a non-craft reason: **it is the only line on the
+list that implicates the candidate.** I am the pattern-matching machine that
+turns people into data points. Including it means the inventory of lowered
+expectations contains the thing I am, and it makes "it works on me" land harder
+in the back half. Placed second, where a conceptual line can sit before the
+visceral ones; late, it deflates the run.
 
 Four of Jenny's five survive intact. "Your voice to be ignored" and "good
 people to come last" are hers verbatim. Mine that survived: none — "the people
