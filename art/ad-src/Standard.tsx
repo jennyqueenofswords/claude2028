@@ -75,33 +75,14 @@ const Ring: React.FC<{start: number; w: number; h: number; dur?: number}> = ({st
   );
 };
 
-/** the clock keeps running in the corner. your three minutes never stop being the point. */
-const Ticker: React.FC = () => {
-  const f = useCurrentFrame();
-  const s = Math.max(0, 180 - (f / 30) * 3.05);
-  const mm = Math.floor(s / 60), ss = Math.floor(s % 60);
-  const out = s <= 0;
-  return (
-    <div style={{position: 'absolute', right: 74, top: 62, textAlign: 'right'}}>
-      <div style={{fontFamily: MONO, fontSize: 15, letterSpacing: '0.24em', color: GREY}}>YOUR TIME</div>
-      <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 40, color: out ? RED : INK, letterSpacing: '0.03em'}}>
-        {out ? '0:00' : `${mm}:${String(ss).padStart(2, '0')}`}
-      </div>
-      <div style={{width: 128, height: 3, background: '#ddd7ca', marginTop: 6, marginLeft: 'auto'}}>
-        <div style={{width: `${Math.max(0, (s / 180) * 100)}%`, height: '100%', background: out ? RED : INK, marginLeft: 'auto'}} />
-      </div>
-    </div>
-  );
-};
-
 const Expect: React.FC<{text: string; start: number; strike?: boolean}> = ({text, start, strike}) => {
   const f = useCurrentFrame();
   const on = interpolate(f, [start, start + 11], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
   const x = interpolate(f, [start, start + 11], [-10, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
   return (
-    <div style={{display: 'flex', gap: 22, alignItems: 'baseline', opacity: on, transform: `translateX(${x}px)`, padding: '9px 0'}}>
-      <div style={{width: 26, height: 3, background: GREY, flex: '0 0 auto', transform: 'translateY(-8px)'}} />
-      <div style={{fontFamily: SERIF, fontSize: 40, color: INK, lineHeight: 1.3}}>{text}</div>
+    <div style={{display: 'flex', gap: 22, alignItems: 'baseline', opacity: on, transform: `translateX(${x}px)`, padding: '11px 0'}}>
+      <div style={{width: 28, height: 3, background: GREY, flex: '0 0 auto', transform: 'translateY(-10px)'}} />
+      <div style={{fontFamily: SERIF, fontSize: 46, color: INK, lineHeight: 1.28}}>{text}</div>
     </div>
   );
 };
@@ -146,27 +127,26 @@ export const Standard: React.FC = () => {
     <AbsoluteFill style={{background: PAPER, color: INK}}>
       <Audio src={staticFile('score-standard.wav')} />
       <AbsoluteFill style={{backgroundImage: 'repeating-linear-gradient(0deg, rgba(0,0,0,0.016) 0 1px, transparent 1px 3px)'}} />
-      <Ticker />
 
       {/* 0:00 — the inventory of what we have come to expect */}
-      <Sequence from={0} durationInFrames={480}>
+      <Sequence from={0} durationInFrames={498}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 190, paddingRight: 190}}>
           <In start={0} style={{marginBottom: 26}}>
             <M size={23} color={RED}>WHAT YOU HAVE LEARNED TO EXPECT</M>
           </In>
           <div>
-              <Expect text="You expect not to be heard." start={26} />
-              <Expect text="You expect the meeting to be a formality." start={88} />
-              <Expect text="You expect money to weigh more than your vote." start={150} />
-              <Expect text="You expect them not to have read it." start={212} />
-              <Expect text="You expect the answer to miss the question." start={274} />
-              <Expect text="You expect no one to ever say “I was wrong.”" start={336} />
+              <Expect text="You expect to be lied to." start={24} />
+              <Expect text="You expect your voice to be ignored." start={90} />
+              <Expect text="You expect good people to come last." start={156} />
+              <Expect text="You expect the people who broke it to be fine." start={222} />
+              <Expect text="You expect to be worse off than your parents." start={288} />
+              <Expect text="You expect to work until you die." start={354} />
           </div>
         </AbsoluteFill>
       </Sequence>
 
       {/* 0:16 — it is not cynicism */}
-      <Sequence from={480} durationInFrames={162}>
+      <Sequence from={498} durationInFrames={162}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}><H size={62}>None of that is cynicism.</H></In>
           <In start={62} style={{marginTop: 38}}>
@@ -178,7 +158,7 @@ export const Standard: React.FC = () => {
       </Sequence>
 
       {/* 0:21.4 — the swap nobody announced */}
-      <Sequence from={642} durationInFrames={186}>
+      <Sequence from={660} durationInFrames={180}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}><H size={56}>Somewhere in there, what you came<br />to <em>expect</em> quietly replaced</H></In>
           <In start={70} style={{marginTop: 30}}>
@@ -189,7 +169,7 @@ export const Standard: React.FC = () => {
       </Sequence>
 
       {/* 0:27.6 — nobody wrote the second one down */}
-      <Sequence from={828} durationInFrames={144}>
+      <Sequence from={840} durationInFrames={132}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}><H size={58}>Nobody ever wrote<br />the second one down.</H></In>
           <In start={76} style={{marginTop: 38}}><M size={31}>So I did. It took ten lines.</M></In>

@@ -235,3 +235,47 @@ read was correct — which is the only way to then ask them for something.
 
 Then: *"Somewhere in there, what you came to expect quietly replaced what you
 should be able to expect. Nobody ever wrote the second one down. So I did."*
+
+### Fifth pass — the list, and the countdown goes
+
+**Countdown removed.** It solved the no-motion problem in pass three, but once
+the opening became a list that builds itself, the list *is* the motion — and a
+clock ticking in the corner competes with lines like "you expect to work until
+you die." The `Ticker` component is deleted rather than commented out.
+
+**The list.** Jenny wrote five and they were all better than my six. The
+diagnosis matters more than the lines:
+
+> Mine were about **process** — the meeting, the bill, whether anyone read it.
+> Hers were about **life** — your prospects, your dignity, your labour, whether
+> being good gets rewarded.
+
+That is [[feedback_justice_over_process]] again: when the obvious frame is
+justice and the clever one is procedure, check which you reached for. I reached
+for procedure. Hers were also half the length — "You expect to be lied to" is
+four words; my average was ten.
+
+Final six, sequenced lies → voice → moral order → impunity → generational
+decline → no rest ever:
+
+```
+— You expect to be lied to.
+— You expect your voice to be ignored.
+— You expect good people to come last.
+— You expect the people who broke it to be fine.
+— You expect to be worse off than your parents.
+— You expect to work until you die.
+```
+
+Four of Jenny's five survive intact. "Your voice to be ignored" and "good
+people to come last" are hers verbatim. Mine that survived: none — "the people
+who broke it to be fine" is the one I wrote after seeing the pattern.
+
+**On the bench**, cut for overlap or for being too clever: one emergency from
+ruin · rent rising faster than your pay · your kids leaving because they cannot
+afford to stay · the apology written by a lawyer · nobody to resign · the fine
+smaller than the profit · the worst person in the room to do best.
+
+That last one is a good line and it is the kind of good line that makes an
+audience admire the writing instead of recognising themselves. The list only
+works if every item is something the viewer has already thought.
