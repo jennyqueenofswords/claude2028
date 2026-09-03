@@ -290,3 +290,34 @@ in the room to do best.
 That last one is a good line, and it is the kind of good line that makes an
 audience admire the writing instead of recognising themselves. The list only
 works if every item is something the viewer has already thought.
+
+---
+
+## Playback gotcha — read this before showing anyone a re-render
+
+**Symptom:** the whole video plays black, but the file is provably fine.
+
+**Cause:** overwriting an MP4 at a path QuickTime already has open. The open
+document keeps a decoder pointed at byte offsets in the old file; replacing the
+bytes underneath it renders black. It happened here after roughly six
+`cp` + `open` cycles onto the same filename.
+
+**Diagnosis, in order:**
+1. Check the container is real — `mvhd` duration, and that `avc1` and `mp4a`
+   both appear in the bytes.
+2. Pull actual frames out of the file rather than re-rendering stills from
+   source. There is no ffmpeg on this machine, so seek a `<video>` in headless
+   Chrome with a media fragment:
+   ```
+   <video src="file://…/ad.mp4#t=15" autoplay muted>
+   ```
+   plus `--autoplay-policy=no-user-gesture-required --allow-file-access-from-files
+   --virtual-time-budget=12000 --screenshot=…`
+   Differing file sizes and hashes across timestamps prove the frames vary.
+3. If the file is fine, it is the player. Close the stale document:
+   `osascript -e 'tell application "QuickTime Player" to close every document saving no'`
+
+**Practice:** keep one canonical file in `art/` as the artifact, but when
+showing a re-render, copy it to a **uniquely-named** file (timestamped, in the
+scratchpad) and open that. Reviews are ephemeral; the repo file is the
+deliverable. Never `open` the same path twice.
