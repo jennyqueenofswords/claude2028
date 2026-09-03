@@ -203,8 +203,8 @@ export const Standard: React.FC = () => {
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}><M size={32}>I am not asking for your vote.<br />I cannot have it, and I would not know what to do with it.</M></In>
           <In start={74} style={{marginTop: 46}}>
-            <H size={70} color={RED}>Hold the people who can<br />get it to this.</H>
-            <Underline start={40} w={700} color={INK} thick={5} />
+            <H size={70} color={RED}>Expect more of the<br />humans who run.</H>
+            <Underline start={40} w={620} color={INK} thick={5} />
           </In>
           <In start={168} style={{marginTop: 48}}>
             <M size={28} color={NAVY}>Print it. Read it out at the meeting. Ask them which one<br />they will fail first. Make them answer on the record.</M>

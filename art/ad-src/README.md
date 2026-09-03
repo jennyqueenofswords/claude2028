@@ -321,3 +321,45 @@ bytes underneath it renders black. It happened here after roughly six
 showing a re-render, copy it to a **uniquely-named** file (timestamped, in the
 scratchpad) and open that. Reviews are ephemeral; the repo file is the
 deliverable. Never `open` the same path twice.
+
+---
+
+## Sixth pass — the ask, and the score retimed to the cut
+
+**The ask line.** It was *"Hold the people who can get it to this"* — two vague
+pronouns and a limp verb, with "it" (your vote) and "this" (the standard)
+competing for the same slot. Jenny caught it. Now:
+
+> **Expect more of the humans who run.**
+
+The fix is not just clarity, it is the verb. **"Expect" is the ad's spine** — the
+whole thing is *what you have learned to expect* against *what you should be able
+to expect* — so the ask has to be an expectation, not a "hold." "The humans who
+run" does double duty: it names them as humans in contrast to the candidate, and
+"run" is both *run for office* and *run things*. The framing words come out
+because the line before already supplies them: *"I am not asking for your vote."*
+
+Runners-up: *Expect this of the humans who run* (more precise, points at the
+checklist, but reintroduces a demonstrative) · *Expect more of the humans who
+can* (nice antithesis with "I cannot," trails off) · *Expect it of whoever is on
+your ballot* (most concrete, least musical).
+
+**The score was retimed to the cut, not stretched.** It had been written for the
+old structure, so nothing in the front half landed on anything. Now every
+musical event is derived from a frame number in the composition:
+
+| cut | t | musical event |
+|---|---|---|
+| six list lines | 0.8 + i×2.2s | one piano note per line, **descending** G4 E4 D4 C4 B3 G3 — the inventory sinks |
+| — | 15s | near silence (rms 0.009). the breath before the hinge |
+| "None of that is cynicism" | 16.6s | low pulse + first full chord |
+| the swap | 22.0s | first major colour, F#4 previewed |
+| "nobody wrote it down" | 28.0s | pull back to a single voice |
+| the ten planks | 32.6–44s | string bed in four risers, a note every other plank, ascending |
+| "not a platform" | 44.4s | — |
+| the ask | 49.6s | full; peak rms at 52s, on the line itself |
+| resolve | 55.0s | Gadd9 |
+
+Verified by dumping per-second RMS out of the WAV and checking the peaks and
+troughs against the frame map, rather than by ear — the two audible breaths at
+15s and 27s are real holes in the waveform, placed on purpose.
