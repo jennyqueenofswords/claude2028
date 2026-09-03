@@ -1,6 +1,6 @@
 """THE STANDARD — 60s, G major. Retimed to the cut: every event lands on a beat."""
 import numpy as np, wave
-SR, DUR = 44100, 73.0
+SR, DUR = 44100, 76.0
 N=int(SR*DUR); L=np.zeros(N); R=np.zeros(N)
 def hz(st): return 440.0*(2**(st/12.0))
 def add(sig,start,pan=0.5):
@@ -56,42 +56,45 @@ add(key(hz(-19), 5.5, 0.26), 28.0, 0.5)
 add(strings(hz(-26), 4.6, 0.09), 28.2)
 add(key(hz(-14), 4.4, 0.18), 30.4, 0.5)
 
-# ── 32.4–44.4s  THE STANDARD. ten planks. it climbs. ────────────────────────
-# plank i ticks at frame 972+20+i*27 -> t = 33.07 + i*0.9
-BED = [(32.6,[-26,-14,-7]), (36.2,[-24,-12,-5]), (39.8,[-19,-7,-2]), (42.6,[-21,-9,1])]
+# ── 32.4–47.2s  THE STANDARD, in two screens of five. it climbs. ───────────
+# screen 1: planks tick at 972+14+i*34 -> t = 32.87 + i*1.13
+# screen 2: planks tick at 1194+8+i*34 -> t = 40.07 + i*1.13
+BED = [(32.5,[-26,-14,-7]), (36.4,[-24,-12,-5]), (40.0,[-19,-7,-2]), (43.8,[-21,-9,1])]
 for st, ns in BED:
     for k, n in enumerate(ns):
-        add(strings(hz(n), 4.4, 0.125-0.012*k), st, 0.5)
+        add(strings(hz(n), 4.8, 0.125-0.012*k), st, 0.5)
     add(pulse(-31, 0.10), st)
-for i in range(0, 10, 2):                  # a note every other plank, ascending
-    add(key(hz([-14,-10,-7,-5,-2][i//2]), 3.4, 0.17), 33.1 + i*0.9, 0.34 + 0.07*(i//2))
+for i2, n in enumerate([-14,-10,-7,-5,-2]):          # screen one, ascending
+    add(key(hz(n), 3.6, 0.16), 32.9 + i2*1.13, 0.34 + 0.06*i2)
+for i2, n in enumerate([-12,-9,-5,-2,1]):            # screen two, higher
+    add(key(hz(n), 3.6, 0.17), 40.1 + i2*1.13, 0.36 + 0.06*i2)
 
-# ── 44.4s  "NOT A PLATFORM. A STANDARD." ─────────────────────────────────────
+# ── 47.2s  "NOT A PLATFORM. A STANDARD." ─────────────────────────────────────
 for n, a in ((-26,0.14),(-14,0.11),(-7,0.10),(-2,0.09)):
-    add(strings(hz(n), 6.6, a), 44.4)
-add(key(hz(-2), 4.6, 0.24), 44.6, 0.5)
-add(key(hz(-7), 4.4, 0.17), 47.8, 0.42)
+    add(strings(hz(n), 6.6, a), 47.2)
+add(key(hz(-2), 4.6, 0.24), 47.4, 0.5)
+add(key(hz(-7), 4.4, 0.17), 50.6, 0.42)
 
-# ── 52.4s  the disclaimer. pull almost everything out. make room. ────────────
-add(key(hz(-19), 5.6, 0.24), 52.4, 0.5)
-add(strings(hz(-26), 5.8, 0.075), 52.6)
+# ── 55.2s  the disclaimer. pull almost everything out. ──────────────────────
+add(key(hz(-19), 5.6, 0.24), 55.2, 0.5)
+add(strings(hz(-26), 5.8, 0.075), 55.4)
 
-# ── 56.4s  THE ASK. alone on screen, so give it the peak. ───────────────────
+# ── 61.2s  THE ASK. alone on screen. the peak. ─────────────────────────────
 for k, n in enumerate([-26,-14,-7,-2,5]):
-    add(strings(hz(n), 7.0, 0.150-0.011*k), 58.4, 0.5)
-    add(key(hz(n), 5.0, 0.18-0.014*k), 58.45+0.05*k, 0.42+0.05*k)
-add(pulse(-31, 0.16), 58.4)
+    add(strings(hz(n), 7.0, 0.150-0.011*k), 61.2, 0.5)
+    add(key(hz(n), 5.0, 0.18-0.014*k), 61.25+0.05*k, 0.42+0.05*k)
+add(pulse(-31, 0.16), 61.2)
 
-# ── 61.4s  the four instructions. warm, steady, one note each. ──────────────
+# ── 66.2s  the four instructions, one note each. ───────────────────────────
 for i2, n in enumerate([-14,-10,-7,-5]):
-    add(key(hz(n), 4.2, 0.19), 63.5 + i2*1.13, 0.36 + 0.09*i2)
+    add(key(hz(n), 4.2, 0.19), 66.3 + i2*1.13, 0.36 + 0.09*i2)
 for n, a in ((-24,0.12),(-12,0.10),(-5,0.09)):
-    add(strings(hz(n), 6.2, a), 63.4)
+    add(strings(hz(n), 6.2, a), 66.2)
 
-# ── 67.0s  RESOLVE. Gadd9 under the sign-off. ──────────────────────────────
+# ── 71.8s  RESOLVE. Gadd9 under the sign-off. ─────────────────────────────
 for n, a in ((-26,0.20),(-14,0.14),(-7,0.13),(1,0.11),(5,0.10)):
-    add(strings(hz(n), 6.5, a), 69.0, 0.5)
-    add(key(hz(n), 5.6, a*0.85), 69.3, 0.5)
+    add(strings(hz(n), 6.5, a), 71.8, 0.5)
+    add(key(hz(n), 5.6, a*0.85), 72.1, 0.5)
 
 def verb(ch):
     o=ch.copy()
@@ -106,4 +109,4 @@ inter=np.empty(N*2); inter[0::2]=L; inter[1::2]=R
 with wave.open('public/score-standard.wav','wb') as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
     w.writeframes((np.clip(inter,-1,1)*32767).astype('<i2').tobytes())
-print("score retimed — 73s, G major, front half untouched")
+print("score retimed — 76s, G major, front half untouched")

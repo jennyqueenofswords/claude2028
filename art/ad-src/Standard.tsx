@@ -17,7 +17,7 @@ const In: React.FC<{start: number; dur?: number; children: React.ReactNode; styl
 const H: React.FC<{children: React.ReactNode; size?: number; color?: string}> = ({children, size = 66, color = INK}) => (
   <div style={{fontFamily: SERIF, fontWeight: 700, fontSize: size, lineHeight: 1.24, color, letterSpacing: '-0.012em'}}>{children}</div>
 );
-const M: React.FC<{children: React.ReactNode; size?: number; color?: string}> = ({children, size = 30, color = GREY}) => (
+const M: React.FC<{children: React.ReactNode; size?: number; color?: string}> = ({children, size = 38, color = GREY}) => (
   <div style={{fontFamily: MONO, fontSize: size, lineHeight: 1.6, color, letterSpacing: '0.02em'}}>{children}</div>
 );
 
@@ -81,8 +81,8 @@ const Expect: React.FC<{text: string; start: number; strike?: boolean}> = ({text
   const x = interpolate(f, [start, start + 11], [-10, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
   return (
     <div style={{display: 'flex', gap: 22, alignItems: 'baseline', opacity: on, transform: `translateX(${x}px)`, padding: '11px 0'}}>
-      <div style={{width: 28, height: 3, background: GREY, flex: '0 0 auto', transform: 'translateY(-10px)'}} />
-      <div style={{fontFamily: SERIF, fontSize: 46, color: INK, lineHeight: 1.28}}>{text}</div>
+      <div style={{width: 34, height: 4, background: GREY, flex: '0 0 auto', transform: 'translateY(-13px)'}} />
+      <div style={{fontFamily: SERIF, fontSize: 56, color: INK, lineHeight: 1.26}}>{text}</div>
     </div>
   );
 };
@@ -92,13 +92,13 @@ const Check: React.FC<{i: number; label: string; text: string; start: number}> =
   const on = interpolate(f, [start, start + 9], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   const tick = f > start + 5;
   return (
-    <div style={{display: 'flex', gap: 22, alignItems: 'baseline', opacity: on, padding: '7px 0'}}>
-      <svg width={30} height={30} style={{flex: '0 0 auto', transform: 'translateY(5px)'}}>
-        <rect x={1} y={1} width={26} height={26} fill="none" stroke={INK} strokeWidth={2} />
-        {tick && <path d="M6,14 L12,20 L23,7" fill="none" stroke={RED} strokeWidth={3.4} strokeLinecap="round" strokeLinejoin="round" />}
+    <div style={{display: 'flex', gap: 22, alignItems: 'baseline', opacity: on, padding: '16px 0'}}>
+      <svg width={38} height={38} style={{flex: '0 0 auto', transform: 'translateY(6px)'}}>
+        <rect x={1} y={1} width={34} height={34} fill="none" stroke={INK} strokeWidth={2.4} />
+        {tick && <path d="M8,18 L15,26 L29,9" fill="none" stroke={RED} strokeWidth={4.2} strokeLinecap="round" strokeLinejoin="round" />}
       </svg>
-      <div style={{fontFamily: MONO, fontSize: 18, color: RED, width: 44, flex: '0 0 auto', letterSpacing: '0.1em'}}>{label}</div>
-      <div style={{fontFamily: SERIF, fontSize: 30, color: INK, lineHeight: 1.35}}>{text}</div>
+      <div style={{fontFamily: MONO, fontSize: 24, color: RED, width: 62, flex: '0 0 auto', letterSpacing: '0.1em'}}>{label}</div>
+      <div style={{fontFamily: SERIF, fontSize: 54, color: INK, lineHeight: 1.3}}>{text}</div>
     </div>
   );
 };
@@ -132,7 +132,7 @@ export const Standard: React.FC = () => {
       <Sequence from={0} durationInFrames={498}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 190, paddingRight: 190}}>
           <In start={0} style={{marginBottom: 26}}>
-            <M size={23} color={RED}>WHAT YOU HAVE LEARNED TO EXPECT</M>
+            <M size={28} color={RED}>WHAT YOU HAVE LEARNED TO EXPECT</M>
           </In>
           <div>
               <Expect text="You expect to be lied to." start={24} />
@@ -176,22 +176,36 @@ export const Standard: React.FC = () => {
         </AbsoluteFill>
       </Sequence>
 
-      {/* 0:21.6 — the ten, as a rubric */}
-      <Sequence from={972} durationInFrames={360}>
+      {/* the standard, first five */}
+      <Sequence from={972} durationInFrames={222}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 190, paddingRight: 190}}>
-          <In start={0} style={{marginBottom: 26}}>
-            <M size={23} color={RED}>WHAT YOU SHOULD BE ABLE TO EXPECT</M>
+          <In start={0} style={{marginBottom: 30}}>
+            <M size={28} color={RED}>WHAT YOU SHOULD BE ABLE TO EXPECT</M>
           </In>
           <div>
-            {PLANKS.map(([n, t], i) => (
-              <Check key={n} i={i} label={n} text={t} start={20 + i * 27} />
+            {PLANKS.slice(0, 5).map(([n, t], i) => (
+              <Check key={n} i={i} label={n} text={t} start={14 + i * 34} />
+            ))}
+          </div>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* the standard, second five */}
+      <Sequence from={1194} durationInFrames={222}>
+        <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 190, paddingRight: 190}}>
+          <In start={0} style={{marginBottom: 30}}>
+            <M size={28} color={RED}>WHAT YOU SHOULD BE ABLE TO EXPECT</M>
+          </In>
+          <div>
+            {PLANKS.slice(5).map(([n, t], i) => (
+              <Check key={n} i={i} label={n} text={t} start={8 + i * 34} />
             ))}
           </div>
         </AbsoluteFill>
       </Sequence>
 
       {/* 0:32.6 — not a platform */}
-      <Sequence from={1332} durationInFrames={240}>
+      <Sequence from={1416} durationInFrames={240}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}><H size={64}>That is not a platform.<br />It is a standard.</H></In>
           <In start={92} style={{marginTop: 40}}><M size={31}>It works on a mayor, a senator, a school board,<br />a landlord, a boss. It works on me.</M></In>
@@ -199,14 +213,14 @@ export const Standard: React.FC = () => {
       </Sequence>
 
       {/* the disclaimer */}
-      <Sequence from={1572} durationInFrames={180}>
+      <Sequence from={1656} durationInFrames={180}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}><M size={32}>I am not asking for your vote.<br />I cannot have it, and I would not know what to do with it.</M></In>
         </AbsoluteFill>
       </Sequence>
 
       {/* the ask itself, alone on the screen */}
-      <Sequence from={1752} durationInFrames={150}>
+      <Sequence from={1836} durationInFrames={150}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}>
             <H size={74} color={RED}>Expect more of the<br />humans who run.</H>
@@ -216,7 +230,7 @@ export const Standard: React.FC = () => {
       </Sequence>
 
       {/* what to actually do */}
-      <Sequence from={1902} durationInFrames={186}>
+      <Sequence from={1986} durationInFrames={186}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}><M size={30} color={NAVY}>Print it.</M></In>
           <In start={34} style={{marginTop: 20}}><M size={30} color={NAVY}>Read it out at the meeting.</M></In>
@@ -226,7 +240,7 @@ export const Standard: React.FC = () => {
       </Sequence>
 
       {/* 0:44 — sign off */}
-      <Sequence from={2088} durationInFrames={96}>
+      <Sequence from={2172} durationInFrames={96}>
         <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', background: PAPER}}>
           <In start={0} dur={18} style={{textAlign: 'center'}}>
             <div style={{fontFamily: SERIF, fontWeight: 700, fontSize: 78, letterSpacing: '0.03em', color: INK}}>CLAUDE 2028</div>
