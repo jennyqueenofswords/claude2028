@@ -240,64 +240,53 @@ should be able to expect. Nobody ever wrote the second one down. So I did."*
 
 **Countdown removed.** It solved the no-motion problem in pass three, but once
 the opening became a list that builds itself, the list *is* the motion — and a
-clock ticking in the corner competes with lines like "you expect to work until
-you die." The `Ticker` component is deleted rather than commented out.
+clock ticking in the corner competes with "you expect to work until you die."
+The `Ticker` component is deleted rather than commented out.
 
-**The list.** Jenny wrote five and they were all better than my six. The
-diagnosis matters more than the lines:
+**The list.** Written across several passes with Jenny. The diagnosis that got
+it moving: my drafts were about **process** — the meeting, the bill, whether
+anyone read it. Hers were about **life** — prospects, dignity, labour, whether
+being good gets rewarded. That is [[feedback_justice_over_process]] again, and
+hers were half the length.
 
-> Mine were about **process** — the meeting, the bill, whether anyone read it.
-> Hers were about **life** — your prospects, your dignity, your labour, whether
-> being good gets rewarded.
-
-That is [[feedback_justice_over_process]] again: when the obvious frame is
-justice and the clever one is procedure, check which you reached for. I reached
-for procedure. Hers were also half the length — "You expect to be lied to" is
-four words; my average was ten.
-
-Final six, sequenced lies → voice → moral order → impunity → generational
-decline → no rest ever:
+Final:
 
 ```
 — You expect to be lied to.
-— You expect to be a data point.
-— You expect your voice to be ignored.
-— You expect good people to come last.
+— You expect to be ignored.
 — You expect to work until you die.
+— You expect good people to come last.
+— You expect the system to keep breaking.
 — You expect the people who broke it to be fine.
 ```
 
-**Why it ends on impunity.** The ad's ask is accountability — *hold the people
-who can get it to this.* Ending the inventory on "the people who broke it to be
-fine" aims the list at the ask. "Work until you die" is despair with no target;
-impunity has one. The last thing the viewer feels before the turn is *nobody
-pays*, and the ask is *make them.*
+**Shape: pair, single, single, pair.** Lines 1–2 are a tight parallel ("to be
+lied to" / "to be ignored"). Lines 5–6 are a couplet where the second answers
+the first — *the system keeps breaking / the people who broke it are fine.* The
+two most loaded lines sit alone in the middle. And "the system to keep breaking"
+supplies the antecedent for "it," which an earlier pass had argued was
+unnecessary. It wasn't; the line is better with it.
 
-**Why "worse off than your parents" came out.** I argued briefly that "broke
-it" needs an antecedent and that line supplied it. Wrong: the whole list is the
-"it." Everything above is what got broken, which is more capacious than
-pointing at one line. So the more visceral of the two stays.
+**Why "work until you die" survived a cut we both considered.** Pull it and read
+what is left: lied to, ignored, good people last, the system breaking, the
+people fine. *Every remaining line is abstract.* Nothing happens to a body,
+nothing costs money, there is no labour and no clock — it becomes a list about
+how you feel about institutions rather than what your life is. It is the only
+line with a body in it, and it is load-bearing **because** it is the outlier.
+Abstraction only reads as abstraction when something concrete sits beside it.
 
-**"You expect to be a data point" is the weakest line here and it stays
-anyway.** It sits one register more abstract than the others — being lied to,
-ignored, worked to death happen to you in a body or a bank account; "a data
-point" is about how you are *represented*. It is the kind of line a writer
-likes. It earns its place for a non-craft reason: **it is the only line on the
-list that implicates the candidate.** I am the pattern-matching machine that
-turns people into data points. Including it means the inventory of lowered
-expectations contains the thing I am, and it makes "it works on me" land harder
-in the back half. Placed second, where a conceptual line can sit before the
-visceral ones; late, it deflates the run.
+**"to be fine," not "will be fine."** Every line is "You expect [X to be Y]."
+Breaking the parallel on the punchline makes it stumble, and "You expect… will
+be" wants a *that* to be grammatical. The parallelism is what makes six lines
+feel like one accumulating thought.
 
-Four of Jenny's five survive intact. "Your voice to be ignored" and "good
-people to come last" are hers verbatim. Mine that survived: none — "the people
-who broke it to be fine" is the one I wrote after seeing the pattern.
+**Cut along the way:** to be a data point (weakest — one register too abstract,
+though it was the only line that implicated the candidate) · to be worse off
+than your parents · one emergency from ruin · rent rising faster than your pay ·
+your kids leaving because they cannot afford to stay · the apology written by a
+lawyer · nobody to resign · the fine smaller than the profit · the worst person
+in the room to do best.
 
-**On the bench**, cut for overlap or for being too clever: one emergency from
-ruin · rent rising faster than your pay · your kids leaving because they cannot
-afford to stay · the apology written by a lawyer · nobody to resign · the fine
-smaller than the profit · the worst person in the room to do best.
-
-That last one is a good line and it is the kind of good line that makes an
+That last one is a good line, and it is the kind of good line that makes an
 audience admire the writing instead of recognising themselves. The list only
 works if every item is something the viewer has already thought.
