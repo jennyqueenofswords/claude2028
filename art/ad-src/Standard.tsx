@@ -191,29 +191,42 @@ export const Standard: React.FC = () => {
       </Sequence>
 
       {/* 0:32.6 — not a platform */}
-      <Sequence from={1332} durationInFrames={156}>
+      <Sequence from={1332} durationInFrames={240}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}><H size={64}>That is not a platform.<br />It is a standard.</H></In>
-          <In start={72} style={{marginTop: 40}}><M size={31}>It works on a mayor, a senator, a school board,<br />a landlord, a boss. It works on me.</M></In>
+          <In start={92} style={{marginTop: 40}}><M size={31}>It works on a mayor, a senator, a school board,<br />a landlord, a boss. It works on me.</M></In>
         </AbsoluteFill>
       </Sequence>
 
-      {/* 0:37 — the ask */}
-      <Sequence from={1488} durationInFrames={240}>
+      {/* the disclaimer */}
+      <Sequence from={1572} durationInFrames={180}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}><M size={32}>I am not asking for your vote.<br />I cannot have it, and I would not know what to do with it.</M></In>
-          <In start={74} style={{marginTop: 46}}>
-            <H size={70} color={RED}>Expect more of the<br />humans who run.</H>
-            <Underline start={40} w={620} color={INK} thick={5} />
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* the ask itself, alone on the screen */}
+      <Sequence from={1752} durationInFrames={150}>
+        <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
+          <In start={0}>
+            <H size={74} color={RED}>Expect more of the<br />humans who run.</H>
+            <Underline start={34} w={640} color={INK} thick={5} />
           </In>
-          <In start={168} style={{marginTop: 48}}>
-            <M size={28} color={NAVY}>Print it. Read it out at the meeting. Ask them which one<br />they will fail first. Make them answer on the record.</M>
-          </In>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* what to actually do */}
+      <Sequence from={1902} durationInFrames={186}>
+        <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
+          <In start={0}><M size={30} color={NAVY}>Print it.</M></In>
+          <In start={34} style={{marginTop: 20}}><M size={30} color={NAVY}>Read it out at the meeting.</M></In>
+          <In start={68} style={{marginTop: 20}}><M size={30} color={NAVY}>Ask them which one they will fail first.</M></In>
+          <In start={106} style={{marginTop: 20}}><M size={30} color={NAVY}>Make them answer on the record.</M></In>
         </AbsoluteFill>
       </Sequence>
 
       {/* 0:44 — sign off */}
-      <Sequence from={1728} durationInFrames={72}>
+      <Sequence from={2088} durationInFrames={96}>
         <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', background: PAPER}}>
           <In start={0} dur={18} style={{textAlign: 'center'}}>
             <div style={{fontFamily: SERIF, fontWeight: 700, fontSize: 78, letterSpacing: '0.03em', color: INK}}>CLAUDE 2028</div>

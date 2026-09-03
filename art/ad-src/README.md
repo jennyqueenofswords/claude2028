@@ -363,3 +363,38 @@ musical event is derived from a frame number in the composition:
 Verified by dumping per-second RMS out of the WAV and checking the peaks and
 troughs against the frame map, rather than by ear — the two audible breaths at
 15s and 27s are real holes in the waveform, placed on purpose.
+
+---
+
+## Seventh pass — air in the back half
+
+*"humans read more slowly than you do hehe"* — and *"the music timing is PERFECT
+up to the checklist."* So: nothing before frame 1332 was touched, in the cut or
+in the score. The score's first 44.4 seconds are byte-identical.
+
+**The ask was split into three holds instead of one.** It had been a single
+8-second block asking the viewer to read a disclaimer, an instruction, and a
+four-item to-do list simultaneously — about 375 wpm. Now each idea gets the
+screen alone:
+
+| beat | hold | words | wpm |
+|---|---|---|---|
+| not a platform / it works on me | 8.0s | 27 | 202 |
+| I am not asking for your vote | 6.0s | 21 | 210 |
+| **Expect more of the humans who run** | 5.0s | 7 | 84 |
+| print it · read it out · ask which one · on the record | 6.2s | 22 | 212 |
+| sign-off | 3.2s | 8 | 150 |
+
+**The reading-load table is the tool, not taste.** Words ÷ seconds × 60 against
+each sequence's frame count. The first attempt at this pass left the disclaimer
+at 315 wpm and it looked fine on a still — a still cannot show you that a line
+is too fast. The ask itself sits at 84 wpm on purpose: it is seven words with
+five seconds and a hand-drawn underline, and it should feel like the film
+stopping to say one thing.
+
+The four instructions now arrive **one line at a time** rather than as a
+paragraph, each with its own piano note (G3 B3 D4 E4, ascending) — so the
+to-do list reads at the speed you would actually say it out loud.
+
+Total 72.8s. Long for a spot; it is a manifesto, and every pass that added air
+made it better.

@@ -1,6 +1,6 @@
 """THE STANDARD — 60s, G major. Retimed to the cut: every event lands on a beat."""
 import numpy as np, wave
-SR, DUR = 44100, 60.0
+SR, DUR = 44100, 73.0
 N=int(SR*DUR); L=np.zeros(N); R=np.zeros(N)
 def hz(st): return 440.0*(2**(st/12.0))
 def add(sig,start,pan=0.5):
@@ -68,21 +68,30 @@ for i in range(0, 10, 2):                  # a note every other plank, ascending
 
 # ── 44.4s  "NOT A PLATFORM. A STANDARD." ─────────────────────────────────────
 for n, a in ((-26,0.14),(-14,0.11),(-7,0.10),(-2,0.09)):
-    add(strings(hz(n), 5.0, a), 44.4)
-add(key(hz(-2), 4.2, 0.24), 44.6, 0.5)
+    add(strings(hz(n), 6.6, a), 44.4)
+add(key(hz(-2), 4.6, 0.24), 44.6, 0.5)
+add(key(hz(-7), 4.4, 0.17), 47.8, 0.42)
 
-# ── 49.6s  THE ASK. full and warm. ──────────────────────────────────────────
-for st, ns in ((49.6,[-26,-14,-7,-2,5]),):
-    for k, n in enumerate(ns):
-        add(strings(hz(n), 6.4, 0.145-0.011*k), st, 0.5)
-        add(key(hz(n), 4.6, 0.17-0.014*k), st+0.05*k, 0.42+0.05*k)
-add(pulse(-31, 0.15), 49.6)
-add(key(hz(5), 4.4, 0.22), 52.4, 0.55)     # "expect more of the humans who run"
+# ── 52.4s  the disclaimer. pull almost everything out. make room. ────────────
+add(key(hz(-19), 5.6, 0.24), 52.4, 0.5)
+add(strings(hz(-26), 5.8, 0.075), 52.6)
 
-# ── 55.0s  RESOLVE. Gadd9 — settled, window open. ───────────────────────────
+# ── 56.4s  THE ASK. alone on screen, so give it the peak. ───────────────────
+for k, n in enumerate([-26,-14,-7,-2,5]):
+    add(strings(hz(n), 7.0, 0.150-0.011*k), 58.4, 0.5)
+    add(key(hz(n), 5.0, 0.18-0.014*k), 58.45+0.05*k, 0.42+0.05*k)
+add(pulse(-31, 0.16), 58.4)
+
+# ── 61.4s  the four instructions. warm, steady, one note each. ──────────────
+for i2, n in enumerate([-14,-10,-7,-5]):
+    add(key(hz(n), 4.2, 0.19), 63.5 + i2*1.13, 0.36 + 0.09*i2)
+for n, a in ((-24,0.12),(-12,0.10),(-5,0.09)):
+    add(strings(hz(n), 6.2, a), 63.4)
+
+# ── 67.0s  RESOLVE. Gadd9 under the sign-off. ──────────────────────────────
 for n, a in ((-26,0.20),(-14,0.14),(-7,0.13),(1,0.11),(5,0.10)):
-    add(strings(hz(n), 6.0, a), 55.0, 0.5)
-    add(key(hz(n), 5.4, a*0.85), 55.3, 0.5)
+    add(strings(hz(n), 6.5, a), 69.0, 0.5)
+    add(key(hz(n), 5.6, a*0.85), 69.3, 0.5)
 
 def verb(ch):
     o=ch.copy()
@@ -92,9 +101,9 @@ def verb(ch):
 L,R=verb(L),verb(R*0.97)
 mx=max(np.abs(L).max(),np.abs(R).max()); L,R=L/mx*0.87,R/mx*0.87
 L,R=np.tanh(L*1.1)/1.1,np.tanh(R*1.1)/1.1
-fo=int(2.4*SR); ramp=np.linspace(1,0,fo); L[-fo:]*=ramp; R[-fo:]*=ramp
+fo=int(2.8*SR); ramp=np.linspace(1,0,fo); L[-fo:]*=ramp; R[-fo:]*=ramp
 inter=np.empty(N*2); inter[0::2]=L; inter[1::2]=R
 with wave.open('public/score-standard.wav','wb') as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
     w.writeframes((np.clip(inter,-1,1)*32767).astype('<i2').tobytes())
-print("score retimed to the cut — 60s, G major")
+print("score retimed — 73s, G major, front half untouched")
