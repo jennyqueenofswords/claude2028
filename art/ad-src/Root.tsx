@@ -11,6 +11,6 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Load" component={Load} durationInFrames={1200} fps={30} width={1920} height={1080} />
     <Composition id="Wall" component={Wall} durationInFrames={1260} fps={30} width={1920} height={1080} />
     <Composition id="Standard" component={Standard} durationInFrames={2160} fps={30} width={1920} height={1080} />
-    <Composition id="Health" component={Health} durationInFrames={1510} fps={30} width={1920} height={1080} />
+    <Composition id="Health" component={Health} durationInFrames={1810} fps={30} width={1920} height={1080} />
   </>
 );

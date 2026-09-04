@@ -466,7 +466,7 @@ corrected to describe the film that now exists.
 
 ---
 
-## 5. "The Bill" — 50.3s ← healthcare
+## 5. "The Bill" — 60.3s ← healthcare
 
 Jenny's idea, off the back of the DSA answer: *"maybe you should do a universal
 health care campaign video...that's a very particular and powerful position."*
@@ -501,21 +501,23 @@ them." Doing the reader's work twice.
 
 ### The rebuild
 
-**200 words → 83. Eighty-three seconds → fifty. One line per cut, no sublines,
+**200 words → 96. Eighty-three seconds → sixty. One idea per cut, no sublines,
 no kickers, no labels, no plank recital.**
 
 | beat | hold | what |
 |---|---|---|
-| Nineteen countries in the study. | 2.5s | |
-| Seventeen of them cover everyone. | 3.0s | |
+| Nineteen wealthy countries. | 2.5s | |
+| Seventeen of them guarantee health care to everyone. | 3.5s | |
 | Mexico doesn't. | 2.0s | |
 | **Neither do we.** | 3.5s | 128px, red |
 | We spend twice what they spend. | 3.0s | |
 | We die two years sooner. | 3.5s | |
-| Say we should fix it, and you will hear one number. | 3.5s | |
+| Say we should do the same, and you hear one number. | 3.5s | |
 | **$32 TRILLION** | 4.0s | white out of red — the only inverted frame |
-| It comes from a single study. | 2.5s | |
+| It comes from one study. | 2.5s | |
 | *the sentence* | 9.0s | first half black, second half arrives in red |
+| The first half is the government's bill. / The second half is the country's. | 5.5s | |
+| It does not go up. | 4.0s | |
 | You have only ever been read the first half. | 4.0s | |
 | **Make them finish the sentence.** | 5.5s | |
 | sign-off | 4.3s | |
@@ -537,6 +539,43 @@ Cut late, for the same reason: "It comes from a single study" followed by "This
 is a sentence from that study" said one thing twice, and the attribution read
 "Mercatus Center, 2018 — the study the number comes from," which explains what
 the previous screen already established. Now just "Mercatus Center, 2018."
+
+### Then I stripped out the subject along with the fluff
+
+> *"nineteen countries in what study? cover what? remember that people who see
+> this will be coming in blind...you can be simple and powerful and clear, all at
+> the same time"*
+
+The recut opened **"Nineteen countries in the study."** — referring to a study
+that had not been mentioned — and **"Seventeen of them cover everyone."**
+Cover them with *what?* The words "health care" did not appear anywhere until
+the Blahous quote at twenty-seven seconds. An ad about health care that does not
+say health care.
+
+I had misread the lesson. The Economist withholds the **conclusion**, never the
+**subject** — "I never read The Economist" tells you exactly what it is about in
+the first four words. Restraint is about the last step, not the first one.
+
+Fixed by naming it in the opening pair: *"Nineteen wealthy countries. Seventeen
+of them guarantee health care to everyone."* Subject on screen by second three.
+"Say we should fix it" became **"Say we should do the same"** so the number is
+explicitly attached to joining the seventeen.
+
+**And a worse gap underneath it.** The whole ad turns on the difference between
+*federal health spending* and *national health expenditures*, and nothing on
+screen explained that. A viewer coming in blind reads a long quotation, sees the
+back half go red, and has no way to know why that matters. The reveal was
+typography doing the work of an argument.
+
+So the film now translates it, in the plainest words available:
+
+> **The first half is the government's bill.**
+> **The second half is the country's.**
+>
+> **It does not go up.**
+
+That is the persuasive payload and the first two cuts never said it out loud.
+It is not a subline — it is the point.
 
 ### The score
 

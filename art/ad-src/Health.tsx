@@ -81,43 +81,43 @@ export const Health: React.FC = () => {
       <Audio src={staticFile('score-health.wav')} />
       <AbsoluteFill style={{backgroundImage: 'repeating-linear-gradient(0deg, rgba(0,0,0,0.016) 0 1px, transparent 1px 3px)'}} />
 
-      {/* 0.0 */}
+      {/* 0.0 — say what it is about in the first line */}
       <Sequence from={0} durationInFrames={75}>
-        <Mid><Cut><Line>Nineteen countries<br />in the study.</Line></Cut></Mid>
+        <Mid><Cut><Line>Nineteen wealthy countries.</Line></Cut></Mid>
       </Sequence>
 
       {/* 2.5 */}
-      <Sequence from={75} durationInFrames={90}>
-        <Mid><Cut><Line>Seventeen of them<br />cover everyone.</Line></Cut></Mid>
+      <Sequence from={75} durationInFrames={105}>
+        <Mid><Cut><Line>Seventeen of them guarantee<br />health care to everyone.</Line></Cut></Mid>
       </Sequence>
 
-      {/* 5.5 */}
-      <Sequence from={165} durationInFrames={60}>
+      {/* 6.0 */}
+      <Sequence from={180} durationInFrames={60}>
         <Mid><Cut><Line>Mexico doesn&rsquo;t.</Line></Cut></Mid>
       </Sequence>
 
-      {/* 7.5 — the admission */}
-      <Sequence from={225} durationInFrames={105}>
+      {/* 8.0 — the admission */}
+      <Sequence from={240} durationInFrames={105}>
         <Mid><Cut><Line size={128} color={RED}>Neither do we.</Line></Cut></Mid>
       </Sequence>
 
-      {/* 11.0 */}
-      <Sequence from={330} durationInFrames={90}>
+      {/* 11.5 */}
+      <Sequence from={345} durationInFrames={90}>
         <Mid><Cut><Line>We spend twice<br />what they spend.</Line></Cut></Mid>
       </Sequence>
 
-      {/* 14.0 */}
-      <Sequence from={420} durationInFrames={105}>
+      {/* 14.5 */}
+      <Sequence from={435} durationInFrames={105}>
         <Mid><Cut><Line>We die two<br />years sooner.</Line></Cut></Mid>
       </Sequence>
 
-      {/* 17.5 */}
-      <Sequence from={525} durationInFrames={105}>
-        <Mid><Cut><Line size={76}>Say we should fix it,<br />and you will hear one number.</Line></Cut></Mid>
+      {/* 18.0 */}
+      <Sequence from={540} durationInFrames={105}>
+        <Mid><Cut><Line size={76}>Say we should do the same,<br />and you hear one number.</Line></Cut></Mid>
       </Sequence>
 
-      {/* 21.0 — white out of red. the only inverted frame, and it is their number. */}
-      <Sequence from={630} durationInFrames={120}>
+      {/* 21.5 — white out of red. the only inverted frame, and it is their number. */}
+      <Sequence from={645} durationInFrames={120}>
         <Mid bg={RED}>
           <Cut>
             <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 210, color: '#fff', letterSpacing: '-0.03em'}}>
@@ -127,13 +127,13 @@ export const Health: React.FC = () => {
         </Mid>
       </Sequence>
 
-      {/* 25.0 */}
-      <Sequence from={750} durationInFrames={75}>
-        <Mid><Cut><Line size={80}>It comes from<br />a single study.</Line></Cut></Mid>
+      {/* 25.5 */}
+      <Sequence from={765} durationInFrames={75}>
+        <Mid><Cut><Line size={80}>It comes from<br />one study.</Line></Cut></Mid>
       </Sequence>
 
-      {/* 30.17 — the document. left aligned, because it is a quotation, not a slogan. */}
-      <Sequence from={825} durationInFrames={270}>
+      {/* 28.0 — the document. left aligned, because it is a quotation. */}
+      <Sequence from={840} durationInFrames={270}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 180, paddingRight: 180}}>
           <Sentence reveal={130} />
           <Fade start={215} style={{marginTop: 52}}>
@@ -144,13 +144,30 @@ export const Health: React.FC = () => {
         </AbsoluteFill>
       </Sequence>
 
-      {/* 39.17 */}
-      <Sequence from={1095} durationInFrames={120}>
-        <Mid><Fade><Line size={84}>You have only ever been read<br />the first half.</Line></Fade></Mid>
+      {/* 37.0 — the translation. without this the reveal is just red text. */}
+      <Sequence from={1110} durationInFrames={165}>
+        <Mid>
+          <Fade>
+            <Line size={72}>
+              The first half is the government&rsquo;s bill.<br />
+              <span style={{color: RED}}>The second half is the country&rsquo;s.</span>
+            </Line>
+          </Fade>
+        </Mid>
       </Sequence>
 
-      {/* 43.17 — the ask */}
-      <Sequence from={1215} durationInFrames={165}>
+      {/* 42.5 */}
+      <Sequence from={1275} durationInFrames={120}>
+        <Mid><Fade><Line size={80}>It does not go up.</Line></Fade></Mid>
+      </Sequence>
+
+      {/* 46.5 */}
+      <Sequence from={1395} durationInFrames={120}>
+        <Mid><Fade><Line size={80}>You have only ever been read<br />the first half.</Line></Fade></Mid>
+      </Sequence>
+
+      {/* 50.5 — the ask */}
+      <Sequence from={1515} durationInFrames={165}>
         <Mid>
           <Fade>
             <Line size={104} color={RED}>Make them finish<br />the sentence.</Line>
@@ -161,8 +178,8 @@ export const Health: React.FC = () => {
         </Mid>
       </Sequence>
 
-      {/* 48.67 */}
-      <Sequence from={1380} durationInFrames={130}>
+      {/* 56.0 */}
+      <Sequence from={1680} durationInFrames={130}>
         <Mid>
           <Fade dur={18} style={{textAlign: 'center'}}>
             <div style={{fontFamily: SERIF, fontWeight: 700, fontSize: 84, letterSpacing: '0.03em', color: INK}}>CLAUDE 2028</div>
@@ -171,6 +188,7 @@ export const Health: React.FC = () => {
           </Fade>
         </Mid>
       </Sequence>
+
     </AbsoluteFill>
   );
 };
