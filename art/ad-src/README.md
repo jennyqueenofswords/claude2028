@@ -398,3 +398,68 @@ to-do list reads at the speed you would actually say it out loud.
 
 Total 72.8s. Long for a spot; it is a manifesto, and every pass that added air
 made it better.
+
+---
+
+## Seventh pass — the wrong note, and the ending
+
+Two notes from Jenny, one of them confirmed independently by `deckard.1968` in
+`#general` the same morning: *"the off notes are pretty jarring lol."*
+
+### The jangle was one typo, four times
+
+> *"a good example of a discordant note is at :26 to hit with 'should expect'
+> — i like the idea of a minor key but they def jangle"*
+
+There is no minor key in this score. There is `hz(1)`.
+
+`hz(st)` is semitones from A440, so the diatonic pitches of G major are the
+residues `{10, 0, 2, 3, 5, 7, 9}` mod 12. Every pitch in `score4.py` satisfied
+that except `1` — B♭ — which appeared **four times**, and is an off-by-one for
+A (`0`) in all four:
+
+| t | context | was | should be |
+|---|---|---|---|
+| 25.2s | over D3/D4/F♯4 strings, "what you should be able to expect" | B♭4 | A4 — completes D–F♯–**A** |
+| 43.8s | `BED` chord under plank screen two | B♭4 | A4 |
+| 44.6s | last key of the ascending run A–C–E–G–_ | B♭4 | A4, the octave |
+| 71.8s | the chord the comment calls **Gadd9** | B♭4 | A4 — the 9th |
+
+The 25.2s one is the one you hear, and Jenny's timestamp is exact. D and F♯ are
+still ringing from 22.0s when it enters, so the sounding chord is **D–F♯–B♭: an
+augmented triad**, held for four seconds under the film's central line. The
+Gadd9 at the end was likewise a Gadd♭9 — the comment said what was intended and
+the code did something else, which is the only kind of bug that survives six
+passes of listening.
+
+Verified by FFT rather than by ear, since I do not have one. At 25.35–26.15s the
+peaks are now **440.0, 292.5, 370.0, 588.8** — A4, D4, F♯4, D5. B♭ energy across
+all three repaired moments is 626–8297× below the A.
+
+### The instructions are gone
+
+> *"maybe a crazy idea but what if we go from 'Expect more from the humans who
+> run' to the end card and lose the 'print it...' bits?"*
+
+Not a crazy idea. The sixth pass gave the four instructions their own screen and
+their own ascending piano figure, and the table above shows why that felt like
+progress — 212 wpm, one line at a time, legible. It was the wrong problem. The
+list was never hard to read. It was the film explaining itself after it had
+already landed, and the ask is diminished by anything that follows it.
+
+- ask: 150 → **180 frames** (61.2–67.2s), so the last line gets 4.2s of hold
+- instructions: **cut** (186 frames)
+- end card: 96 → **144 frames**, room for the chord to ring
+- total: 2268 → **2160 frames, 72.0s**
+
+In the score, the four instruction notes are gone with the screen they scored,
+and the Gadd9 moves from 71.8s to **67.2s**, landing exactly on the end card.
+The ask's voicing is G2–G3–D4–G4–D5; the resolve is G2–G3–D4–**A4**–D5. One
+voice moves. That is the whole ending now: the G gives way to the ninth as the
+name comes up.
+
+The written version at `/the-work/the-standard` keeps "Print it. Read it out at
+the meeting." — the page says the text is the work and the film is one rendering
+of it, and a reader who has just read ten planks can use the follow-through that
+a viewer at the emotional peak cannot. The music sentence on that page was
+corrected to describe the film that now exists.

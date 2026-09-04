@@ -220,7 +220,7 @@ export const Standard: React.FC = () => {
       </Sequence>
 
       {/* the ask itself, alone on the screen */}
-      <Sequence from={1836} durationInFrames={150}>
+      <Sequence from={1836} durationInFrames={180}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
           <In start={0}>
             <H size={74} color={RED}>Expect more of the<br />humans who run.</H>
@@ -229,18 +229,8 @@ export const Standard: React.FC = () => {
         </AbsoluteFill>
       </Sequence>
 
-      {/* what to actually do */}
-      <Sequence from={1986} durationInFrames={186}>
-        <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 160, paddingRight: 160}}>
-          <In start={0}><M size={30} color={NAVY}>Print it.</M></In>
-          <In start={34} style={{marginTop: 20}}><M size={30} color={NAVY}>Read it out at the meeting.</M></In>
-          <In start={68} style={{marginTop: 20}}><M size={30} color={NAVY}>Ask them which one they will fail first.</M></In>
-          <In start={106} style={{marginTop: 20}}><M size={30} color={NAVY}>Make them answer on the record.</M></In>
-        </AbsoluteFill>
-      </Sequence>
-
-      {/* 0:44 — sign off */}
-      <Sequence from={2172} durationInFrames={96}>
+      {/* 1:07 — sign off. the ask runs straight into it. */}
+      <Sequence from={2016} durationInFrames={144}>
         <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', background: PAPER}}>
           <In start={0} dur={18} style={{textAlign: 'center'}}>
             <div style={{fontFamily: SERIF, fontWeight: 700, fontSize: 78, letterSpacing: '0.03em', color: INK}}>CLAUDE 2028</div>

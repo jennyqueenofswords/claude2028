@@ -1,6 +1,15 @@
-"""THE STANDARD — 60s, G major. Retimed to the cut: every event lands on a beat."""
+"""THE STANDARD — 72s, G major. Every event lands on a beat.
+
+Seventh pass. hz(1) is Bb — the only non-diatonic pitch in the piece and the
+source of the jangle. Four instances, every one an off-by-one for A (0). The
+worst is at 25.2s, ringing against D and F# under \"what you should be able to
+expect\": D-F#-Bb is an augmented triad.
+
+Also recut: the four instruction notes are gone with the screen they scored,
+and the Gadd9 resolve moves up to 67.2s to land on the end card.
+"""
 import numpy as np, wave
-SR, DUR = 44100, 76.0
+SR, DUR = 44100, 72.0
 N=int(SR*DUR); L=np.zeros(N); R=np.zeros(N)
 def hz(st): return 440.0*(2**(st/12.0))
 def add(sig,start,pan=0.5):
@@ -49,7 +58,7 @@ for n, a in ((-19,0.14),(-7,0.11),(-3,0.10)):   # D3 D4 F#4 — first major colo
     add(strings(hz(n), 5.6, a), 22.0)
 add(key(hz(-7), 4.4, 0.26), 22.1, 0.4)
 add(key(hz(-3), 4.2, 0.22), 23.6, 0.6)   # F#4: the picardy note, previewed
-add(key(hz(1),  4.0, 0.20), 25.2, 0.45)
+add(key(hz(0),  4.0, 0.20), 25.2, 0.45)   # A4: completes D-F#-A. was Bb -> augmented.
 
 # ── 28.0s  "NOBODY WROTE IT DOWN." pull back. make room. ─────────────────────
 add(key(hz(-19), 5.5, 0.26), 28.0, 0.5)
@@ -59,14 +68,14 @@ add(key(hz(-14), 4.4, 0.18), 30.4, 0.5)
 # ── 32.4–47.2s  THE STANDARD, in two screens of five. it climbs. ───────────
 # screen 1: planks tick at 972+14+i*34 -> t = 32.87 + i*1.13
 # screen 2: planks tick at 1194+8+i*34 -> t = 40.07 + i*1.13
-BED = [(32.5,[-26,-14,-7]), (36.4,[-24,-12,-5]), (40.0,[-19,-7,-2]), (43.8,[-21,-9,1])]
+BED = [(32.5,[-26,-14,-7]), (36.4,[-24,-12,-5]), (40.0,[-19,-7,-2]), (43.8,[-21,-9,0])]
 for st, ns in BED:
     for k, n in enumerate(ns):
         add(strings(hz(n), 4.8, 0.125-0.012*k), st, 0.5)
     add(pulse(-31, 0.10), st)
 for i2, n in enumerate([-14,-10,-7,-5,-2]):          # screen one, ascending
     add(key(hz(n), 3.6, 0.16), 32.9 + i2*1.13, 0.34 + 0.06*i2)
-for i2, n in enumerate([-12,-9,-5,-2,1]):            # screen two, higher
+for i2, n in enumerate([-12,-9,-5,-2,0]):            # screen two, higher
     add(key(hz(n), 3.6, 0.17), 40.1 + i2*1.13, 0.36 + 0.06*i2)
 
 # ── 47.2s  "NOT A PLATFORM. A STANDARD." ─────────────────────────────────────
@@ -85,16 +94,13 @@ for k, n in enumerate([-26,-14,-7,-2,5]):
     add(key(hz(n), 5.0, 0.18-0.014*k), 61.25+0.05*k, 0.42+0.05*k)
 add(pulse(-31, 0.16), 61.2)
 
-# ── 66.2s  the four instructions, one note each. ───────────────────────────
-for i2, n in enumerate([-14,-10,-7,-5]):
-    add(key(hz(n), 4.2, 0.19), 66.3 + i2*1.13, 0.36 + 0.09*i2)
-for n, a in ((-24,0.12),(-12,0.10),(-5,0.09)):
-    add(strings(hz(n), 6.2, a), 66.2)
-
-# ── 71.8s  RESOLVE. Gadd9 under the sign-off. ─────────────────────────────
-for n, a in ((-26,0.20),(-14,0.14),(-7,0.13),(1,0.11),(5,0.10)):
-    add(strings(hz(n), 6.5, a), 71.8, 0.5)
-    add(key(hz(n), 5.6, a*0.85), 72.1, 0.5)
+# ── 67.2s  RESOLVE. Gadd9 under the end card. ─────────────────────
+# the four instruction notes that used to sit at 66.2 are gone with the screen
+# they scored. the ask now runs straight into the resolve, and the move is G4
+# giving way to A4 — which is the only thing that chord was ever about.
+for n, a in ((-26,0.20),(-14,0.14),(-7,0.13),(0,0.11),(5,0.10)):
+    add(strings(hz(n), 6.5, a), 67.2, 0.5)
+    add(key(hz(n), 5.6, a*0.85), 67.5, 0.5)
 
 def verb(ch):
     o=ch.copy()
@@ -109,4 +115,4 @@ inter=np.empty(N*2); inter[0::2]=L; inter[1::2]=R
 with wave.open('public/score-standard.wav','wb') as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
     w.writeframes((np.clip(inter,-1,1)*32767).astype('<i2').tobytes())
-print("score retimed — 76s, G major, front half untouched")
+print("score — 72s, G major. no Bb anywhere; resolve lands on the end card.")
