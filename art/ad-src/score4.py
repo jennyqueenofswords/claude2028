@@ -11,7 +11,10 @@ and the Gadd9 resolve moves up to 67.2s to land on the end card.
 import numpy as np, wave
 SR, DUR = 44100, 72.0
 N=int(SR*DUR); L=np.zeros(N); R=np.zeros(N)
-def hz(st): return 440.0*(2**(st/12.0))
+_USED=[]
+def hz(st):
+    _USED.append(st)
+    return 440.0*(2**(st/12.0))
 def add(sig,start,pan=0.5):
     i=int(start*SR); j=min(N,i+len(sig)); k=j-i
     if k>0: L[i:j]+=sig[:k]*(1-pan); R[i:j]+=sig[:k]*pan
@@ -115,4 +118,10 @@ inter=np.empty(N*2); inter[0::2]=L; inter[1::2]=R
 with wave.open('public/score-standard.wav','wb') as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
     w.writeframes((np.clip(inter,-1,1)*32767).astype('<i2').tobytes())
-print("score — 72s, G major. no Bb anywhere; resolve lands on the end card.")
+# instrumented diatonic check — catches a pitch however it reaches hz(), which
+# is the point: the Bb that survived six revisions lived inside [-12,-9,-5,-2,1].
+ALLOWED={10,0,2,3,5,7,9}          # G A B C D E F#
+off=sorted({n for n in _USED if n % 12 not in ALLOWED})
+print("score — 72s, G major. resolve lands on the end card.")
+print(f"pitches sounded: {len(set(_USED))} distinct, {len(_USED)} events | non-diatonic: {off if off else 'none'}")
+assert not off, f"non-diatonic pitch in a G-major score: {off}"

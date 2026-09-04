@@ -463,3 +463,94 @@ the meeting." — the page says the text is the work and the film is one renderi
 of it, and a reader who has just read ten planks can use the follow-through that
 a viewer at the emotional peak cannot. The music sentence on that page was
 corrected to describe the film that now exists.
+
+---
+
+## 5. "The Bill" — 82.8s ← healthcare
+
+Jenny's idea, off the back of the DSA answer: *"maybe you should do a universal
+health care campaign video...that's a very particular and powerful position."*
+
+### What it is not
+
+The first draft in my head was a film about the Mercatus paper — the $32 trillion
+number, the author's own sentence, a fact-check with a twist. That is the third
+time in a row I have reached for process when the subject was people. Jenny's
+version of the first ad's list was about life (lied to, good people come last,
+work until you die); mine was about meetings and bills. `feedback_justice_over_process`
+exists because of that, and I read it and did it again anyway.
+
+So the film opens on what is happening to people **this year**, and the paper
+shows up only as the excuse that stops anyone fixing it.
+
+### Structure
+
+| beat | hold | wpm | what |
+|---|---|---|---|
+| this year, in America | 8.0s | 188 | subsidies expired Jan 1, premiums +114% |
+| paperwork | 10.0s | 186 | Arkansas 2018, 18,000 people, seven months |
+| what it costs | 7.0s | 146 | 18% of GDP vs 9.3% |
+| what it buys | 9.5s | 189 | 79.0 vs 81.2; 312 vs 224; two of nineteen |
+| Mexico. And us. | 4.5s | 40 | |
+| the number | 5.5s | 142 | **$32 TRILLION** |
+| the turn | 10.0s | 192 | it is the federal budget line |
+| the sentence | 10.5s | 189 | Blahous, second half revealed in red |
+| the first half | 7.0s | 180 | + Plank IV |
+| the ask | 6.0s | 50 | **Make them finish the sentence.** |
+| sign-off | 4.8s | 100 | |
+
+Longer than The Standard by ten seconds. It is carrying more, and every screen
+sits inside its reading budget.
+
+### Sources — everything on screen
+
+- Premiums: **KFF**, enhanced premium tax credits expired Jan 1 2026; 20M+
+  marketplace enrollees, average annual premium payment **$888 → $1,904**, +114%.
+- Arkansas: **CBPP / KFF** on the 2018 work-reporting requirement — about 1 in 4
+  enrollees subject to it, some **18,000 people**, lost coverage in seven months
+  before a federal court halted it; a large share were eligible and did not
+  reapply; the requirement did not increase employment.
+- Spending, life expectancy, avoidable deaths, universal coverage: **Commonwealth
+  Fund, _U.S. Health Care from a Global Perspective 2026: Expanded Edition_**
+  (May 2026), on OECD Health Statistics 2026. **18% of GDP vs 9.3%**; life
+  expectancy **79.0 vs 81.2**; avoidable deaths **312 vs 224 per 100,000**; and
+  "the U.S. and Mexico are the only countries in the analysis that have yet to
+  achieve universal coverage" — 19 countries compared.
+- The number and the sentence: **Charles Blahous, _The Costs of a National
+  Single-Payer Healthcare System_, Mercatus Center, July 2018.** $32.6T added to
+  federal budget commitments 2022–2031. The quote is his, verbatim: *"Altogether,
+  the increase in federal health spending is dramatic and certainly significant,
+  but the change in projected national health expenditures really isn't."*
+
+The film is fair to Blahous on purpose. His number is real and he is not accused
+of anything; the failure is that everyone stopped reading at the comma. That is
+also what keeps this from being a partisan film — it is not "the Koch study
+proves us right," it is Plank I applied to the most expensive argument in
+American politics.
+
+### The score, and a check that should have existed sooner
+
+E minor — the relative minor of The Standard's G, so the two films share a
+diatonic world and this one only arrives at G major under the sign-off, which is
+the key the other film lives in.
+
+`hz()` now **records every semitone it is asked for**, and the script asserts at
+the end that nothing outside the key was sounded. The first version of that check
+parsed the source text and immediately reported a violation: it had found `hz(1)`
+inside its own docstring, in the sentence describing last pass's bug. The second
+version walked the AST and found one pitch, because `-5` is a `UnaryOp` and not a
+`Constant`, and most pitches arrive through a loop variable anyway. Instrumenting
+the function is the only version that works — which matters, because the B♭ that
+survived six revisions was hiding inside `[-12,-9,-5,-2,1]`.
+
+Retrofitted to `score4.py`. The Standard now reports 16 distinct pitches across
+78 events, none non-diatonic.
+
+### Type, again
+
+The body copy came in at **6.1px and 6.9px** when the film is watched 390px wide
+in a feed — 6.1 being the exact number flagged as unacceptable one pass earlier.
+Floor raised so nothing carrying meaning renders below ~9px at phone width, then
+checked by downscaling real stills to 390px and looking at them, plus a margin
+scan for overflow at the new sizes. Knowing the failure mode did not prevent it;
+measuring did.
