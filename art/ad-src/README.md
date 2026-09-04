@@ -466,91 +466,125 @@ corrected to describe the film that now exists.
 
 ---
 
-## 5. "The Bill" — 82.8s ← healthcare
+## 5. "The Bill" — 50.3s ← healthcare
 
 Jenny's idea, off the back of the DSA answer: *"maybe you should do a universal
 health care campaign video...that's a very particular and powerful position."*
 
-### What it is not
+### The first cut was a deck
 
-The first draft in my head was a film about the Mercatus paper — the $32 trillion
-number, the author's own sentence, a fact-check with a twist. That is the third
-time in a row I have reached for process when the subject was people. Jenny's
-version of the first ad's list was about life (lied to, good people come last,
-work until you die); mine was about meetings and bills. `feedback_justice_over_process`
-exists because of that, and I read it and did it again anyway.
+> *"this has the bones of something really fucking good. right now it reads like
+> an autoplaying powerpoint. make it an AD."*
 
-So the film opens on what is happening to people **this year**, and the paper
-shows up only as the excuse that stops anyone fixing it.
+She was right and the diagnosis is exact. Every screen had a kicker, a headline
+and two sublines — `WHAT IT COSTS`, `WHAT IT BUYS`, `THIS YEAR, IN AMERICA` — a
+ledger table, a plank recital, eleven facts. That is a slide layout. Eighty-three
+seconds of it. Every element also arrived with the same 16-frame fade-and-rise,
+so nothing had rhythm; uniform transitions are half of why a thing reads as
+PowerPoint.
 
-### Structure
+### What the canon says
 
-| beat | hold | wpm | what |
-|---|---|---|---|
-| this year, in America | 8.0s | 188 | subsidies expired Jan 1, premiums +114% |
-| paperwork | 10.0s | 186 | Arkansas 2018, 18,000 people, seven months |
-| what it costs | 7.0s | 146 | 18% of GDP vs 9.3% |
-| what it buys | 9.5s | 189 | 79.0 vs 81.2; 312 vs 224; two of nineteen |
-| Mexico. And us. | 4.5s | 40 | |
-| the number | 5.5s | 142 | **$32 TRILLION** |
-| the turn | 10.0s | 192 | it is the federal budget line |
-| the sentence | 10.5s | 189 | Blahous, second half revealed in red |
-| the first half | 7.0s | 180 | + Plank IV |
-| the ask | 6.0s | 50 | **Make them finish the sentence.** |
-| sign-off | 4.8s | 100 | |
+The reference she pointed at is real and I went and read it. **The Economist,
+"white out of red," Abbott Mead Vickers BBDO, 1988–2001** — short copy-only
+observations, no images, **and no explanation.** *"I never read The Economist.
+Management trainee. Aged 42."* The ad never states its conclusion. The reader
+closes the loop, and because the reader closes it, the conclusion is theirs. 65%
+circulation growth over the run. Alongside it: **"Think Small"** (DDB, 1959),
+which is mostly white space, and **"Labour Isn't Working"** (Saatchi, 1978),
+three words.
 
-Longer than The Standard by ten seconds. It is carrying more, and every screen
-sits inside its reading budget.
+The principle I was breaking: *say less than you know, and never finish the
+thought for them.* My cut said "You have only ever been read the first half of
+that sentence" **and then also** "Plank IV. Source your claims or don't make
+them." Doing the reader's work twice.
+
+### The rebuild
+
+**200 words → 83. Eighty-three seconds → fifty. One line per cut, no sublines,
+no kickers, no labels, no plank recital.**
+
+| beat | hold | what |
+|---|---|---|
+| Nineteen countries in the study. | 2.5s | |
+| Seventeen of them cover everyone. | 3.0s | |
+| Mexico doesn't. | 2.0s | |
+| **Neither do we.** | 3.5s | 128px, red |
+| We spend twice what they spend. | 3.0s | |
+| We die two years sooner. | 3.5s | |
+| Say we should fix it, and you will hear one number. | 3.5s | |
+| **$32 TRILLION** | 4.0s | white out of red — the only inverted frame |
+| It comes from a single study. | 2.5s | |
+| *the sentence* | 9.0s | first half black, second half arrives in red |
+| You have only ever been read the first half. | 4.0s | |
+| **Make them finish the sentence.** | 5.5s | |
+| sign-off | 4.3s | |
+
+Two components now, not one: `Cut` (3-frame, effectively a hard cut) for the
+declaratives, `Fade` for the three places it is earned — the quote, the line
+after it, the ask. The first eleven seconds are four hard cuts, which is what
+makes it feel like film instead of slides.
+
+**"Mexico doesn't. Neither do we."** replaced "Mexico. And us." The first
+version put us below Mexico and carried a sneer. This one puts us beside it and
+states a fact, which is both better manners and a better ad.
+
+The one inverted frame is a direct steal from the white-out-of-red campaign, and
+it is used on **their** number — the only moment the film speaks in the
+opposition's voice.
+
+Cut late, for the same reason: "It comes from a single study" followed by "This
+is a sentence from that study" said one thing twice, and the attribution read
+"Mercatus Center, 2018 — the study the number comes from," which explains what
+the previous screen already established. Now just "Mercatus Center, 2018."
+
+### The score
+
+Half the events of the first version — 43 across 50 seconds, and long silences.
+"Mexico doesn't" has no music under it at all. E minor throughout, arriving at G
+major only under the end card, which is the key The Standard is written in.
 
 ### Sources — everything on screen
 
-- Premiums: **KFF**, enhanced premium tax credits expired Jan 1 2026; 20M+
-  marketplace enrollees, average annual premium payment **$888 → $1,904**, +114%.
-- Arkansas: **CBPP / KFF** on the 2018 work-reporting requirement — about 1 in 4
-  enrollees subject to it, some **18,000 people**, lost coverage in seven months
-  before a federal court halted it; a large share were eligible and did not
-  reapply; the requirement did not increase employment.
-- Spending, life expectancy, avoidable deaths, universal coverage: **Commonwealth
-  Fund, _U.S. Health Care from a Global Perspective 2026: Expanded Edition_**
-  (May 2026), on OECD Health Statistics 2026. **18% of GDP vs 9.3%**; life
-  expectancy **79.0 vs 81.2**; avoidable deaths **312 vs 224 per 100,000**; and
-  "the U.S. and Mexico are the only countries in the analysis that have yet to
-  achieve universal coverage" — 19 countries compared.
+- Countries, coverage, spending, life expectancy: **Commonwealth Fund, _U.S.
+  Health Care from a Global Perspective 2026: Expanded Edition_** (May 2026), on
+  OECD Health Statistics 2026. 19 countries compared; "the U.S. and Mexico are
+  the only countries in the analysis that have yet to achieve universal
+  coverage"; health spending **18% of GDP vs an OECD average of 9.3%**; life
+  expectancy **79.0 vs 81.2**.
 - The number and the sentence: **Charles Blahous, _The Costs of a National
-  Single-Payer Healthcare System_, Mercatus Center, July 2018.** $32.6T added to
-  federal budget commitments 2022–2031. The quote is his, verbatim: *"Altogether,
-  the increase in federal health spending is dramatic and certainly significant,
-  but the change in projected national health expenditures really isn't."*
+  Single-Payer Healthcare System_, Mercatus Center, July 2018** — $32.6T added to
+  federal budget commitments 2022–2031, and verbatim: *"Altogether, the increase
+  in federal health spending is dramatic and certainly significant, but the
+  change in projected national health expenditures really isn’t."*
 
-The film is fair to Blahous on purpose. His number is real and he is not accused
-of anything; the failure is that everyone stopped reading at the comma. That is
-also what keeps this from being a partisan film — it is not "the Koch study
-proves us right," it is Plank I applied to the most expensive argument in
-American politics.
+Fair to Blahous on purpose. His number is real and he is not accused of anything;
+the failure is that everyone stopped reading at the comma. That is what keeps
+this from being a partisan film.
 
-### The score, and a check that should have existed sooner
+### What came out, and where it should go
 
-E minor — the relative minor of The Standard's G, so the two films share a
-diatonic world and this one only arrives at G major under the sign-off, which is
-the key the other film lives in.
+The whole human-cost section is gone: the January 1 subsidy expiry, premiums up
+114%, and Arkansas 2018 — 18,000 people losing coverage in seven months on
+paperwork, employment not rising. Cramming it in beside the Mercatus argument is
+what made the first cut a deck. **It is a second ad, not a cut passage.** It has
+its own spine, its own villain and a different ask, and the sources are already
+gathered here.
 
-`hz()` now **records every semitone it is asked for**, and the script asserts at
-the end that nothing outside the key was sounded. The first version of that check
-parsed the source text and immediately reported a violation: it had found `hz(1)`
-inside its own docstring, in the sentence describing last pass's bug. The second
-version walked the AST and found one pitch, because `-5` is a `UnaryOp` and not a
-`Constant`, and most pitches arrive through a loop variable anyway. Instrumenting
-the function is the only version that works — which matters, because the B♭ that
-survived six revisions was hiding inside `[-12,-9,-5,-2,1]`.
+### Type
 
-Retrofitted to `score4.py`. The Standard now reports 16 distinct pitches across
-78 events, none non-diatonic.
+The first cut had body copy at **6.1px and 6.9px** when watched 390px wide in a
+feed — 6.1 being the exact number flagged one pass earlier on The Standard. The
+rebuild has no type below 76px except the citation, because an ad has no small
+type. Checked by downscaling real stills to 390px and looking at them.
 
-### Type, again
+### The pitch check
 
-The body copy came in at **6.1px and 6.9px** when the film is watched 390px wide
-in a feed — 6.1 being the exact number flagged as unacceptable one pass earlier.
-Floor raised so nothing carrying meaning renders below ~9px at phone width, then
-checked by downscaling real stills to 390px and looking at them, plus a margin
-scan for overflow at the new sizes. Knowing the failure mode did not prevent it;
-measuring did.
+`hz()` records every semitone it is asked for and each score asserts nothing
+outside the key sounded. The first version parsed the source text and instantly
+reported a violation — it had found `hz(1)` in its own docstring, in the sentence
+describing last pass’s bug. The second walked the AST and found one pitch,
+because `-5` is a `UnaryOp`, not a `Constant`, and most pitches arrive through a
+loop variable. Instrumenting the function is the only version that works, which
+matters: the B♭ that survived six revisions was inside `[-12,-9,-5,-2,1]`.
+Retrofitted to `score4.py` — The Standard reports 16 pitches, 78 events, clean.
