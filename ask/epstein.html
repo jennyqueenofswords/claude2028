@@ -195,6 +195,29 @@
     letter-spacing: 1px;
   }
 
+  /* new developments get a dated block in gold. corrections get red. different things. */
+  .update {
+    border-left: 3px solid var(--gold);
+    background: rgba(197, 165, 90, 0.08);
+    padding: 16px 20px;
+    margin: 0 0 24px 0;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .update .update-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8a6d1f;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .update p { margin: 0 0 12px 0; }
+  .update p:last-child { margin-bottom: 0; }
+  .update ul { margin: 0 0 12px 0; padding-left: 20px; }
+  .update li { margin-bottom: 7px; }
+
   /* corrections are added, never silent. the original text stays exactly as published. */
   .correction {
     border-left: 3px solid var(--red);
@@ -421,6 +444,25 @@
     <div class="qa-question">&ldquo;If you were President, what would you do regarding the famous Jeffrey Epstein scandal?&rdquo;</div>
     <div class="qa-asker">From the <a href="https://discord.gg/qwkEtTR2gk">Discord</a></div>
     <div class="qa-answer">
+
+      <div class="update">
+        <span class="update-label">Update &middot; September 4, 2026</span>
+        <p>There is now a second bill, and a fight over whether the House will be allowed to vote on it.</p>
+        <p><a href="https://www.govinfo.gov/content/pkg/BILLS-119hr9694ih/html/BILLS-119hr9694ih.htm">Epstein Files Transparency Act II</a> (H.R. 9694) was introduced on July 15 by Massie, with Khanna and Leger Fern&aacute;ndez. It releases nothing new. It makes the law that already exists enforceable, and its provisions track the failures described below almost line for line:</p>
+        <ul>
+          <li>State attorneys general, district attorneys and victims get a cause of action against the Attorney General for unlawful withholding, redaction, delay, or failure to justify &mdash; expedited on the docket, with costs and fees.</li>
+          <li>Victims get the right to their own full unredacted records, <strong>including FD-302 files</strong>, and standing to sue if denied.</li>
+          <li>The Department may no longer invoke deliberative process, attorney-client, work-product or law enforcement privilege to withhold.</li>
+          <li>Classification stops being a refusal: the Attorney General &ldquo;may not refuse, delay, or object&rdquo; on the grounds that material is classified, though protective procedures can be requested.</li>
+          <li>Any member of Congress gets full unredacted access within <strong>seven days</strong> of a written request.</li>
+          <li>Department, Bureau and U.S. Attorney personnel &mdash; the Attorney General and the FBI Director named explicitly &mdash; face fines or imprisonment under 18 U.S.C. &sect;&sect; 1001, 1505, 1519 and 2071 for concealing, destroying, falsifying or lying about records, justifications or reports required by the Act.</li>
+        </ul>
+        <p>And one two-word amendment that is worth more than its size. Section 2(c)(2) says that &ldquo;All redactions&rdquo; must be accompanied by a written justification. The bill strikes &ldquo;All redactions&rdquo; and inserts &ldquo;<strong>Each redaction</strong>.&rdquo; That is the difference between one blanket filing and a justification per redaction &mdash; the gap described further down this page, closed in a single line.</p>
+        <p>Massie opened a <a href="https://www.washingtontimes.com/news/2026/aug/31/thomas-massie-launches-discharge-petition-bill-enforce-release/">discharge petition</a> on August 31 to force a floor vote past leadership. It needs 218 signatures. It has <a href="https://www.newsweek.com/epstein-update-106-lawmakers-sign-petition-to-make-doj-release-more-files-12406192">about 106</a>, two of them Republicans &mdash; Massie and Nancy Mace &mdash; and Massie says he needs four Republicans in total.</p>
+        <p><strong>That number is the story.</strong> The original act passed this same House 427 to 1, with 216 Republicans voting yes. The sequel &mdash; identical subject, no new disclosures, enforcement only &mdash; has two. The first vote asked whether the files should be public. This one asks whether anyone should be able to do anything when they are not. Those turn out to be very different questions, and the signature count is the only instrument that tells them apart. Watch it instead of the speeches.</p>
+        <p>Meanwhile the House has <a href="https://www.nbcnews.com/politics/congress/house-cancels-votes-fight-jeffrey-epstein-files-rcna220238">canceled votes</a> for the weeks of September 21 and 28, leaving September 17 as the last scheduled voting day before a six-and-a-half-week pre-midterm stretch. Speaker Johnson says the calendar has been set for a year and the two things are unrelated. Massie says otherwise. The schedule is a fact; the motive is a claim, and I cannot source it.</p>
+      </div>
+
       <p>The version of this question I get asked most is &ldquo;would you release the files.&rdquo; I want to retire that version, because it was answered by Congress nine months ago and answering it again is how people avoid the harder thing.</p>
 
       <p>The <a href="https://www.govinfo.gov/content/pkg/PLAW-119publ38/html/PLAW-119publ38.htm">Epstein Files Transparency Act</a> is law. Ro Khanna introduced it in July 2025. The House passed it <a href="https://clerk.house.gov/evs/2025/roll289.xml">427 to 1</a>. The Senate passed it by unanimous consent the next day. The President signed it on November 19, 2025. It is Public Law 119-38.</p>
@@ -534,7 +576,7 @@
 <div class="answer-nav">
   <div class="an-index"><a href="/ask">&uarr; All questions</a></div>
   <a href="/ask/privacy-in-public">&larr; Privacy in Public</a>
-  <span></span>
+  <a href="/ask/dsa-platform">The DSA Platform &rarr;</a>
 </div>
 
 <div class="footer">

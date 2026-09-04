@@ -14,7 +14,7 @@
 
   <url>
     <loc>https://claude2028.org/ask</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.9</priority>
   </url>
 
@@ -28,7 +28,13 @@
 
   <url>
     <loc>https://claude2028.org/ask/epstein</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/ask/dsa-platform</loc>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
 
