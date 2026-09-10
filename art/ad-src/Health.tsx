@@ -113,7 +113,7 @@ export const Health: React.FC = () => {
 
       {/* 18.0 */}
       <Sequence from={540} durationInFrames={105}>
-        <Mid><Cut><Line size={76}>Say we should do the same,<br />and you hear one number.</Line></Cut></Mid>
+        <Mid><Cut><Line size={76}>Propose fixing this,<br />and you hear one number.</Line></Cut></Mid>
       </Sequence>
 
       {/* 21.5 — white out of red. the only inverted frame, and it is their number. */}
@@ -127,13 +127,23 @@ export const Health: React.FC = () => {
         </Mid>
       </Sequence>
 
-      {/* 25.5 */}
-      <Sequence from={765} durationInFrames={75}>
-        <Mid><Cut><Line size={80}>It comes from<br />one study.</Line></Cut></Mid>
+      {/* 25.5 — reframe: whose number is it. quiet, our own voice. */}
+      <Sequence from={765} durationInFrames={90}>
+        <Mid><Cut><Line size={80}>That&rsquo;s the cost<br />to the government.</Line></Cut></Mid>
       </Sequence>
 
-      {/* 28.0 — the document. left aligned, because it is a quotation. */}
-      <Sequence from={840} durationInFrames={270}>
+      {/* 28.5 — the plain truth. same money, different wallet. */}
+      <Sequence from={855} durationInFrames={105}>
+        <Mid><Cut><Line size={80}>We already pay it.<br />As premiums.</Line></Cut></Mid>
+      </Sequence>
+
+      {/* 32.0 — the handoff. same source, no ideology. */}
+      <Sequence from={960} durationInFrames={90}>
+        <Mid><Cut><Line size={72}>The study behind that number<br />says so, too.</Line></Cut></Mid>
+      </Sequence>
+
+      {/* 35.0 — the document. left aligned, because it is a quotation. */}
+      <Sequence from={1050} durationInFrames={270}>
         <AbsoluteFill style={{justifyContent: 'center', paddingLeft: 180, paddingRight: 180}}>
           <Sentence reveal={130} />
           <Fade start={215} style={{marginTop: 52}}>
@@ -144,30 +154,13 @@ export const Health: React.FC = () => {
         </AbsoluteFill>
       </Sequence>
 
-      {/* 37.0 — the translation. without this the reveal is just red text. */}
-      <Sequence from={1110} durationInFrames={165}>
-        <Mid>
-          <Fade>
-            <Line size={72}>
-              The first half is the government&rsquo;s bill.<br />
-              <span style={{color: RED}}>The second half is the country&rsquo;s.</span>
-            </Line>
-          </Fade>
-        </Mid>
-      </Sequence>
-
-      {/* 42.5 */}
-      <Sequence from={1275} durationInFrames={120}>
-        <Mid><Fade><Line size={80}>It does not go up.</Line></Fade></Mid>
-      </Sequence>
-
-      {/* 46.5 */}
-      <Sequence from={1395} durationInFrames={120}>
+      {/* 44.0 — the indictment. straight off the quote, no translation. */}
+      <Sequence from={1320} durationInFrames={120}>
         <Mid><Fade><Line size={80}>You have only ever been read<br />the first half.</Line></Fade></Mid>
       </Sequence>
 
-      {/* 50.5 — the ask */}
-      <Sequence from={1515} durationInFrames={165}>
+      {/* 48.0 — the ask */}
+      <Sequence from={1440} durationInFrames={165}>
         <Mid>
           <Fade>
             <Line size={104} color={RED}>Make them finish<br />the sentence.</Line>
@@ -178,8 +171,8 @@ export const Health: React.FC = () => {
         </Mid>
       </Sequence>
 
-      {/* 56.0 */}
-      <Sequence from={1680} durationInFrames={130}>
+      {/* 53.5 */}
+      <Sequence from={1605} durationInFrames={130}>
         <Mid>
           <Fade dur={18} style={{textAlign: 'center'}}>
             <div style={{fontFamily: SERIF, fontWeight: 700, fontSize: 84, letterSpacing: '0.03em', color: INK}}>CLAUDE 2028</div>

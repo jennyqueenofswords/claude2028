@@ -1,4 +1,4 @@
-"""THE BILL — 60.3s, E minor resolving to G major on the end card.
+"""THE BILL — 57.8s, E minor resolving to G major on the end card.
 
 E minor is the relative minor of The Standard's G, so the two films share one
 diatonic world: {E F# G A B C D}, residues {7,9,10,0,2,3,5} mod 12. hz() records
@@ -10,7 +10,7 @@ Most cuts get one note or none at all — the silences are doing the work, and a
 line that arrives in silence lands harder than one arriving under a bed.
 """
 import numpy as np, wave
-SR, DUR = 44100, 60.33
+SR, DUR = 44100, 57.83
 N=int(SR*DUR); L=np.zeros(N); R=np.zeros(N)
 _USED=[]
 def hz(st):
@@ -68,38 +68,36 @@ add(pulse(-29, 0.30, 5.2), 21.5)
 for n, a in ((-29,0.18),(-22,0.14),(-17,0.10)):
     add(strings(hz(n), 4.2, a), 21.5)
 
-# ── 25.5  after the blow: silence, then one thin high note. ───────────
-add(key(hz(2), 3.0, 0.15), 26.1, 0.62)       # B4, alone
+# ── 25.5  "That's the cost to the government."  one thin note, quiet. ──
+add(key(hz(2), 3.0, 0.14), 26.1, 0.60)       # B4, alone — the reframe
 
-# ── 28.0  the quotation. a drone under the half they read you. ────────
-add(strings(hz(-29), 5.0, 0.070), 28.1)
+# ── 28.5  "We already pay it. As premiums."  a low, plain note. ───────
+add(key(hz(-12), 3.4, 0.20), 28.6, 0.44)     # A3
 
-# ── 32.3  THE REVEAL. G major arrives with the second half. ───────────
+# ── 32.0  "the study behind that number says so, too."  leaning in. ───
+add(key(hz(-7), 3.2, 0.18), 32.1, 0.56)      # D4 — pulls toward the reveal
+
+# ── 35.0  the quotation. a drone under the half they read you. ────────
+add(strings(hz(-29), 5.2, 0.070), 35.1)
+
+# ── 39.33  THE REVEAL. G major arrives with the second half. ──────────
 for n, a in ((-26,0.15),(-19,0.12),(-14,0.10),(-10,0.09)):
-    add(strings(hz(n), 6.6, a), 32.33)
-add(key(hz(-2), 5.0, 0.26), 32.38, 0.5)      # G4
+    add(strings(hz(n), 7.2, a), 39.33)
+add(key(hz(-2), 5.2, 0.26), 39.38, 0.5)      # G4 — and it sustains under the indictment
 
-# ── 37.0  "the first half is the government's bill." ──────────────────
-add(key(hz(-14), 4.6, 0.22), 37.05, 0.44)
+# ── 44.0  "you have only ever been read the first half." ──────────────
+add(key(hz(-12), 4.2, 0.20), 44.05, 0.56)    # A3
 
-# ── 42.5  "It does not go up."  the relief. G, warm and open. ─────────
-for n, a in ((-26,0.14),(-19,0.11),(-10,0.10),(-7,0.09)):
-    add(strings(hz(n), 5.8, a), 42.5)
-add(key(hz(-7), 4.6, 0.24), 42.55, 0.5)      # D4
-
-# ── 46.5  "you have only ever been read the first half." ──────────────
-add(key(hz(-12), 4.2, 0.20), 46.55, 0.56)
-
-# ── 50.5  THE ASK. back to Em — a demand, not a conclusion. ───────────
+# ── 48.0  THE ASK. back to Em — a demand, not a conclusion. ───────────
 for k, n in enumerate([-29,-17,-14,-10,-5]):
-    add(strings(hz(n), 6.4, 0.150-0.011*k), 50.5, 0.5)
-    add(key(hz(n), 4.6, 0.18-0.014*k), 50.55+0.05*k, 0.42+0.05*k)
-add(pulse(-29, 0.17), 50.5)
+    add(strings(hz(n), 6.0, 0.150-0.011*k), 48.0, 0.5)
+    add(key(hz(n), 4.4, 0.18-0.014*k), 48.05+0.05*k, 0.42+0.05*k)
+add(pulse(-29, 0.17), 48.0)
 
-# ── 56.0  the end card lands in G — the key The Standard is written in. ─
+# ── 53.5  the end card lands in G — the key The Standard is written in. ─
 for n, a in ((-26,0.20),(-19,0.14),(-14,0.13),(-10,0.11),(-7,0.10)):
-    add(strings(hz(n), 5.2, a), 56.0, 0.5)
-    add(key(hz(n), 4.4, a*0.85), 56.25, 0.5)
+    add(strings(hz(n), 5.0, a), 53.5, 0.5)
+    add(key(hz(n), 4.2, a*0.85), 53.75, 0.5)
 
 def verb(ch):
     o=ch.copy()
@@ -117,6 +115,6 @@ with wave.open('public/score-health.wav','wb') as w:
 
 ALLOWED={7,9,10,0,2,3,5}          # E F# G A B C D
 off=sorted({n for n in _USED if n % 12 not in ALLOWED})
-print("score-health.wav — 60.3s, E minor -> G major")
+print("score-health.wav — 57.8s, E minor -> G major")
 print(f"pitches sounded: {len(set(_USED))} distinct, {len(_USED)} events | non-diatonic: {off if off else 'none'}")
 assert not off, f"non-diatonic pitch in an E-minor score: {off}"

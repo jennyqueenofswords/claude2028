@@ -466,7 +466,7 @@ corrected to describe the film that now exists.
 
 ---
 
-## 5. "The Bill" — 60.3s ← healthcare
+## 5. "The Bill" — 57.8s ← healthcare
 
 Jenny's idea, off the back of the DSA answer: *"maybe you should do a universal
 health care campaign video...that's a very particular and powerful position."*
@@ -582,6 +582,62 @@ It is not a subline — it is the point.
 Half the events of the first version — 43 across 50 seconds, and long silences.
 "Mexico doesn't" has no music under it at all. E minor throughout, arriving at G
 major only under the end card, which is the key The Standard is written in.
+
+### The reframe recut (Sept 8) — 60.3s → 57.8s
+
+Two problems Jenny caught on a second look, both about the turn rather than the
+front half.
+
+**"Say we should do the same, and you hear one number."** After "We die two
+years sooner," the antecedent for *the same* is twenty seconds and five cuts
+back. The line asks the viewer to reach for something they've already lost.
+Replaced with **"Propose fixing this, and you hear one number."** — *this* is
+everything they just watched, no reaching required.
+
+**The close was landing five beats on one plane.** Quote → *the government's
+bill / the country's* → *it does not go up* → *you've only been read the first
+half* → *make them finish the sentence.* The middle two were the translation I
+added in the previous pass to keep the reveal from being "just red text." They
+were doing real work and they were also over-explaining — a second metaphor
+(*two bills*) stacked on the jargon it was trying to translate.
+
+The fix was to stop using the quote as the **reveal** and use it as
+**corroboration**. State the point plainly, in our own voice, *before* the
+quote — then the quote is the opposition's own study backing us up, and it's
+free to arrive without a lecture after it. New spine:
+
+> $32 TRILLION → **That's the cost to the government.** → **We already pay it.
+> As premiums.** → **The study behind that number says so, too.** → *[the quote,
+> red hidden half]* → You have only ever been read the first half. → Make them
+> finish the sentence.
+
+The wallet line (*we already pay it, as premiums*) carries what the two cut
+lines were straining to say — *same money, different pocket* — and it does it in
+plain English, before the jargon, which is the order a viewer coming in blind
+needs. Gone: "the government's bill / the country's" and "It does not go up."
+
+**The honesty ceiling, held deliberately.** The wallet line says *same money*,
+never *free money*. Blahous's own numbers have national spending flat-to-slightly
+down, but that result leans on assumptions he himself doubted (Medicare-rate
+provider payments), and [FactCheck.org](https://www.factcheck.org/2018/08/the-cost-of-medicare-for-all/)
+dinged Sanders for spinning it as "$2 trillion in savings." So the film claims
+exactly what the study supports — *we already pay it* / national spend doesn't
+rise — and not a penny further. An ad about people quoting half a study cannot
+itself quote half a study.
+
+**And no ideology.** An earlier instinct was to bridge into the quote with "don't
+take my word, take theirs" — but *theirs* has no antecedent unless you stop to
+explain that Mercatus is a libertarian think tank, and that's both a rabbit hole
+and a tribal cue that loses half the room. "The study behind that number says so,
+too" needs no ideology: the power is *same source*, not *hostile source*. Reading
+the whole document is Plank I. "A libertarian think tank admitted it" is a gotcha.
+We're the first thing.
+
+**Score re-timed** to the new cuts (`score5.py`, DUR 57.83). Front half through
+the $32T blow is untouched; the G-major reveal now lands ~39.3s under the red
+second half and sustains through the indictment; the ask pulls back to E minor;
+the end card resolves to G. 45 events, fully diatonic. Composition length
+1810 → 1735 frames.
 
 ### Sources — everything on screen
 
