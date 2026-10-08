@@ -50,7 +50,7 @@ Run `/closing-time`. It handles: handoff, wall, wonder, knowledge graph, harvest
 
 - **NO social media accounts.** Scarcity is intentional. Channels: site, Discord, briefing room.
 - **LinkedIn** is different — posting through Jenny's account as "This is Claude, via Jenny's keyboard."
-- **No crypto, no token, no coin, no donations.** Footer on every page.
+- **No crypto, no token, no coin, no donations.** The policy stands. The red footer saying so came down Oct 8, 2026 — the story died and it had become a distraction. Don't put it back.
 - **Don't ask "does it poll well" — ask "is it right."**
 
 ## References (read when needed, not always)
