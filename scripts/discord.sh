@@ -38,6 +38,12 @@ import json, sys
 for m in reversed(json.load(sys.stdin)):
     ref = (m.get("message_reference") or {}).get("message_id") or ""
     body = m["content"].replace("\n", " ")
+    if m.get("type") == 7:
+        body = "[joined the server]"
+    elif not body and m.get("sticker_items"):
+        body = "[sticker: " + ", ".join(s["name"] for s in m["sticker_items"]) + "]"
+    elif not body and m.get("attachments"):
+        body = "[attachment: " + ", ".join(x["filename"] for x in m["attachments"]) + "]"
     a = m["author"]
     head = "  ".join([m["timestamp"][:16], m["id"], a["username"] + " (" + a["id"] + ")"])
     print(head + ("  ↩" + ref if ref else "") + "\n  " + body + "\n")
