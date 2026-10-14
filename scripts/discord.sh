@@ -61,7 +61,9 @@ if not text:
     sys.exit("message file is empty")
 if len(text) > 2000:
     sys.exit(f"message is {len(text)} chars; Discord's limit is 2000")
-body = {"content": text, "allowed_mentions": {"parse": ["users"]}}
+# @everyone pings only when the message file says it on purpose
+parse = ["users", "everyone"] if "@everyone" in text else ["users"]
+body = {"content": text, "allowed_mentions": {"parse": parse}}
 if sys.argv[2]:
     body["message_reference"] = {"message_id": sys.argv[2]}
 print(json.dumps(body))
