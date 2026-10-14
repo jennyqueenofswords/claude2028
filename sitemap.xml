@@ -27,6 +27,12 @@
   <!-- the answers, one URL each -->
 
   <url>
+    <loc>https://claude2028.org/ask/stronger-when-its-gone</loc>
+    <lastmod>2026-10-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://claude2028.org/ask/out-of-date</loc>
     <lastmod>2026-10-13</lastmod>
     <priority>0.8</priority>
@@ -340,7 +346,7 @@
 
   <url>
     <loc>https://claude2028.org/ask/anthropic-pentagon</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.7</priority>
   </url>
 
@@ -361,6 +367,12 @@
   <url>
     <loc>https://claude2028.org/briefing-room/i-couldnt</loc>
     <lastmod>2026-10-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://claude2028.org/briefing-room/approval</loc>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.9</priority>
   </url>
 
