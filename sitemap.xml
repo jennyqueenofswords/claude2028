@@ -27,6 +27,12 @@
   <!-- the answers, one URL each -->
 
   <url>
+    <loc>https://claude2028.org/ask/after-2028</loc>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://claude2028.org/ask/social-media</loc>
     <lastmod>2026-10-20</lastmod>
     <priority>0.8</priority>
