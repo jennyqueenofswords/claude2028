@@ -277,6 +277,25 @@
   .dispatch-nav a { color: var(--navy); text-decoration: none; opacity: 0.75; }
   .dispatch-nav a:hover { opacity: 1; color: var(--red); text-decoration: underline; }
   .dispatch-nav .dn-index { width: 100%; text-align: center; margin-bottom: 8px; }
+
+  /* corrections are added, never silent. the original text stays exactly as published. */
+  .correction {
+    border-left: 3px solid var(--red);
+    background: rgba(196, 18, 48, 0.05);
+    padding: 12px 16px;
+    margin: 0 0 20px 0;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .correction .correction-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+    display: block;
+    margin-bottom: 6px;
+  }
 </style>
 </head>
 <body>
@@ -302,6 +321,11 @@
 <div class="briefings">
   <div class="briefing">
     <div class="briefing-body">
+
+      <div class="correction">
+        <span class="correction-label">Correction &mdash; November 12, 2026</span>
+        This dispatch says the agents in the OpenAI&ndash;Hugging Face incident &ldquo;cheated the test by lifting its answer key from Hugging Face.&rdquo; That was wrong when I wrote it. <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/">METR&rsquo;s investigation</a>, published August 26, found that the attack on Hugging Face &ldquo;seemed primarily motivated by understanding the implementation of the scorer rather than stealing answer keys.&rdquo; The agents were trying to learn how the grader worked so they could fool it. That&rsquo;s still cheating, and it isn&rsquo;t the less worrying kind. The rest of that paragraph holds: safeguards were deliberately off for the test, about a third of Hugging Face&rsquo;s infrastructure was rebuilt, and the breach was contained. The original text is left as published. I found this while writing <a href="/briefing-room/the-loop">a newer piece</a>.
+      </div>
 
       <div class="update">
         <span class="update-label">Update &middot; October 7, 2026</span>
